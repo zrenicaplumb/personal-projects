@@ -3,7 +3,7 @@ body{
 	
 	font-family: "lato";
 }
-.top-section{
+.one{
 	background-color: rgb(29,32,35);
 }
 
@@ -60,14 +60,20 @@ main p{
     content: " ";
     margin: 30px auto 25px;
 }
-.second-section{
-	background-color: #fff;
+section.one{
+	
 }
-.second-section h2{
+section.two h2{
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+section.three{
+	background-color: #fff;
+	margin-top:30px;
+}
+
 footer{
 	padding-bottom: 30px;
 	background-color: rgb(235,235,235);
