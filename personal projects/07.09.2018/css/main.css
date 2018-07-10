@@ -68,6 +68,16 @@ section.two h2{
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+.card-header{
+	padding: 0;
+}
+.card .btn{
+	color:rgb(29,32,35);
+	margin: auto;
+    display: block;
+    font-size: 22px;
+    font-weight: 100;
+}
 
 section.three{
 	background-color: #fff;
