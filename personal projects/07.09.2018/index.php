@@ -19,6 +19,7 @@
 	</head>
 
 	<body>
+
 		<section class="one">
 			<header>
 				<a href="index.php"><img src="img/logo.png" id="logo"></a>
@@ -110,18 +111,49 @@
 			</div>	
 		</section>
 		<section class="three">
-			<footer>
+		
 				<div class="container">
-					<div class="row">
-						<form>
-							<input type="text" name="firstname" placeholder="First name">
-							<input type="text" name="lastname" placeholder="Last name">
-							<input type="email" name="email" placeholder="Email">
-							<button class="btn">Submit</button>
-						</form>
+					
+					<h3>To add a new item, select a media type.</h3>
+					<div class="media-btn-wrap">
+						<button id="music-btn">Music</button>
+						<button id="book-btn">Books</button>
+						<button id="movie-btn">Movies</button>
 					</div>
+					<form method="post" action="info.php" class="hidden music-form">
+						<h4>Music</h4>
+						<input type="text" name="genre" placeholder="Genre">
+						<input type="text" name="artist" placeholder="Artist">
+						<input type="file" name="album_art" placeholder="Album cover/artist">
+						<button class="btn" type="submit" name="submit">Add to music</button>
+					</form>	
+					<form method="post" action="info.php" class="hidden book-form">
+						<h4>Book</h4>
+						<input type="text" name="genre" placeholder="Genre">
+						<input type="text" name="author" placeholder="Author">
+						<input type="file" name="cover_art" placeholder="Book cover">
+						<button class="btn" type="submit" name="submit">Add to books</button>
+					</form>	
+					<form method="post" action="info.php" class="hidden movie-form">
+						<h4>Movie</h4>
+						<input type="text" name="genre" placeholder="Genre">
+						<input type="text" name="title" placeholder="Title">
+						<input type="file" name="movie_art" placeholder="Movie art">
+						<button class="btn" type="submit" name="submit">Add to movies</button>
+					</form>	
+						
 				</div>
-			</footer>
+			
+		</section>
+		<section class="four">
+			<div class="container">
+				<form method="post" action="info.php">
+					<input type="text" name="firstname" placeholder="First name">
+					<input type="text" name="lastname" placeholder="Last name">
+					<input type="email" name="email" placeholder="Email">
+					<button class="btn info-btn" type="submit" name="submit">Submit</button>
+				</form>
+			</div>
 		</section>
 	</body>
 </html>
