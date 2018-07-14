@@ -1,20 +1,9 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-		
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-		<link href="css/reset.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-		<link href="css/main.css" rel="stylesheet"> 
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" type="text/javascript"></script>
-		<script src="js/main.js" type="text/javascript"></script>
-
+		<?php 
+		require_once('head.php');?>
 		<title>Php/Js practice</title>
 	</head>
 
@@ -22,20 +11,10 @@
 
 		<section class="one">
 			<header>
-				<a href="index.php"><img src="img/logo.png" id="logo"></a>
-				<nav>			
-					<ul>
-						<li>
-							<a href="">Work</a>
-						</li>
-						<li>
-							<a href="">About</a>
-						</li>
-						<li>
-							<a href="">Contact</a>
-						</li>
-					</ul>
-				</nav>
+				<?php  
+
+				 	require_once('header.php');
+				 ?>
 			</header>
 			<main>
 				<div class="container">
@@ -65,13 +44,38 @@
 				    	<div class="card-header" id="headingOne">
 					      	<h5 class="mb-0">
 						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Music
+						         Music
 						        </button>
+
 					      	</h5>
 				    	</div>
-				    	<div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
+				    	<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					      	<div class="card-body">
-					        	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					      		<div class="d-flex ">
+					        	 <?php 
+								       require_once('db_info.php');
+								       $connection = new mysqli($servername, $username, $password, $dbname);
+								       $query = "SELECT * FROM music";
+								       $result = mysqli_query($connection, $query) or die('Query failed.');
+										while ($row = mysqli_fetch_array($result)) {
+											echo 
+												'	
+													<div class="col-xs-12 col-sm-4 col-md-3">
+														<a href="details.php?id=">
+															<img class="gallery-img" src=img/'.$row['image'].'>
+															
+															<a class="view-details" href="">View Details</a>
+														</a>
+
+													</div>
+													
+													
+													';
+												}
+											mysqli_close($dbconnection);
+								       		
+								       ?>
+					        	</div>
 					      	</div>
 				    	</div>
 				  	</div>
@@ -87,7 +91,25 @@
 
 				    	<div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordion">
 						    <div class="card-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						       <?php 
+						       require_once('db_info.php');
+						       $connection = new mysqli($servername, $username, $password, $dbname);
+						       $query = "SELECT * FROM books";
+						       $result = mysqli_query($connection, $query) or die('Query failed.');
+								while ($row = mysqli_fetch_array($result)) {
+									echo 
+											'
+												<div class="col-xs-12 col-sm-4 col-md-3">
+													<a href="details.php?id=">
+														<img class="" src=img/'.$row['image'].'>
+														<a class="view-details" href="">View Details</a>
+													</a>
+												</div>
+												';
+										}
+									mysqli_close($dbconnection);
+						       		
+						       ?>
 						    </div>
 				    	</div>
 				  	</div>
@@ -103,7 +125,25 @@
 
 				    	<div id="collapseThree" class="collapse hide" aria-labelledby="headingThree" data-parent="#accordion">
 					      	<div class="card-body">
-					        	Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					        	<?php 
+						       require_once('db_info.php');
+						       $connection = new mysqli($servername, $username, $password, $dbname);
+						       $query = "SELECT * FROM movies";
+						       $result = mysqli_query($connection, $query) or die('Query failed.');
+								while ($row = mysqli_fetch_array($result)) {
+									echo 
+											'
+												<div class="col-xs-12 col-sm-4 col-md-3">
+													<a href="details.php?id=">
+														<img class="" src=img/'.$row['image'].'>
+														<a class="view-details" href="">View Details</a>
+													</a>
+												</div>
+												';
+										}
+									mysqli_close($dbconnection);
+						       		
+						       ?>
 					      	</div>
 				    	</div>
 				  	</div>
@@ -111,49 +151,88 @@
 			</div>	
 		</section>
 		<section class="three">
-		
-				<div class="container">
-					
-					<h3>To add a new item, select a media type.</h3>
-					<div class="media-btn-wrap">
-						<button id="music-btn">Music</button>
-						<button id="book-btn">Books</button>
-						<button id="movie-btn">Movies</button>
-					</div>
-					<form method="post" action="info.php" class="hidden music-form">
-						<h4>Music</h4>
-						<input type="text" name="genre" placeholder="Genre">
-						<input type="text" name="artist" placeholder="Artist">
-						<input type="file" name="album_art" placeholder="Album cover/artist">
-						<button class="btn" type="submit" name="submit">Add to music</button>
-					</form>	
-					<form method="post" action="info.php" class="hidden book-form">
-						<h4>Book</h4>
-						<input type="text" name="genre" placeholder="Genre">
-						<input type="text" name="author" placeholder="Author">
-						<input type="file" name="cover_art" placeholder="Book cover">
-						<button class="btn" type="submit" name="submit">Add to books</button>
-					</form>	
-					<form method="post" action="info.php" class="hidden movie-form">
-						<h4>Movie</h4>
-						<input type="text" name="genre" placeholder="Genre">
-						<input type="text" name="title" placeholder="Title">
-						<input type="file" name="movie_art" placeholder="Movie art">
-						<button class="btn" type="submit" name="submit">Add to movies</button>
-					</form>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="container">
 						
+						<h3>To add a new item, select a media type.</h3>
+						<div class="media-btn-wrap">
+							<button id="music-btn">Music</button>
+							<button id="book-btn">Books</button>
+							<button id="movie-btn">Movies</button>
+						</div>
+						<form method="post" enctype="multipart/form-data" action="info.php" class="music-form">
+							<h4>Music</h4>
+							<input type="text" name="genre" placeholder="Genre">
+							<input type="text" name="artist" placeholder="Artist">
+							<input type="text" name="title" placeholder="Title">
+							<label>Add music cover</label>
+							<input type="file" name="image" placeholder="Album cover/artist" required>
+							<button class="btn music-submit" type="submit" name="submit" value="musicsubmit">Add to music</button>
+						</form>
+						<form method="post" enctype="multipart/form-data" action="info.php" class="hidden book-form">
+							<h4>Book</h4>
+							<input type="text" name="genre" placeholder="Genre">
+							<input type="text" name="author" placeholder="Author">
+							<input type="text" name="title" placeholder="Title">
+							<label>Add book cover</label>
+							<input type="file" name="image" placeholder="Book cover" required>
+							<button class="btn book-submit" type="submit" name="submit" value="booksubmit">Add to books</button>
+						</form>	
+						<form method="post" enctype="multipart/form-data" action="info.php" class="hidden movie-form">
+							<h4>Movie</h4>
+							<input type="text" name="genre" placeholder="Genre">
+							<input type="text" name="director" placeholder="Director">
+							<input type="text" name="title" placeholder="Title">
+							<label>Add movie art</label>
+							<input type="file" name="image" placeholder="Movie art" required>
+							<button class="btn movie-submit" type="submit" name="submit" value="moviesubmit">Add to movies</button>
+						</form>	
+							
+					</div>
 				</div>
-			
+				<!-- <div class="col-xs-12 col-sm-6">
+					<div class="container">
+						<h3>To add a new item, select a media type.</h3>
+						<div class="media-btn-wrap">
+							<button id="music-btn">Music</button>
+							<button id="book-btn">Books</button>
+							<button id="movie-btn">Movies</button>
+						</div>
+						<form method="post" enctype="multipart/form-data" action="info.php" class="music-form">
+							<h4>Music</h4>
+							<input type="text" name="genre" placeholder="Genre">
+							<input type="text" name="artist" placeholder="Artist">
+							<input type="text" name="title" placeholder="Title">
+							<label>Add music cover</label>
+							<input type="file" name="image" placeholder="Album cover/artist" required>
+							<button class="btn music-submit" type="submit" name="submit" value="musicsubmit">Add to music</button>
+						</form>
+					</div>
+				</div> -->
+			</div>
 		</section>
 		<section class="four">
 			<div class="container">
-				<form method="post" action="info.php">
-					<input type="text" name="firstname" placeholder="First name">
-					<input type="text" name="lastname" placeholder="Last name">
-					<input type="email" name="email" placeholder="Email">
-					<button class="btn info-btn" type="submit" name="submit">Submit</button>
+				<form method="post" enctype="multipart/form-data" action="info.php" id="signup-form">
+					<h4 class="footer-form" >Sign up</h4>
+					<input type="text" name="firstname" placeholder="First name" required>
+					<input type="text" name="lastname" placeholder="Last name" required>
+					<input type="email" name="email" placeholder="Email" required>
+					<input type="text" name="password" placeholder="Password" required>
+					<input type="text" name="confirmpassword" placeholder="Confirm password" required>
+					<input type="file" name="profile_img" placeholder="Profile Image" required>
+					<button class="btn info-btn" type="submit" name="submit" value="signupsubmit">Sign up</button>
+				</form>
+				<form method="post" enctype="multipart/form-data" action="info.php" id="login-form">
+					<h4 class="footer-form" >Login</h4>
+					
+					<input type="email" name="email" placeholder="Email" required>
+					<input type="text" name="password" placeholder="Password" required>
+					<button class="btn info-btn" type="submit" name="submit" value="loginsubmit">Log in</button>
 				</form>
 			</div>
 		</section>
+
 	</body>
 </html>

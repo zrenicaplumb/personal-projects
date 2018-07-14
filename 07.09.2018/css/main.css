@@ -96,9 +96,7 @@ section.four{
 	padding: 30px 0;
 }
 
-footer{
-	
-}
+
 form{
 	
     display: block;
@@ -148,6 +146,25 @@ article img{
 .show{
 	display: initial;
 }
+form label{
+	text-indent:2px;
+}
+input[type=file]{
+	margin-top:0;
+	color: #fff;
+}
+.footer-form{
+	color: rgb(235,235,235);
+}
+img.gallery-img{
+	width: 200px;
+}
+nav button{
+	border: none;
+	border-radius: 3px;
+	padding: 2px 10px;
 
+
+}
 
 

@@ -6,11 +6,14 @@ $(document).ready(function(){
 	musicForm = $('.music-form');
 	bookForm = $('.book-form');
 	movieForm = $('.movie-form');
+	loginForm = $('#login-form');
+	signupBtn = $('#signup-btn');
+	loginBtn = $('#login-btn');
+	signupForm = $('#signup-form');
+	username = $('.username');
 
-	
-	if (musicBtn.click) {
-
-	}
+	loginForm.hide();
+	username.hide();
 	musicBtn.click(function(){
 		bookForm.hide();
 		movieForm.hide();
@@ -26,7 +29,14 @@ $(document).ready(function(){
 		movieForm.show();
 		musicForm.hide();
 	});
-
-
+	signupBtn.click(function(){
+		loginForm.hide();
+		signupForm.show();
+	});
+	loginBtn.click(function(){
+		signupForm.hide();
+		loginForm.show();
+	});
+	
 	
 });
