@@ -1,6 +1,6 @@
 <?php
  $servername = "localhost";
 	$username = 'will';
-	$password = 'password'; 
+	$dbpassword = ''; 
 	$dbname = "php_practice";
 	?>

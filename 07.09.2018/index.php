@@ -1,3 +1,4 @@
+
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,14 +9,21 @@
 	</head>
 
 	<body>
-
-		<section class="one">
-			<header>
+		<header>
 				<?php  
 
 				 	require_once('header.php');
 				 ?>
 			</header>
+		<section class="one">
+			<div class="thank-background"> 
+				<div class="thank-you">
+					<img src="img/close.png" class="close-btn"/>
+					<img src="img/checkmark.png" class="checkmark"/>
+					<h2>Thank you for signing up!</h2>
+				</div>
+			</div>
+			
 			<main>
 				<div class="container">
 					<article>
@@ -51,7 +59,7 @@
 				    	</div>
 				    	<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					      	<div class="card-body">
-					      		<div class="d-flex ">
+					      		<div class="d-flex flex-wrap">
 					        	 <?php 
 								       require_once('db_info.php');
 								       $connection = new mysqli($servername, $username, $password, $dbname);
@@ -68,7 +76,6 @@
 														</a>
 
 													</div>
-													
 													
 													';
 												}
@@ -91,25 +98,27 @@
 
 				    	<div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordion">
 						    <div class="card-body">
+						    	<div class="d-flex flex-wrap">
 						       <?php 
-						       require_once('db_info.php');
-						       $connection = new mysqli($servername, $username, $password, $dbname);
-						       $query = "SELECT * FROM books";
-						       $result = mysqli_query($connection, $query) or die('Query failed.');
-								while ($row = mysqli_fetch_array($result)) {
-									echo 
-											'
-												<div class="col-xs-12 col-sm-4 col-md-3">
-													<a href="details.php?id=">
-														<img class="" src=img/'.$row['image'].'>
-														<a class="view-details" href="">View Details</a>
-													</a>
-												</div>
-												';
-										}
-									mysqli_close($dbconnection);
-						       		
-						       ?>
+							       require_once('db_info.php');
+							       $connection = new mysqli($servername, $username, $password, $dbname);
+							       $query = "SELECT * FROM books";
+							       $result = mysqli_query($connection, $query) or die('Query failed.');
+									while ($row = mysqli_fetch_array($result)) {
+										echo 
+												'
+													<div class="col-xs-12 col-sm-4 col-md-3">
+														<a href="details.php?id=">
+															<img class="gallery-img" src=img/'.$row['image'].'>
+															<a class="view-details" href="">View Details</a>
+														</a>
+													</div>
+													';
+											}
+										mysqli_close($dbconnection);
+							       		
+							       ?>
+						   		</div>
 						    </div>
 				    	</div>
 				  	</div>
@@ -125,25 +134,27 @@
 
 				    	<div id="collapseThree" class="collapse hide" aria-labelledby="headingThree" data-parent="#accordion">
 					      	<div class="card-body">
+					      		<div class="d-flex flex-wrap">
 					        	<?php 
-						       require_once('db_info.php');
-						       $connection = new mysqli($servername, $username, $password, $dbname);
-						       $query = "SELECT * FROM movies";
-						       $result = mysqli_query($connection, $query) or die('Query failed.');
-								while ($row = mysqli_fetch_array($result)) {
-									echo 
-											'
+							       require_once('db_info.php');
+							       $connection = new mysqli($servername, $username, $password, $dbname);
+							       $query = "SELECT * FROM movies";
+							       $result = mysqli_query($connection, $query) or die('Query failed.');
+									while ($row = mysqli_fetch_array($result)) {
+										echo 
+												'
 												<div class="col-xs-12 col-sm-4 col-md-3">
 													<a href="details.php?id=">
-														<img class="" src=img/'.$row['image'].'>
+														<img class="gallery-img" src=img/'.$row['image'].'>
 														<a class="view-details" href="">View Details</a>
 													</a>
 												</div>
 												';
-										}
-									mysqli_close($dbconnection);
-						       		
-						       ?>
+											}
+										mysqli_close($dbconnection);
+							       		
+							       ?>
+						  	 	</div>
 					      	</div>
 				    	</div>
 				  	</div>
@@ -151,8 +162,7 @@
 			</div>	
 		</section>
 		<section class="three">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6">
+			
 					<div class="container">
 						
 						<h3>To add a new item, select a media type.</h3>
@@ -161,7 +171,7 @@
 							<button id="book-btn">Books</button>
 							<button id="movie-btn">Movies</button>
 						</div>
-						<form method="post" enctype="multipart/form-data" action="info.php" class="music-form">
+						<form method="post" enctype="multipart/form-data" action="media.php" class="music-form">
 							<h4>Music</h4>
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="artist" placeholder="Artist">
@@ -170,7 +180,7 @@
 							<input type="file" name="image" placeholder="Album cover/artist" required>
 							<button class="btn music-submit" type="submit" name="submit" value="musicsubmit">Add to music</button>
 						</form>
-						<form method="post" enctype="multipart/form-data" action="info.php" class="hidden book-form">
+						<form method="post" enctype="multipart/form-data" action="media.php" class="hidden book-form">
 							<h4>Book</h4>
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="author" placeholder="Author">
@@ -179,7 +189,7 @@
 							<input type="file" name="image" placeholder="Book cover" required>
 							<button class="btn book-submit" type="submit" name="submit" value="booksubmit">Add to books</button>
 						</form>	
-						<form method="post" enctype="multipart/form-data" action="info.php" class="hidden movie-form">
+						<form method="post" enctype="multipart/form-data" action="media.php" class="hidden movie-form">
 							<h4>Movie</h4>
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="director" placeholder="Director">
@@ -189,50 +199,18 @@
 							<button class="btn movie-submit" type="submit" name="submit" value="moviesubmit">Add to movies</button>
 						</form>	
 							
-					</div>
-				</div>
-				<!-- <div class="col-xs-12 col-sm-6">
-					<div class="container">
-						<h3>To add a new item, select a media type.</h3>
-						<div class="media-btn-wrap">
-							<button id="music-btn">Music</button>
-							<button id="book-btn">Books</button>
-							<button id="movie-btn">Movies</button>
-						</div>
-						<form method="post" enctype="multipart/form-data" action="info.php" class="music-form">
-							<h4>Music</h4>
-							<input type="text" name="genre" placeholder="Genre">
-							<input type="text" name="artist" placeholder="Artist">
-							<input type="text" name="title" placeholder="Title">
-							<label>Add music cover</label>
-							<input type="file" name="image" placeholder="Album cover/artist" required>
-							<button class="btn music-submit" type="submit" name="submit" value="musicsubmit">Add to music</button>
-						</form>
-					</div>
-				</div> -->
-			</div>
-		</section>
-		<section class="four">
-			<div class="container">
-				<form method="post" enctype="multipart/form-data" action="info.php" id="signup-form">
-					<h4 class="footer-form" >Sign up</h4>
-					<input type="text" name="firstname" placeholder="First name" required>
-					<input type="text" name="lastname" placeholder="Last name" required>
-					<input type="email" name="email" placeholder="Email" required>
-					<input type="text" name="password" placeholder="Password" required>
-					<input type="text" name="confirmpassword" placeholder="Confirm password" required>
-					<input type="file" name="profile_img" placeholder="Profile Image" required>
-					<button class="btn info-btn" type="submit" name="submit" value="signupsubmit">Sign up</button>
-				</form>
-				<form method="post" enctype="multipart/form-data" action="info.php" id="login-form">
-					<h4 class="footer-form" >Login</h4>
 					
-					<input type="email" name="email" placeholder="Email" required>
-					<input type="text" name="password" placeholder="Password" required>
-					<button class="btn info-btn" type="submit" name="submit" value="loginsubmit">Log in</button>
-				</form>
 			</div>
 		</section>
+		<!-- <section class="four">
+			<div class="container">
+					
+				
+				 
+				
+			
+			</div>
+		</section> -->
 
 	</body>
 </html>

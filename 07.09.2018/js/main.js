@@ -11,9 +11,22 @@ $(document).ready(function(){
 	loginBtn = $('#login-btn');
 	signupForm = $('#signup-form');
 	username = $('.username');
-
-	loginForm.hide();
-	username.hide();
+	thankBackground = $('.thank-background');
+	thankyouBox = $('.thank-you');
+	closeBtn = $('.close-btn');
+	
+thankyouBox.hide();
+		thankBackground.hide();
+	// loginForm.hide();
+	// username.hide();
+	closeBtn.click(function(){
+		thankyouBox.hide();
+		thankBackground.hide();
+	});
+	thankBackground.click(function(){
+		thankyouBox.hide();
+		thankBackground.hide();
+	});
 	musicBtn.click(function(){
 		bookForm.hide();
 		movieForm.hide();
