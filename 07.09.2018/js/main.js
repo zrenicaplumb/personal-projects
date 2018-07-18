@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	musicBtn = $('#music-btn');
 	bookBtn = $('#book-btn');
 	movieBtn = $('#movie-btn');
@@ -14,11 +15,22 @@ $(document).ready(function(){
 	thankBackground = $('.thank-background');
 	thankyouBox = $('.thank-you');
 	closeBtn = $('.close-btn');
+
+	var ThankYouBox = {
+
+		showBox: function(){
+			
+		},
+
+		hideBox: function(){
+
+		}
+
 	
-thankyouBox.hide();
-		thankBackground.hide();
-	// loginForm.hide();
-	// username.hide();
+	};
+	
+		
+	
 	closeBtn.click(function(){
 		thankyouBox.hide();
 		thankBackground.hide();

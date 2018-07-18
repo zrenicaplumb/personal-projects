@@ -222,3 +222,7 @@ color: #fff;
 .username{
 	color: #fff;
 }
+.profile-img {
+    width: 35px;
+    margin-right: 10px;
+}

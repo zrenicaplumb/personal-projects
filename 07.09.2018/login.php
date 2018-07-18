@@ -9,6 +9,8 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		if(!empty($username) && !empty($password)){
+		
+			
 			$query = "SELECT * FROM personal_info WHERE email = '$email' and password = '$password' ";
 			$result = mysqli_query($connection, $query);
 
@@ -17,9 +19,18 @@
 				$row = mysqli_fetch_array($result);
 				if ($row['email'] == $email && $row['password'] == $password) {
 					$_SESSION['email'] = $email;
-
+					
+					header("Location: index.php");
 				}
-				header("Location: index.php");
+				// elseif ($row['email'] != $email) {
+				// 	echo "incorrect email";
+				// 	header("Location: signup.php");
+				// }
+				// elseif ($row['password'] != $password) {
+				// 	echo "incorrect password";
+				// 	header("Location: signup.php");
+				// }
+				
 			}
 			else{
 				echo "Could not find account for " . $_POST['email'];

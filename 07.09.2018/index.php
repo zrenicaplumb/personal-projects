@@ -1,13 +1,17 @@
 
-<?php session_start(); ?>
+<?php session_start();
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<?php 
-		require_once('head.php');?>
+		
+		<?php require_once('head.php');?>
 		<title>Php/Js practice</title>
 	</head>
-
+<!-- 		if the user signed up, display the thank you box.
+			check if the user signed up
+				figure out how to check -->
 	<body>
 		<header>
 				<?php  
@@ -16,7 +20,7 @@
 				 ?>
 			</header>
 		<section class="one">
-			<div class="thank-background"> 
+			<div class="thank-background hide"> 
 				<div class="thank-you">
 					<img src="img/close.png" class="close-btn"/>
 					<img src="img/checkmark.png" class="checkmark"/>
@@ -52,7 +56,7 @@
 				    	<div class="card-header" id="headingOne">
 					      	<h5 class="mb-0">
 						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						         Music
+						         Music 
 						        </button>
 
 					      	</h5>
@@ -61,6 +65,7 @@
 					      	<div class="card-body">
 					      		<div class="d-flex flex-wrap">
 					        	 <?php 
+					        	 	
 								       require_once('db_info.php');
 								       $connection = new mysqli($servername, $username, $password, $dbname);
 								       $query = "SELECT * FROM music";
@@ -107,13 +112,13 @@
 									while ($row = mysqli_fetch_array($result)) {
 										echo 
 												'
-													<div class="col-xs-12 col-sm-4 col-md-3">
-														<a href="details.php?id=">
-															<img class="gallery-img" src=img/'.$row['image'].'>
-															<a class="view-details" href="">View Details</a>
-														</a>
-													</div>
-													';
+												<div class="col-xs-12 col-sm-4 col-md-3">
+													<a href="details.php?id=">
+														<img class="gallery-img" src=img/'.$row['image'].'>
+														<a class="view-details" href="">View Details</a>
+													</a>
+												</div>
+												';
 											}
 										mysqli_close($dbconnection);
 							       		
