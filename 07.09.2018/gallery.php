@@ -14,7 +14,9 @@
 		<section class="one">
 			<main>
 				<div class="container">
+					<h1 class="gallery-heading">Gallery</h1>
 					<div class="gallery-background d-flex flex-wrap justify-content-center">
+
 						<?php 
 							require_once('db_info.php');
 							
