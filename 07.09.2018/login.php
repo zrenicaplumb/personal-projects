@@ -2,7 +2,7 @@
 	require_once('db_info.php');
 	session_start();
 	if (isset($_POST['submit'])) {
-		$connection = new mysqli($servername, $username, $password, $dbname);
+		$connection = new mysqli($servername, $username, $dbpassword, $dbname);
 		if ($connection->connect_error) {
 			die("connection failed: " . $connection->connect_error);
 		}

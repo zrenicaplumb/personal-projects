@@ -8,8 +8,9 @@
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link href="css/reset.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-		<link href="css/main.css" rel="stylesheet"> 
+		
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+		<link href="css/main.css" rel="stylesheet"> 
 		<script src="js/main.js" type="text/javascript"></script>
 
 		

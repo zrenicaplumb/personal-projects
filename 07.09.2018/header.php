@@ -4,7 +4,13 @@
 	<nav>			
 		<ul>
 			<li>
-				<a href="gallery.php">Photo Gallery</a>
+				<?php if (isset($_SESSION['email'])) {
+					echo '
+					<a href="gallery.php" class="link">Photo Gallery</a>
+					';
+
+				} ?>
+				
 			</li>
 			<li>
 				<a href="">About</a>
@@ -15,7 +21,7 @@
 		
 				<?php if (!isset($_SESSION['email'])) {
 					echo '<li class="login">
-							<a href="login.php" class="login-btn">Log in</a>
+							<a href="login.php" class="login-btn " >Log in</a>
 						  </li>';
 				} 
 				elseif (isset($_SESSION['email'])) {

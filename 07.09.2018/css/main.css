@@ -1,10 +1,10 @@
 body{
-	background-color: rgb(29,32,35);
+	background-color: rgb(34,34,34);
 	
 	font-family: "lato";
 }
 .one{
-	background-color: rgb(29,32,35);
+	background-color: rgb(34,34,34);
 	margin-top: 60px;
 }
 
@@ -36,9 +36,10 @@ ul li a{
 	    letter-spacing: 2px;
 }
 ul li a:hover{
-	color: #fff;
+	color: rgb(0,201,248);
 	text-decoration: none;
 }
+
 main{
 
 }
@@ -56,7 +57,7 @@ main p{
 .greeting-text:after{
 	height: 5px;
     width: 160px;
-    background: #d55e2a;
+    background: rgb(0,201,248);
     display: table;
     content: " ";
     margin: 30px auto 25px;
@@ -125,7 +126,7 @@ form input{
 }
 
 form button{
-	background-color: #d55e2a;
+	background: rgb(0,201,248);
 	color: #fff;
 	margin: auto;
 	display: block;
@@ -225,4 +226,28 @@ color: #fff;
 .profile-img {
     width: 35px;
     margin-right: 10px;
+}
+.gallery-background{
+	background-color: #fff;
+	text-align: center;
+	padding-top: 40px;
+}
+.upload-image{
+	color: #fff;
+}
+.gallery-form{
+	color: #fff;
+}
+.gallery p{
+	color: black;
+}
+.gallery-background img{
+	width: 185px;
+}
+.gallery-text{
+	color: black;
+	font-size: 10px;
+}
+.img-wrap{
+	margin:15px;
 }

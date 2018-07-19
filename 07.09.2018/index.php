@@ -207,15 +207,18 @@
 					
 			</div>
 		</section>
-		<!-- <section class="four">
-			<div class="container">
+		<section class="four">
+			<footer>
+				<div class="container">
 					
 				
 				 
 				
 			
-			</div>
-		</section> -->
-
+				</div>
+			</footer>
+			
+		</section>
+		
 	</body>
 </html>
