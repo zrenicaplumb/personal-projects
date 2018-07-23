@@ -1,23 +1,19 @@
-	<?php session_start(); 
-	require_once("db_info.php");?>
 	<a href="index.php"><img src="img/logo.png" id="logo"></a>
 	<nav>			
 		<ul>
-			<li>
+			
+			
+		
+			
 				<?php if (isset($_SESSION['email'])) {
-					echo '
+					echo '<li>
 					<a href="gallery.php" class="link">Photo Gallery</a>
-					';
+					</li>';
 
 				} ?>
-				
-			</li>
-			<li>
-				<a href="">About</a>
-			</li>
-			<li>
-				<a href="">Contact</a>
-			</li>
+					
+			
+			
 		
 				<?php if (!isset($_SESSION['email'])) {
 					echo '<li class="login">
@@ -25,9 +21,9 @@
 						  </li>';
 				} 
 				elseif (isset($_SESSION['email'])) {
-					echo '
+					echo '<li>
 					<a class="logout-btn hide" href="index.php?logout=1">Sign out</a>
-					';
+					</li>';
 
 				}
 				?>
@@ -53,7 +49,7 @@
 				<?php 
 					require_once('db_info.php');
 					$email = $_SESSION['email'];
-			        $connection = new mysqli($servername, $username, $password, $dbname);
+			        $connection = new mysqli($servername, $username, $dbpassword, $dbname);
 			        $query = "SELECT * FROM personal_info WHERE email = '$email' ";
 			        $result = mysqli_query($connection, $query) or die('Query failed.');
 					while ($row = mysqli_fetch_array($result)) {
@@ -66,12 +62,14 @@
 						echo 'Welcome ' . $_SESSION['email']  . '!';
 					}
 					elseif (!isset($_SESSION['email'])) {
+
 						echo '<a class="logout-btn hide" href="index.php">Sign out</a>';
 
 					}
 				 ?>
 				
 			</li>
+			
 				<?php if (isset($_SESSION['email'])) {
 					echo '<li class="signout">
 							<a class="logout-btn" href="logout.php">Sign out</a>
@@ -79,10 +77,12 @@
 
 				}
 				elseif (!isset($_SESSION['email'])) {
-					echo '<a class="logout-btn hide" href="index.php">Sign out</a>';
+					echo '<li><a class="logout-btn hide" href="index.php">Sign out</a></li>';
 
 				}
 				 ?>
+			
 				
 		</ul>
+		
 	</nav>

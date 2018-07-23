@@ -1,10 +1,10 @@
 body{
-	background-color: rgb(34,34,34);
+	background-color: rgb(51,51,51);
 	
 	font-family: "lato";
 }
 .one{
-	background-color: rgb(34,34,34);
+	background-color: rgb(51,51,51);
 	margin-top: 60px;
 }
 
@@ -15,14 +15,14 @@ body{
     float: left;
 }
 header{
-overflow: auto;
+clear: both;
 }
 ul{
-	float: right;
+	
     position: relative;
     top: 40px;
     right: 30px;
-	
+	float: right;
 }
 ul li{
 	display: inline-block;
@@ -63,7 +63,8 @@ main p{
     margin: 30px auto 25px;
 }
 section.one{
-	
+	clear: both;
+
 }
 section.two h2{
 	text-align: center;
@@ -80,6 +81,7 @@ section.two h2{
     display: block;
     font-size: 22px;
     font-weight: 100;
+
 }
 
 section.three{
@@ -95,7 +97,7 @@ section.three h3{
 	padding-top: 30px;
 }
 section.four{
-	background-color: rgb(29,32,35);
+background-color: rgb(34,34,34);
 	padding: 30px 0;
 }
 
@@ -231,6 +233,11 @@ color: #fff;
 	background-color: #fff;
 	text-align: center;
 	padding-top: 40px;
+
+     padding-bottom: 15px;
+}
+.gallery-background h5{
+	display: inline-block;
 }
 .upload-image{
 	color: #fff;
@@ -246,14 +253,65 @@ color: #fff;
 }
 .gallery-text{
 	color: black;
-	font-size: 10px;
+	font-size: 12px;
 }
 .img-wrap{
-	margin:15px;
+	margin: 15px;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .gallery-heading{
 	color:#fff;
 	text-align: center;
 	font-weight: 100;
 	letter-spacing: 5px;
+	margin-bottom: 30px;
+}
+footer{
+	background-color: rgb(34,34,34);
+}
+.delete-btn{
+	background-color: rgb(214,14,56);
+	color: #fff;
+	border:none;
+	border-radius: 5px;
+	font-size: 12px;
+	cursor: pointer;
+}
+.search-img{
+	width: 20%;
+	margin: 20px;
+}
+.search-img:hover{
+	    box-shadow: 1px 1px 8px grey;
+}
+.search-form{
+	    width: 150px;
+    padding: ;
+    display: inline-block;
+    margin-top: 0;
+    float: right;
+    margin-right: 100px;
+    position: relative;
+    right: -80px;
+    margin: 30px;
+}
+.search-form input{
+	padding: 4px;
+
+}
+#details-img{
+	    width: 50%;
+    box-shadow: 1px 1px 11px lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+}
+.btn-primary:hover{
+	cursor: pointer;
+}
+
+footer{
+	background-color: #fff;
 }

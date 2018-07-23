@@ -1,7 +1,7 @@
-
-<?php session_start();
-
- ?>
+<?php
+require_once('config.php');
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -16,7 +16,7 @@
 		<header>
 				<?php  
 
-				 	require_once('header.php');
+				 	require_once('nav.php');
 				 ?>
 			</header>
 		<section class="one">
@@ -65,28 +65,11 @@
 					      	<div class="card-body">
 					      		<div class="d-flex flex-wrap">
 					        	 <?php 
-					        	 	
-								       require_once('db_info.php');
-								       $connection = new mysqli($servername, $username, $password, $dbname);
-								       $query = "SELECT * FROM music";
-								       $result = mysqli_query($connection, $query) or die('Query failed.');
-										while ($row = mysqli_fetch_array($result)) {
-											echo 
-												'	
-													<div class="col-xs-12 col-sm-4 col-md-3">
-														<a href="details.php?id=">
-															<img class="gallery-img" src=img/'.$row['image'].'>
-															
-															<a class="view-details" href="">View Details</a>
-														</a>
-
-													</div>
-													
-													';
-												}
-											mysqli_close($dbconnection);
-								       		
-								       ?>
+					        	 	   	$musics = MusicController::findAll();
+					        	 	   	foreach($musics as $music){
+					        	 	   		echo $music->render();
+					        	 	   	}   		
+								?>
 					        	</div>
 					      	</div>
 				    	</div>
@@ -105,24 +88,11 @@
 						    <div class="card-body">
 						    	<div class="d-flex flex-wrap">
 						       <?php 
-							       require_once('db_info.php');
-							       $connection = new mysqli($servername, $username, $password, $dbname);
-							       $query = "SELECT * FROM books";
-							       $result = mysqli_query($connection, $query) or die('Query failed.');
-									while ($row = mysqli_fetch_array($result)) {
-										echo 
-												'
-												<div class="col-xs-12 col-sm-4 col-md-3">
-													<a href="details.php?id=">
-														<img class="gallery-img" src=img/'.$row['image'].'>
-														<a class="view-details" href="">View Details</a>
-													</a>
-												</div>
-												';
-											}
-										mysqli_close($dbconnection);
-							       		
-							       ?>
+				        	 	   	$books = BookController::findAll();
+				        	 	   	foreach($books as $book){
+				        	 	   		echo $book->render();
+				        	 	   	}   		
+								?>
 						   		</div>
 						    </div>
 				    	</div>
@@ -141,24 +111,11 @@
 					      	<div class="card-body">
 					      		<div class="d-flex flex-wrap">
 					        	<?php 
-							       require_once('db_info.php');
-							       $connection = new mysqli($servername, $username, $password, $dbname);
-							       $query = "SELECT * FROM movies";
-							       $result = mysqli_query($connection, $query) or die('Query failed.');
-									while ($row = mysqli_fetch_array($result)) {
-										echo 
-												'
-												<div class="col-xs-12 col-sm-4 col-md-3">
-													<a href="details.php?id=">
-														<img class="gallery-img" src=img/'.$row['image'].'>
-														<a class="view-details" href="">View Details</a>
-													</a>
-												</div>
-												';
-											}
-										mysqli_close($dbconnection);
-							       		
-							       ?>
+				        	 	   	$movies = MovieController::findAll();
+				        	 	   	foreach($movies as $movie){
+				        	 	   		echo $movie->render();
+				        	 	   	}   		
+								?>
 						  	 	</div>
 					      	</div>
 				    	</div>
@@ -207,18 +164,12 @@
 					
 			</div>
 		</section>
-		<section class="four">
+		
 			<footer>
-				<div class="container">
-					
-				
-				 
-				
-			
-				</div>
+				<?php require_once("footer.php"); ?>
 			</footer>
 			
-		</section>
+		
 		
 	</body>
 </html>

@@ -54,7 +54,7 @@
 	<header>
 		<?php  
 
-		 	require_once('header.php');
+		 	require_once('nav.php');
 		 ?>
 	</header>
 	<section class="one">
@@ -73,7 +73,9 @@
 		</div>
 	</main>
 	</section>
-	
+	<footer>
+				<?php require_once("footer.php"); ?>
+			</footer>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	musicBtn = $('#music-btn');
 	bookBtn = $('#book-btn');
 	movieBtn = $('#movie-btn');
@@ -15,22 +14,33 @@ $(document).ready(function(){
 	thankBackground = $('.thank-background');
 	thankyouBox = $('.thank-you');
 	closeBtn = $('.close-btn');
+	galleryForm = $('.gallery-form');
+	deleteBtn = $('.delete-btn');
 
-	var ThankYouBox = {
-
-		showBox: function(){
-			
-		},
-
-		hideBox: function(){
-
-		}
-
-	
-	};
-	
+	deleteBtn.click(function() {
+		var imgWrap = $(this).parent();
+		var btn = $(this);
+		var id = $(this).siblings('img').attr("id");
+		var action = "delete";
 		
-	
+		$.ajax({
+			url: "delete.php",
+			type: "POST",
+			
+			data: {
+				id: id,
+				action: action
+			},
+			cache: false,
+			success: function(data){
+				// fetch_data();
+				imgWrap.slideUp('fast', function() {
+					$(this).remove();
+				});
+			}
+		});
+	});
+
 	closeBtn.click(function(){
 		thankyouBox.hide();
 		thankBackground.hide();
@@ -65,3 +75,4 @@ $(document).ready(function(){
 	
 	
 });
+
