@@ -9,9 +9,7 @@ require_once('config.php');
 		<?php require_once('head.php');?>
 		<title>Php/Js practice</title>
 	</head>
-<!-- 		if the user signed up, display the thank you box.
-			check if the user signed up
-				figure out how to check -->
+
 	<body>
 		<header>
 				<?php  
@@ -77,49 +75,50 @@ require_once('config.php');
 
 				  	<div class="card">
 				    	<div class="card-header" id="headingTwo">
-				      		<h5 class="mb-0">
-					        	<button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-					          Books
-					        	</button>
-				      		</h5>
-				    	</div>
+					      	<h5 class="mb-0">
+						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						        	Books
+						        </button>
 
-				    	<div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordion">
-						    <div class="card-body">
-						    	<div class="d-flex flex-wrap">
-						       <?php 
-				        	 	   	$books = BookController::findAll();
-				        	 	   	foreach($books as $book){
-				        	 	   		echo $book->render();
-				        	 	   	}   		
+					      	</h5>
+				    	</div>
+				    	<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+					      	<div class="card-body">
+					      		<div class="d-flex flex-wrap">
+					        	 <?php 
+					        	 	   	$books = BookController::findAll();
+					        	 	   	foreach($books as $book){
+					        	 	   		echo $book->render();
+					        	 	   	}   		
 								?>
-						   		</div>
-						    </div>
+					        	</div>
+					      	</div>
 				    	</div>
 				  	</div>
 
 				  	<div class="card">
 				    	<div class="card-header" id="headingThree">
 					      	<h5 class="mb-0">
-						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-						          Movies
+						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						        	Movies
 						        </button>
+
 					      	</h5>
 				    	</div>
-
-				    	<div id="collapseThree" class="collapse hide" aria-labelledby="headingThree" data-parent="#accordion">
+				    	<div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
 					      	<div class="card-body">
 					      		<div class="d-flex flex-wrap">
-					        	<?php 
+					        	 <?php 
 				        	 	   	$movies = MovieController::findAll();
 				        	 	   	foreach($movies as $movie){
 				        	 	   		echo $movie->render();
 				        	 	   	}   		
 								?>
-						  	 	</div>
+					        	</div>
 					      	</div>
 				    	</div>
 				  	</div>
+				  	
 				</div>
 			</div>	
 		</section>
@@ -133,8 +132,9 @@ require_once('config.php');
 							<button id="book-btn">Books</button>
 							<button id="movie-btn">Movies</button>
 						</div>
-						<form method="post" enctype="multipart/form-data" action="media.php" class="music-form">
+						<form method="post" enctype="multipart/form-data" action="api.php" class="music-form" > 
 							<h4>Music</h4>
+							<input type="hidden" name="method" value="createMusicItem" />
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="artist" placeholder="Artist">
 							<input type="text" name="title" placeholder="Title">
@@ -142,8 +142,9 @@ require_once('config.php');
 							<input type="file" name="image" placeholder="Album cover/artist" required>
 							<button class="btn music-submit" type="submit" name="submit" value="musicsubmit">Add to music</button>
 						</form>
-						<form method="post" enctype="multipart/form-data" action="media.php" class="hidden book-form">
+						<form method="post" enctype="multipart/form-data" action="api.php" class="hidden book-form" >
 							<h4>Book</h4>
+							<input type="hidden" name="method" value="createBookItem" />
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="author" placeholder="Author">
 							<input type="text" name="title" placeholder="Title">
@@ -151,8 +152,9 @@ require_once('config.php');
 							<input type="file" name="image" placeholder="Book cover" required>
 							<button class="btn book-submit" type="submit" name="submit" value="booksubmit">Add to books</button>
 						</form>	
-						<form method="post" enctype="multipart/form-data" action="media.php" class="hidden movie-form">
+						<form method="post" enctype="multipart/form-data" action="api.php" class="hidden movie-form" >
 							<h4>Movie</h4>
+							<input type="hidden" name="method" value="createMovieItem" />
 							<input type="text" name="genre" placeholder="Genre">
 							<input type="text" name="director" placeholder="Director">
 							<input type="text" name="title" placeholder="Title">
@@ -166,10 +168,45 @@ require_once('config.php');
 		</section>
 		
 			<footer>
-				<?php require_once("footer.php"); ?>
+				<div class="container">
+					
+				
+				 
+				Footer
+			
+				</div>
 			</footer>
 			
 		
 		
+		<script>
+			$(function(){
+				$('.music-form').ajaxSubmit(function(result){
+					if(result.status == "success"){
+                    	alert("New Item Id: "+result.data.id);
+                    } else {
+                    	alert(result.message);
+                    }
+				});
+				$('.book-form').ajaxSubmit(function(result){
+					if(result.status == "success"){
+                    	alert("New Item Id: "+result.data.id);
+                    } else {
+                    	alert(result.message);
+                    }
+				});
+				$('.movie-form').ajaxSubmit(function(result){
+					if(result.status == "success"){
+                    	alert("New Item Id: "+result.data.id);
+                    } else {
+                    	alert(result.message);
+                    }
+				});
+				
+			
+			});
+			
+		</script>
+
 	</body>
 </html>

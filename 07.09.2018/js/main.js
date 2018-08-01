@@ -1,3 +1,34 @@
+$.fn.ajaxSubmit = function(finishCallback, settings){
+	 	$(this).on('submit', function(e){
+	 		// e.preventDefault();
+			var rand = Math.ceil(Math.random()*10000);
+			if($(this).attr("enctype", "multipart/form-data")){
+				console.log('submitting with iframe');
+				var name = 'iframe_form_'+rand;
+				console.log(name);
+				var iframe = $('<iframe name="'+name+'" style="display:none;">').appendTo('body');
+				$(this).attr("target", name);
+				
+				iframe.load(function(){
+					var response = $(this).contents().find('body').text();
+                    console.log(response);
+                    response = JSON.parse(response);
+                    if(typeof finishCallback == "function"){
+                    	finishCallback(response);
+                    }
+				});
+				
+				return true;
+
+			} else {
+				console.log('submitting normally');
+			}
+			return true;
+		});
+	 };
+
+
+
 $(document).ready(function(){
 	musicBtn = $('#music-btn');
 	bookBtn = $('#book-btn');
@@ -16,7 +47,48 @@ $(document).ready(function(){
 	closeBtn = $('.close-btn');
 	galleryForm = $('.gallery-form');
 	deleteBtn = $('.delete-btn');
+	galleryImg = $('.gallery-background img');
+	galleryShadow = $('.gallery-shadow');
+	shoppingCartLink = $('.cart-link');
 
+	
+	$('.gal-img').click(function(){
+		var src = $(this).attr('src');
+		var title = $(this).siblings('p').text();
+		console.log(title);
+		$('.shadow-img').attr('src', src);
+		$('.shadow-img').siblings('h5').text(title);
+		galleryShadow.show();
+	});
+	shoppingCartLink.click(function(){
+		$('.cart-shadow').show();
+		$('.cart-div').css({
+			'right':'0px'
+		});
+	});
+	$('.close-x').click(function(){
+		$('.cart-shadow').hide();
+		$('.cart-div').css({
+			'right':'-320px'
+		})
+	});
+		
+
+		
+
+	
+	galleryShadow.click(function(){
+		galleryShadow.hide();
+
+		
+	});
+	$('.cart-shadow').click(function(){
+		$('.cart-shadow').hide();
+		$('.cart-div').css({
+			'right':'-320px'
+		})
+		
+	});
 	deleteBtn.click(function() {
 		var imgWrap = $(this).parent();
 		var btn = $(this);
@@ -26,7 +98,6 @@ $(document).ready(function(){
 		$.ajax({
 			url: "delete.php",
 			type: "POST",
-			
 			data: {
 				id: id,
 				action: action
@@ -40,7 +111,7 @@ $(document).ready(function(){
 			}
 		});
 	});
-
+	
 	closeBtn.click(function(){
 		thankyouBox.hide();
 		thankBackground.hide();
@@ -57,7 +128,7 @@ $(document).ready(function(){
 	bookBtn.click(function(){
 		bookForm.show();
 		movieForm.hide();
-		musicForm.hide();
+		musicForm.hide()
 	});
 	movieBtn.click(function(){
 		bookForm.hide();
@@ -73,6 +144,12 @@ $(document).ready(function(){
 		loginForm.show();
 	});
 	
+	
+	 
+
+	
+
+
 	
 });
 

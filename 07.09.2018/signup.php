@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+	require_once('config.php');
 	
 	
 ?>
@@ -11,10 +11,10 @@
 </head>
 <body>
 	<header>
-				<?php  
-				 	require_once('header.php');
-				 ?>
-			</header>
+		<?php  
+		 	require_once('nav.php');
+		 ?>
+	</header>
 	<section class="one">
 	
 	<main>

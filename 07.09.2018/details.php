@@ -29,7 +29,6 @@ require_once('config.php');
 						<h2><?php
 							if (isset($_GET['id'])) {
 								DetailsController::showDetails();
-								
 							}
 						 ?></h2>
 					

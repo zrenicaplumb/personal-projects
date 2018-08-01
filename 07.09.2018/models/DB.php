@@ -14,15 +14,24 @@ Class DB {
 		 
 	}
 	public function insert($table, $data){
-		$sql = "INSERT INTO $table SET ";
-		foreach($data as $column=>$value){
-			$sql .= "$column".",";
+		$sql = "INSERT INTO $table ( ";
+		$columns = implode(",", array_keys($data));
+		$sql .= $columns;
+		$sql .= " ) ";
+		$sql .= " VALUES ( ";
+		
+		$values = implode("','", array_values($data));
+		$sql .= "'". $values. "'";
+		$sql .= " ) ";
+
+		try {
+			$result = $this->db->query($sql);
+			if (!$result) {
+				throw new Exception($this->db->error);
+			}
+		} catch (Exception $e){
+			throw new Exception($e->getMessage());
 		}
-		$sql .= "VALUES ";
-		foreach($data as $column=>$value){
-			$sql .= "$value".",";
-		}
-		$this->db->query($sql);
 	}
 	public function update($table, $data, $where){
 

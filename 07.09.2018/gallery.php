@@ -1,10 +1,5 @@
 <?php 
 	require_once('config.php');
-
-	if(isset($_POST['gallerySubmit'])){
-		GalleryController::createGalleryItem();
-	}
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,26 +17,45 @@
 				<div class="container">
 					<h1 class="gallery-heading">Gallery</h1>
 					<div class="gallery-background d-flex flex-wrap justify-content-center">
+						<div class="gallery-shadow hide">
+							
+							<img src="" class="shadow-img" />
+							<div class="text-box">
+								<h5>Title: </h5>
+							</div>
 
-						<?php 
+						</div>
+							<?php 
 								$galleryItems = GalleryController::findAll();
 								foreach($galleryItems as $galleryItem){
 									$galleryItem->render();
 								}
-						 ?>
+							?>
 					</div>
 					
 					
 				</div>
 
 			</main>
-			<form method="post" enctype="multipart/form-data" class="gallery-form">
+			<form method="post" enctype="multipart/form-data" action="api.php" class="gallery-form">
 				<h4 class="upload-img">Add an image</h4>
+				<input type="hidden" name="method" value="createGalleryItem" />
 				<input type="text" name="title" placeholder="Title">
 				<label>Upload image</label>
 				<input type="file" name="image" required>
 				<button class="btn gallery-submit" type="submit" name="gallerySubmit" value="gallerySubmit">Add to gallery</button>
-			</form>	
+			</form>
+			
+			<script>
+				$('.gallery-form').ajaxSubmit(function(result){
+					if(result.status == "success"){
+                    	alert("New Item Id: "+result.data.id);
+                    } else {
+                    	alert(result.message);
+                    }
+				});
+			</script>
+
 		</section>
 		
 		
