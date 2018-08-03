@@ -12,8 +12,8 @@ require_once('models/GalleryItem.php');
 require_once('models/StoreItem.php');
 require_once('models/CartItem.php');
 require_once('classes/ResourceController.php');
-require_once('classes/CartController.php');
-require_once('classes/StoreController.php');
+require_once('classes/CartItemController.php');
+require_once('classes/StoreItemController.php');
 require_once('classes/BookController.php');
 require_once('classes/MovieController.php');
 require_once('classes/MusicController.php');
@@ -21,3 +21,6 @@ require_once('classes/GalleryController.php');
 require_once('classes/SearchController.php');
 require_once('classes/DetailsController.php');
 require_once('classes/NavController.php');
+function error_object($data){
+	error_log(print_r($data, true));
+}

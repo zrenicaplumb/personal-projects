@@ -3,13 +3,17 @@
 Class ResourceController {
 
 	static function findById($id){
-		$class = static::$table;
+		$class = static::$class;
+		$table = static::$table;
+		$primary_key = static::$primary_key;
 		$db = new DB();
-		$result = $db->query("SELECT * FROM {static::$table} WHERE {static::$primary_key} = {$id}");
+		$result = $db->query("SELECT * FROM {$table} WHERE {$primary_key} = {$id}");
 		$data = $result->fetch_assoc();
 		if($data){
 			$class = static::$class;
-			return new $class($data);
+			$object = new $class($data);
+			return $object;
+			errorObject($object);
 		} else {
 			return null;
 		}
@@ -60,6 +64,19 @@ Class ResourceController {
 
 		return $resource->create();
 	}
+
+	static function delete($id){
+		$resource = self::findById($id);
+		$resource->delete();
+		return $resource;
+	}
+	static function add($data){
+		$resource = self::findById($data['id']);
+		$resource->add();
+		return $resource;
+	}
+
+	
 
 	
 

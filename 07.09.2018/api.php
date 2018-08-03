@@ -3,7 +3,7 @@
 	require_once('classes/API.php');
 
 	$request_method = $_SERVER['REQUEST_METHOD'];
-	$params = $_REQUEST;
+	$params = $request_method  == "GET" ? $_GET : $_POST;
 	$function = isset($params['method']) ? $params['method'] : null;
 	$redirect = isset($params['redirect']) ? $params['redirect'] : null;
 
@@ -11,7 +11,7 @@
 	unset($params['redirect']);
 	
 	$API = new API($request_method, $function, $params, $_FILES);
-		// print_r($API, true);
+		
 	try {
 		$result = $API->call();
 		if($redirect){

@@ -2,10 +2,9 @@ $.fn.ajaxSubmit = function(finishCallback, settings){
 	 	$(this).on('submit', function(e){
 	 		// e.preventDefault();
 			var rand = Math.ceil(Math.random()*10000);
-			if($(this).attr("enctype", "multipart/form-data")){
+			if($(this).attr("enctype")== "multipart/form-data"){
 				console.log('submitting with iframe');
 				var name = 'iframe_form_'+rand;
-				console.log(name);
 				var iframe = $('<iframe name="'+name+'" style="display:none;">').appendTo('body');
 				$(this).attr("target", name);
 				
@@ -21,9 +20,26 @@ $.fn.ajaxSubmit = function(finishCallback, settings){
 				return true;
 
 			} else {
-				console.log('submitting normally');
+				e.preventDefault();
+				var data = {};
+				$(this).find('input, select, textarea, submit').each(function(){
+					var name = $(this).attr('name');
+					if(name){
+						data[name] = $(this).val();
+					}
+				});
+				$.ajax({
+					url: $(this).attr("action"),
+					method: $(this).attr("method"), 
+					data: data,
+					dataType: "json",
+					success:function(result){
+						if(typeof finishCallback == "function"){
+							finishCallback(result);
+						}
+					},
+				});
 			}
-			return true;
 		});
 	 };
 
@@ -89,28 +105,29 @@ $(document).ready(function(){
 		})
 		
 	});
-	deleteBtn.click(function() {
-		var imgWrap = $(this).parent();
-		var btn = $(this);
-		var id = $(this).siblings('img').attr("id");
-		var action = "delete";
+	// deleteBtn.click(function() {
+	// 	var imgWrap = $(this).parent();
+	// 	var btn = $(this);
+	// 	var id = $(this).siblings('img').attr("id");
+	// 	var action = "delete";
 		
-		$.ajax({
-			url: "delete.php",
-			type: "POST",
-			data: {
-				id: id,
-				action: action
-			},
-			cache: false,
-			success: function(data){
-				// fetch_data();
-				imgWrap.slideUp('fast', function() {
-					$(this).remove();
-				});
-			}
-		});
-	});
+	// 	$.ajax({
+	// 		url: "delete.php",
+	// 		type: "POST",
+	// 		data: {
+	// 			id: id,
+	// 			action: action
+	// 		},
+	// 		cache: false,
+	// 		success: function(data){
+	// 			// fetch_data();
+	// 			imgWrap.slideUp('fast', function() {
+	// 				$(this).remove();
+	// 			});
+	// 		}
+	// 	});
+	// });
+
 	
 	closeBtn.click(function(){
 		thankyouBox.hide();

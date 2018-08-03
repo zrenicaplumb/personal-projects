@@ -30,7 +30,7 @@
 						<?php 
 
 						
-							$storeItems = StoreController::findAll();
+							$storeItems = StoreItemController::findAll();
 								foreach($storeItems as $storeItem){
 									$storeItem->render();
 								}

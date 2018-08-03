@@ -27,7 +27,7 @@ require_once('config.php');
 						<?php
 							
 
-							StoreController::storeDetails();
+						StoreItemController::storeDetails();
 
 							
 						 ?>
@@ -37,12 +37,20 @@ require_once('config.php');
 			</main>
 		</section>
 		
-		<section class="four">
+
 			<footer>
 				<?php require_once("footer.php"); ?>
 			</footer>
-			
-		</section>
+			<script type="text/javascript">
+				$('.purchase-form').ajaxSubmit(function(result){
+					if(result.status == "success"){
+                    	alert("item added to cart: "+result.data.id);
+                    } else {
+                    	alert(result.message);
+                    }
+				});
+			</script>
+		
 		
 	</body>
 </html>

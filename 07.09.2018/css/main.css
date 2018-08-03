@@ -388,7 +388,9 @@ padding-top: 20px;
 .cart-div-show{
 	right: 0;
 }
-
+#cart-form{
+	width: 100%;
+}
 .cart-div ul li{
 	position: relative;
     
@@ -417,9 +419,9 @@ width: 25px;
 }
 .cart-item-delete{
 	cursor: pointer;
-	right: -225px;
-	position: relative;
-	    bottom: 45px;
+    right: -100px;
+    position: relative;
+    bottom: 35px;
 }
 p.item-text{
 	    margin: 0;

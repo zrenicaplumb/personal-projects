@@ -1,6 +1,6 @@
 <?php 
 require_once('config.php');
-	session_start();
+
 	require_once('db_info.php');
 
 	if ($_POST['action'] == "delete"){
@@ -9,8 +9,10 @@ require_once('config.php');
 		$db = new mysqli($servername, $username, $dbpassword, $dbname);
 		$query = "DELETE FROM gallery WHERE id='$id' ";
 		$query2 = "DELETE FROM products WHERE id='$id'";
+		$query3 = "DELETE FROM cart WHERE id='$id'";
 		$result = mysqli_query($db, $query);
-		$result = mysqli_query($db, $query2);
+		$result2 = mysqli_query($db, $query2);
+		$result3 = mysqli_query($db, $query3);
 	}
 
 		

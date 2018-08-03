@@ -37,8 +37,14 @@ Class DB {
 
 	}
 	public function delete($table, $where){
-
+		try {
+			$this->db->query("DELETE FROM $table WHERE $where");
+			return true;
+		} catch(Exception $e){
+			throw new Exception ($e->getMessage());
+		}
 	}
+	
 	public function select($table, $where){
 		
 	}

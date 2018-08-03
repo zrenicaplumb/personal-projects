@@ -96,6 +96,12 @@
 					</li>';
 
 				} ?>
+				<?php if (!isset($_SESSION['email'])) {
+					echo '<li>
+						<a href="#" class="cart-link hide">Cart<img src="img/cart.png" class="cart-icon" /></a>
+					</li>';
+
+				} ?>
 			
 				
 		</ul>
@@ -104,22 +110,47 @@
 		</div>	
 		<div class="cart-div">
 			<h1>Cart</h1>
-			<img src="img/close.png" class="close-x">
-			<ul>
-				<?php 
-					$total = 0.00;
-					$cartItems = CartController::findAll();
-					foreach ($cartItems as $cartItem) {
+			<!-- <form id="cart-form" method="post" action="api.php"> -->
+				<!-- <input type="hidden" name="method" value="deleteCartItem"/> -->
+				<img src="img/close.png" class="close-x">
+				<ul>
+					<?php 
+						$total = 0.00;
+						$cartItems = CartItemController::findAll();
+						foreach ($cartItems as $cartItem) {
+							
+							echo $cartItem->render();
+							$total += $cartItem->total;
+							
+						}
+						echo "<p class='total-price'>Total: $".number_format((float) $total, 2, '.', '');
 						
-						echo $cartItem->render();
-						$total += $cartItem->total;
-						
-					}
-					echo "<p class='total-price'>Total: $".number_format((float) $total, 2, '.', '');
-					
 
-				 ?>
-			</ul>
-			<button href="checkout.php" class="checkout-btn">Checkout</button>
+					 ?>
+				</ul>
+				<button href="checkout.php" class="checkout-btn" name="cart-delete" type="submit">Checkout</button>
+			<!-- </form> -->
 		</div>
+		<script>
+				// $('#cart-form').ajaxSubmit(function(result){
+				// 	if(result.status == "success"){
+    //                 	alert("New Item Id: "+result.data.id);
+    //                 } else {
+    //                 	alert(result.message);
+    //                 }
+				// });
+				$('.cart-item-delete').each(function(){console.log($(this));
+					var item = $(this);
+					item.ajaxSubmit(function(result){
+						if(result.status == "success"){
+							item.closest("li").slideUp('fast', function() {
+								$(this).remove();
+							});
+	                    	alert("Item deleted: "+result.data.id);
+	                    } else {
+	                    	alert(result.message);
+	                    }
+					});
+				});
+			</script>
 	</nav>

@@ -12,7 +12,6 @@
 			$this->params = $params;
 			$this->files = $files;
 		}
-
 		public function call(){
 			if(method_exists($this, $this->method)){
 				try {
@@ -58,56 +57,30 @@
 			$url .= $output;
 			header("location: ".$url);
 		}
-
-
-
-
-
-
-
 		public function calculate($params){
 			$Calculator = new Calculator();
 			$result = $Calculator->calculate($params['num1'], $params['num2'], $params['operation']);
 			return $result;
 		}
-
-
-
-
 		public function createGalleryItem($params, $files){
 			return GalleryController::create($params, $files);
 		}
-
-
-
-
 		public function createMusicItem($params, $files){
 			return MusicController::create($params, $files);
 		}
-
-
-
-
 		public function createBookItem($params, $files){
 			return BookController::create($params, $files);
 		}
-
-
-
-
 		public function createMovieItem($params, $files){
 			return MovieController::create($params, $files);
 		}
-
-
 		public function createStoreItem($params, $files){
-			return StoreController::create($params, $files);
+			return StoreItemController::create($params, $files);
 		}
-
-
-		
-
-
-
-
+		public function deleteCartItem($params, $files){
+			return CartItemController::delete($params['id']);
+		}
+		public function addCartItem($params, $files){
+			return StoreItemController::add($params);
+		}
 	}

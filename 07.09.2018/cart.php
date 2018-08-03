@@ -2,7 +2,7 @@
 require_once('config.php');
 if (isset($_POST['add'])) {
 	$table = 'cart';
-	$quantity = $_POST['item_quantity'];
+	$quantity = $_POST['quantity'];
 	$description = $_POST['description'];
 	$product_name = $_POST['product_name'];
 	$image = $_POST['image'];

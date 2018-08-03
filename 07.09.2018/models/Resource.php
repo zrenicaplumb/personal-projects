@@ -43,6 +43,8 @@ Class Resource {
 		return $this;
 	}
 
+	
+
 	public function insert(){
 		$tableData = $this->model();
 		$this->db->insert($this->table, $tableData);
@@ -98,7 +100,20 @@ Class Resource {
 		return $data;
 	}
 
-
+	public function delete(){
+		$id = $this->{$this->primary_key};
+		$table = $this->table;
+		try {
+			$this->db->delete($table, "{$this->primary_key} = {$id}");
+			return $this;
+		} catch(Exception $e){
+			throw new Exception("Delete Failed: ".$e->getMessage());
+		}
+	}
+	public function add(){
+		$id = $this->{$this}
+	}
+	
 
 
 
