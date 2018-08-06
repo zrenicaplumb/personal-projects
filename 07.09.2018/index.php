@@ -61,12 +61,12 @@ require_once('config.php');
 				    	</div>
 				    	<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 					      	<div class="card-body">
-					      		<div class="d-flex flex-wrap">
+					      		<div class="d-flex flex-wrap musicWrap">
 					        	 <?php 
-					        	 	   	$musics = MusicController::findAll();
-					        	 	   	foreach($musics as $music){
-					        	 	   		echo $music->render();
-					        	 	   	}   		
+					        	 	   	// $musics = MusicController::findAll();
+					        	 	   	// foreach($musics as $music){
+					        	 	   	// 	echo $music->render();
+					        	 	   	// }   		
 								?>
 					        	</div>
 					      	</div>
@@ -179,31 +179,62 @@ require_once('config.php');
 			
 		
 		
+		<script src="js/components/music.js"></script>
 		<script>
 			$(function(){
-				$('.music-form').ajaxSubmit(function(result){
-					if(result.status == "success"){
-                    	alert("New Item Id: "+result.data.id);
-                    } else {
-                    	alert(result.message);
-                    }
-				});
-				$('.book-form').ajaxSubmit(function(result){
-					if(result.status == "success"){
-                    	alert("New Item Id: "+result.data.id);
-                    } else {
-                    	alert(result.message);
-                    }
-				});
-				$('.movie-form').ajaxSubmit(function(result){
-					if(result.status == "success"){
-                    	alert("New Item Id: "+result.data.id);
-                    } else {
-                    	alert(result.message);
-                    }
-				});
+
+				var Page = {
+					musics: [],
+					books: [],
+					movies: [],
+					init:function(){
+						$.ajax({
+							url: 'api.php', 
+							data: {method: 'getMusic'},
+							dataType: 'json',
+							success:function(result){
+								console.log(result);
+								if(result.status == "success"){
+									result.data.forEach(function(music){
+										Page.musics.push(Music.init(music) );
+									});
+								} else {
+									alert("Something went wrong: "+result.message);
+								}
+							},
+						});
+
+
+						$('.music-form').ajaxSubmit(function(result){
+							if(result.status == "success"){
+								var music = Music.init(result.data);
+								Page.musics.push(music);
+		                    	alert("New Item Id: "+result.data.id);
+		                    } else {
+		                    	alert(result.message);
+		                    }
+						});
+						$('.book-form').ajaxSubmit(function(result){
+							if(result.status == "success"){
+		                    	alert("New Item Id: "+result.data.id);
+		                    } else {
+		                    	alert(result.message);
+		                    }
+						});
+						$('.movie-form').ajaxSubmit(function(result){
+							if(result.status == "success"){
+		                    	alert("New Item Id: "+result.data.id);
+		                    } else {
+		                    	alert(result.message);
+		                    }
+						});
+
+					}
+				}
+
 				
-			
+				Page.init();
+
 			});
 			
 		</script>

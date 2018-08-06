@@ -3,6 +3,8 @@
 		public static $table = "products";
 		public static $primary_key = "id";
 		public static $class = "StoreItem";
+
+		
 		static function storeDetails(){
 			$id = $_GET['id'];
 			$db = new DB();

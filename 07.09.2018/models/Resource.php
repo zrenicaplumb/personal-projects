@@ -43,8 +43,6 @@ Class Resource {
 		return $this;
 	}
 
-	
-
 	public function insert(){
 		$tableData = $this->model();
 		$this->db->insert($this->table, $tableData);
@@ -104,14 +102,25 @@ Class Resource {
 		$id = $this->{$this->primary_key};
 		$table = $this->table;
 		try {
-			$this->db->delete($table, "{$this->primary_key} = {$id}");
-			return $this;
+			return $this->db->delete($table, "{$this->primary_key} = {$id}");
 		} catch(Exception $e){
 			throw new Exception("Delete Failed: ".$e->getMessage());
 		}
 	}
-	public function add(){
-		$id = $this->{$this}
+
+	public function update($settings){
+		unset($settings[$this->primary_key]);
+		foreach($settings as $property=>$value){
+			$this->{$property} = $value;
+		}
+
+		try {
+			$where = $this->primary_key.' = '.$this->{$this->primary_key};
+			return $this->db->update($this->table, $this->model(), $where);
+		} catch(Exception $e){
+			throw new Exception("Update Failed: ".$e->getMessage());
+		}
+
 	}
 	
 

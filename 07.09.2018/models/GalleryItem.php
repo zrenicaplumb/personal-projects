@@ -12,7 +12,6 @@ Class GalleryItem extends Resource{
 				<p class='gallery-text'>".$this->title."</p>
 				<button class='delete-btn'>Delete</button>
 			</div>";
-
 	}
 
 }

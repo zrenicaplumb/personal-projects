@@ -5,6 +5,7 @@ Class ResourceController {
 	static function findById($id){
 		$class = static::$class;
 		$table = static::$table;
+		error_object($table);
 		$primary_key = static::$primary_key;
 		$db = new DB();
 		$result = $db->query("SELECT * FROM {$table} WHERE {$primary_key} = {$id}");
@@ -55,7 +56,7 @@ Class ResourceController {
 	static function create($data, $files){
 		$class = static::$class;
 		$resource = new $class($data);
-
+		
 		if(!empty($files)){
 			$file_name = $resource->uploadFile($files['image']);
 		}
@@ -70,11 +71,12 @@ Class ResourceController {
 		$resource->delete();
 		return $resource;
 	}
-	static function add($data){
-		$resource = self::findById($data['id']);
-		$resource->add();
-		return $resource;
-	}
+	// static function add($id){
+	// 	$resource = self::findById($id);
+	// 	$resource->insert();
+	// 	return $resource;
+		
+	// }
 
 	
 

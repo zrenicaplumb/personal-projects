@@ -34,7 +34,21 @@ Class DB {
 		}
 	}
 	public function update($table, $data, $where){
-
+		$sql = "UPDATE $table SET ";
+		foreach($data as $property=>$value){
+			$sql.= "{$property}='{$value}', ";
+		}
+		$sql = rtrim($sql, ", ");
+		$sql.= (" WHERE ".$where);
+		try {
+			$result = $this->db->query($sql);
+			if (!$result) {
+				throw new Exception($this->db->error);
+			}
+			return $result;
+		} catch (Exception $e){
+			throw new Exception($e->getMessage());
+		}
 	}
 	public function delete($table, $where){
 		try {

@@ -25,10 +25,10 @@ require_once('config.php');
 					<div class="gallery-background">
 						
 						<?php
-							
+						
 
 						StoreItemController::storeDetails();
-
+						
 							
 						 ?>
 			

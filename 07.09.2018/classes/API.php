@@ -11,6 +11,7 @@
 			$this->method = $method;
 			$this->params = $params;
 			$this->files = $files;
+			error_log($this->method);
 		}
 		public function call(){
 			if(method_exists($this, $this->method)){
@@ -62,6 +63,38 @@
 			$result = $Calculator->calculate($params['num1'], $params['num2'], $params['operation']);
 			return $result;
 		}
+
+		/* GET REQUESTS **/
+
+		public function getMusic($params, $files){
+			$musics =  MusicController::findAll();
+			$output = array_map(function($music){
+				return $music->model();
+			}, $musics);
+			return $output;
+		}
+
+
+		/* Update Requests **/
+		public function updateMusic($params, $files){
+			$id = $params['id'];
+			$settings = $params['settings'];
+			$music = MusicController::findById($id);
+			return $music->update($settings);
+		}
+
+		/* DELETE REQUESTS */
+		public function deleteMusic($params){
+			$id = $params['id'];
+			$music = MusicController::findById($id);
+			return $music->delete();
+
+		}
+
+		
+
+		/* CREATE REQUESTS */
+
 		public function createGalleryItem($params, $files){
 			return GalleryController::create($params, $files);
 		}
@@ -81,6 +114,12 @@
 			return CartItemController::delete($params['id']);
 		}
 		public function addCartItem($params, $files){
-			return StoreItemController::add($params);
+			return CartItemController::addCartItem($params);
 		}
+
+
+
+
+
+
 	}
