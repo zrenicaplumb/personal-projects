@@ -14,12 +14,12 @@
 <body>
 	<div class="top-bar">
 		<div class="container">
-			<div class="topbar-left">
+			<div class="top-bar-left">
 				<a href="index.php">
-					<img src="logo.jpg" id="logo">
+					<img src="../img/fakelogo.png" id="logo">
 				</a>
 			</div>
-			<div class="topbar-right">
+			<div class="top-bar-right">
 				<nav>
 					<ul>
 						<li class="nav-item">
@@ -49,9 +49,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-6">
-					<h1>Intro heading woohoo</h1>
-					<h4>Interesting text, yayyyy</h4>
-					<a href="#" class="btn">Get Started</a>
+					<h1>Intro heading </h1>
+					<br>
+					<h4>Interesting text </h4>
+					<br>
+					<br>
+					<a href="#" class="btn header-btn">Get Started</a>
 				</div>
 			</div>
 		</div>
@@ -59,7 +62,7 @@
 	<main class="main-content">
 
 		<!-- section with row of icons -->
-		<section class="section">
+		<section class="section section-one">
 			<div class="container">
 				<div class="section-header">
 					<small>Lorem Ipsum</small>
@@ -113,26 +116,27 @@
 		</section>
 
 		<!-- section with background image -->
-		<section class="section">
+		<section class="section section-two">
 			<div class="container">
-				<h5>LORE IPSUM LOREM IPSUM LOREM LOREM IPSUM <strong>IPSUM?</strong></h5>
+				<h5 class="text-white">What does it take to make your brand 
+					<strong>standout?</strong></h5>
 				<p>
-					<a href="#">Click me</a>
+					<a href="#" class="btn btn-lg">Click me</a>
 				</p>
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section section-three">
 			<div class="container">
 				<div class="section-header">
-					<small>Lorem Ipsum</small>
-					<h2>Heading</h2>
+					<small>FEATURES</small>
+					<h2>Your PR Toolkit</h2>
 					<hr>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p class="lead">Six new tools built specifically for public relations professionals.</p>
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
+						<img src="https://picsum.photos/450/400/?random" alt="gif">
 					</div>
 					<div class="col-xs-12 col-md-7">
 						<h4>Smart Pitch</h4>
@@ -140,6 +144,7 @@
 						<a href="#">Learn More</a>
 					</div>
 				</div>
+				<hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-7">
 						<h4>Smart Pitch</h4>
@@ -147,32 +152,13 @@
 						<a href="#">Learn More</a>
 					</div>
 					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
+						<img src="https://picsum.photos/450/400/?random"" alt="gif">
 					</div>
 				</div>
+				<hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
-					</div>
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
+						<img src="https://picsum.photos/450/400/?random"" alt="gif">
 					</div>
 					<div class="col-xs-12 col-md-7">
 						<h4>Smart Pitch</h4>
@@ -180,6 +166,7 @@
 						<a href="#">Learn More</a>
 					</div>
 				</div>
+				<hr>
 				<div class="row">
 					<div class="col-xs-12 col-md-7">
 						<h4>Smart Pitch</h4>
@@ -187,14 +174,36 @@
 						<a href="#">Learn More</a>
 					</div>
 					<div class="col-xs-12 col-md-5">
-						<img src="" alt="gif">
+						<img src="https://picsum.photos/450/400/?random"" alt="gif">
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-12 col-md-5">
+						<img src="https://picsum.photos/450/400/?random"" alt="gif">
+					</div>
+					<div class="col-xs-12 col-md-7">
+						<h4>Smart Pitch</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<a href="#">Learn More</a>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-12 col-md-7">
+						<h4>Smart Pitch</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						<a href="#">Learn More</a>
+					</div>
+					<div class="col-xs-12 col-md-5">
+						<img src="https://picsum.photos/450/400/?random"" alt="gif">
 					</div>
 				</div>
 
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section section-three">
 			<div class="container">
 				<h3><strong>Join</strong> thousands of companies that use Aptivada globally</h3>
 				<div class="carousel">
