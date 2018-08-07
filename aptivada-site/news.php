@@ -34,48 +34,7 @@
 					<hr>
 					<p>We build smart products for brand communications which convert to increased visibility, better relationships and more sales.</p>
 				</div>
-				<div class="row">
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</section>
 

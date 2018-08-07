@@ -22,7 +22,7 @@ ul li {
     /* top: 100%; */
     left: 0;
     right: 0;
-    top: 80px;
+    top: 110px;
     background-color: rgba(0, 0, 0, 0.85);
     padding-left: 10px;
     line-height: 2.4;
@@ -32,8 +32,8 @@ ul li {
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05);
     border-radius: 2px;
-    /*opacity: 0;
-    visibility: hidden;*/
+    opacity: 0;
+    visibility: hidden;
     -webkit-transform: translate(0, 10px);
     transform: translate(0, 10px);
     -webkit-transition: .5s;
@@ -41,7 +41,9 @@ ul li {
     z-index: 1;
 }
 .show{
-	display: initial;
+	opacity: 1;
+    visibility: visible;
+    top: 80px;
 }
 .top-bar{
 	background-color: transparent;
@@ -74,7 +76,7 @@ ul li {
     font-size: 12px;
 }
 .top-bar .sign-in-btn{
-color: #fff;
+
     font-size: 12px;
     border-color: #0facf3;
     font-weight: 600;
