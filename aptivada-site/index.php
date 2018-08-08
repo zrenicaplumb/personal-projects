@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-6">
-					<h1>Intro heading </h1>
+					<h1>Contesting done differently</h1>
 					<br>
 					<h4>Interesting text </h4>
 					<br>

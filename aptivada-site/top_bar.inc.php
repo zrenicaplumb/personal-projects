@@ -8,7 +8,7 @@
 				<nav>
 					<ul>
 						<li class="nav-item nav-item-1">
-							<a href="">PRODUCTS<i class="fa fa-caret-down"></i></a>
+							<a href="#">PRODUCTS<i class="fa fa-caret-down"></i></a>
 							<div class="nav-submenu">
 								<div class="product-container">
 									<div>

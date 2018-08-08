@@ -9,18 +9,11 @@
 		<?php require_once('top_bar.inc.php'); ?>
 	</div>
 
-	<header>
+	<header class="about-header">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-md-6">
-					<h1>Intro heading </h1>
-					<br>
-					<h4>Interesting text </h4>
-					<br>
-					<br>
-					<a href="#" class="btn header-btn">Get Started</a>
-				</div>
-			</div>
+			<h1>Aptivada News</h1>
+					
+					<p>Our very own Newsboard where we share all our latest news and updates. </p>
 		</div>
 	</header>
 	<main class="main-content">
@@ -29,66 +22,17 @@
 		<section class="section section-one">
 			<div class="container">
 				<div class="section-header">
-					<small>PRODUCTS</small>
-					<h2>Everything you need to stand out</h2>
-					<hr>
-					<p>We build smart products for brand communications which convert to increased visibility, better relationships and more sales.</p>
+					
 				</div>
 				<div class="row">
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-3">
-						<div class="card">
-							<a class="card-block">
-								<p>
-									<i>Icon goes here</i>
-								</p>
-								<h5 class="card-title">Icon title</h5>
-							</a>
-						</div>
-					</div>
+					
+					
 				</div>
 			</div>
 		</section>
 
 		<!-- section with background image -->
-		<section class="section section-two">
-			<div class="container">
-				<h5 class="text-white">What does it take to make your brand 
-					<strong>standout?</strong></h5>
-				<p>
-					<a href="#" class="btn btn-lg">Click me</a>
-				</p>
-			</div>
-		</section>
+		
 
 		<section class="section section-three">
 			<div class="container">
