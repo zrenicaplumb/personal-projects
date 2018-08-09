@@ -113,8 +113,9 @@
 		public function deleteCartItem($params, $files){
 			return CartItemController::delete($params['id']);
 		}
-		public function addCartItem($params, $files){
+		public function addCartItem($params){
 			return CartItemController::addCartItem($params);
+			error_object($params);
 		}
 
 

@@ -11,13 +11,16 @@
 
 	public static function addCartItem($data){
 		$store_item_id = $data['id'];
+		
+		
 		$storeItem = static::getStoreItem($store_item_id);
-
+	
+		
 		/*
 
 		*/
 
-		$cart_item = parent::create($data);
+		$cart_item = parent::createCartItem($storeItem);
 		$cart_item->insert();
 	}
 	public static function getStoreItem($store_item_id){

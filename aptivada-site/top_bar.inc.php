@@ -1,7 +1,7 @@
 <div class="container">
 			<div class="top-bar-left">
 				<a href="index.php">
-					<img src="img/logo.png" id="logo">
+					<img src="img/optimized/A-White.png" id="logo">
 				</a>
 			</div>
 			<div class="top-bar-right">
@@ -59,6 +59,9 @@
 						
 						
 					</ul>
+					<div class="sign-in-wrap">
+						<a class="sign-in-btn btn " href="signin.php" >REQUEST A DEMO</a>
+					</div>
 					<div class="sign-in-wrap">
 						<a class="sign-in-btn btn " href="signin.php" >SIGN IN</a>
 					</div>

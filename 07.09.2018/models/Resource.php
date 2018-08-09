@@ -51,9 +51,10 @@ Class Resource {
 	}
 
 	public function uploadFile($file){
+
 		$path = 'img/';
 		
-
+		
 		if(!$file || !$file['tmp_name']){
 			throw new Exception("File is Required");
 		}

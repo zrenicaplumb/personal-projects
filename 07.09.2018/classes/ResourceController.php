@@ -53,16 +53,24 @@ Class ResourceController {
 			return null;
 		}
 	}
+	static function createCartItem($data){
+		$class = static::$class;
+		$resource = new $class($data);
+		$file_name = $data['image'];
+
+		$resource->image = $file_name;
+		return $resource->create();
+	}
+
 	static function create($data, $files){
 		$class = static::$class;
 		$resource = new $class($data);
-		
+		error_object($class);
 		if(!empty($files)){
 			$file_name = $resource->uploadFile($files['image']);
+
 		}
-
 		$resource->image = $file_name;
-
 		return $resource->create();
 	}
 

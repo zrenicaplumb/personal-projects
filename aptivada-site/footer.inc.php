@@ -9,6 +9,7 @@
 						<li class="nav-link">
 							<a href="">Terms</a>
 						</li>
+						
 						<li class="nav-link">
 							<a href="">Privacy Policy</a>
 						</li>
@@ -19,8 +20,6 @@
 							<div class="social">
 								<a href="">
 									<i class="fa fa-facebook-f"></i>
-
-
 								</a>
 								<a href="">
 									<i class="fa fa-twitter"></i>
