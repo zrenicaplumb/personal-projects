@@ -1,0 +1,12 @@
+body{
+	background-color: rgb(46,48,53);
+}
+form {
+    margin: auto;
+    display: flex;
+    flex-flow: column wrap;
+}
+form input{
+	display: inline-block;
+	margin: 10px 0;
+}

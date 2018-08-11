@@ -11,7 +11,6 @@ Class DB {
 			echo $e->getMessage();
 			exit();
 		}
-		 
 	}
 	public function insert($table, $data){
 		$sql = "INSERT INTO $table ( ";

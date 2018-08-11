@@ -15,13 +15,11 @@
 							'</div>'+
 							'<button class="deleteMusicBtn">Delete</button>'+
 						'</div>');
-
  		if(this.element){
  			this.element = element.replaceAll(this.element);
  		} else {
  			this.element = element.appendTo(this.wrapper);
  		}
-
  		this.listeners();
  	},
  	listeners:function(){
