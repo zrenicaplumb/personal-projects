@@ -17,7 +17,10 @@ $(document).ready(function(){
 			$('#products').scrollView();
 
 		});
-
+	if (window.location.pathname === 'personal-projects/aptivada-site/news.php')
+	{
+	    alert('hello');
+	}
 
 	$(window).scroll(function(){
 	    if ($(window).scrollTop() >= 15) {
@@ -74,5 +77,14 @@ $(document).ready(function(){
 		    }, 1000);
 		});
 	}
+	
+	$('.carousel').slick({
+	  slidesToShow: 4,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 1500,
+	  arrows:false,
+	});
+	
 
 });

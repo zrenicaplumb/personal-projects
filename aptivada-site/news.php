@@ -15,6 +15,7 @@
 					<h1>Aptivada News</h1>
 					
 					<p>Our very own Newsboard where we share all our latest news and updates. </p>
+
 					
 				
 		</div>
@@ -24,9 +25,7 @@
 		<!-- section with row of icons -->
 		<section class="section section-one">
 			<div class="container">
-				<div class="row">
-					
-				</div>
+				
 				<div class="section-header">
 					
 				</div>

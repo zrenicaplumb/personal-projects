@@ -13,114 +13,34 @@
 		<div class="container">
 			<h1>Aptivada News</h1>
 					
-					<p>Our very own Newsboard where we share all our latest news and updates. </p>
+					
 		</div>
 	</header>
-	<main class="main-content">
+	<main class="main-content about-content">
 
 		<!-- section with row of icons -->
 		<section class="section section-one">
 			<div class="container">
 				<div class="section-header">
-					
+					<h2>Purpose</h2>
+					<p>Digital products and revenue have become increasingly important to our clients in the media industry. Traditional media is in a unique position to capitalize on this market shift. Our clients have found that partnering with our team gives them the engagement and monetization tools necessary to meet these challenges & opportunities head on.
+
+					</p><h2>Why Choose Aptivada?</h2>	<p>
+					Aptivada works with over a thousand of the top TV & Radio stations in the country. We have set
+					ourselves apart from other vendors in this space by creating an extremely easy to use platform that includes the most important digital products all under one roof. This platform, coupled with our industry leading consulting and support, has given us the opportunity to work with many of the largest names in this industry. We know what works and what doesn’t. Below, we have listed our current offering of products and services and explained many of the features and advantages of each.
+					</p>
+
 				</div>
-				<div class="row">
-					
-					
-				</div>
+				
 			</div>
 		</section>
 
 		<!-- section with background image -->
 		
 
-		<section class="section section-three">
-			<div class="container">
-				<div class="section-header">
-					<small>FEATURES</small>
-					<h2>Your PR Toolkit</h2>
-					<hr>
-					<p class="lead">Six new tools built specifically for public relations professionals.</p>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random" alt="gif">
-					</div>
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random"" alt="gif">
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random"" alt="gif">
-					</div>
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random"" alt="gif">
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random"" alt="gif">
-					</div>
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-xs-12 col-md-7">
-						<h4>Smart Pitch</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						<a href="#">Learn More</a>
-					</div>
-					<div class="col-xs-12 col-md-5">
-						<img src="https://picsum.photos/450/400/?random"" alt="gif">
-					</div>
-				</div>
+		
 
-			</div>
-		</section>
-
-		<section class="section section-three">
-			<div class="container">
-				<h3><strong>Join</strong> thousands of media companies that use Aptivada.</h3>
-				<div class="carousel">
-					<div class="carousel-wrap">
-						
-					</div>
-				</div>
-			</div>
-		</section>
+		
 	</main>
 	<footer>
 		<?php require_once('footer.inc.php'); ?>
