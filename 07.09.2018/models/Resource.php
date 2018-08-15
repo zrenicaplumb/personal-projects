@@ -75,7 +75,7 @@ Class Resource {
 
 		return $image;
 	}
-
+	
 	public function getColumns(){
 		$columns = [];
 		$result = $this->db->query("DESCRIBE ".$this->table)->fetch_all();

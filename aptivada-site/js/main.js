@@ -17,11 +17,7 @@ $(document).ready(function(){
 			$('#products').scrollView();
 
 		});
-	if (window.location.pathname === 'personal-projects/aptivada-site/news.php')
-	{
-	    alert('hello');
-	}
-
+	
 	$(window).scroll(function(){
 	    if ($(window).scrollTop() >= 15) {
 	        $('.top-bar').addClass('position-fixed');
@@ -34,7 +30,9 @@ $(document).ready(function(){
 	         });
 	         $('#logo').attr('src', 'img/A_Black.png');
 	         $('#logo2').attr('src', 'img/A_Black.png');
-	       
+	       	$('.top-bar .ham-menu-white div').css({
+	       		'background':'black'
+	       	});
 	    }
 
 	    else {
@@ -48,6 +46,9 @@ $(document).ready(function(){
 	         });
 	        $('#logo').attr('src', 'img/A_White2.png');
 	        $('#logo2').attr('src', 'img/A_White2.png');
+	        	$('.top-bar .ham-menu-white div').css({
+	       		'background':'#fff'
+	       	});
 	    }
 
 	});
@@ -69,22 +70,58 @@ $(document).ready(function(){
 		});
 	});
 
-
 	$.fn.scrollView = function () {
+
 	  	return this.each(function () {
+
 		    $('html, body').animate({
+
 		      	scrollTop: $(this).offset().top
+		      	
 		    }, 1000);
 		});
 	}
-	
-	$('.carousel').slick({
-	  slidesToShow: 4,
-	  slidesToScroll: 1,
-	  autoplay: true,
-	  autoplaySpeed: 1500,
-	  arrows:false,
-	});
-	
 
+	updateContainer();
+
+    $(window).on('resize', function() {
+
+        updateContainer();
+
+    });
+
+	function updateContainer(){
+
+		try {
+			$('.carousel').slick('destroy');
+		} catch(e){
+			
+		}
+
+		var win = window.innerWidth;
+
+		switch(true){
+			case win > 990:
+				var slides = 4;
+				break;
+			case win <= 990 && win > 760:
+				var slides = 3;
+				break;
+			case win <= 760 && win > 560:
+				var slides = 2;
+				break;
+			case win <= 560:
+				var slides = 1;
+				break;
+		}
+
+		$('.carousel').slick({
+		  	slidesToShow: slides,
+		  	slidesToScroll: 1,
+		  	autoplay: true,
+		  	autoplaySpeed: 1500,
+		  	arrows:false,
+		});
+		
+	}
 });

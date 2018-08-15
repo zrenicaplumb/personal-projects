@@ -79,108 +79,17 @@ and engage your digital audience.</h2>
 					</div>
 					<div class="icon">
 						<a href="">
-							<i class="fa fa-chart-pie fa-2x"></i>
+							<i class="fa fa-server fa-2x"></i>
 								<p>Userbase</p>
 						</a>
 					</div>
 					<div class="icon">
 						<a href="">
-							<i class="fa fa-chart-line fa-2x"></i>
+							<i class="fa fa-window-restore fa-2x"></i>
 								<p>Reporting</p>
 						</a>
 					</div>
 				</div>
-
-				
-
-				<!-- 
-					<div class="icon-wrap">
-						<div class="row">
-						<div class="icon-box">
-							<a href="sweepstakes.php">
-								<i class="fa fa-ticket fa-2x"></i>
-								<p>sweepstakes</p>
-							</a>
-						</div>
-					
-				
-						<div class="icon-box">
-							<a href="galleries.php">
-								
-								<i class="fa fa-camera fa-2x"></i>
-								<p>Galleries</p>
-							</a>
-						</div>
-					
-					
-						<div class="icon-box">
-							<a href="surveys.php">
-								<i class="fa fa-list-ol fa-2x"></i>
-								<p>Surveys + Polls</p>
-							</a>
-						</div>
-					
-				
-						<div class="icon-box">
-							<a href="quizzes.php">
-								<i class="fa fa-list-ul fa-2x"></i>
-								<p>Quizzes</p>
-							</a>
-						</div>
-				
-					
-						<div class="icon-box">
-							<a href="sports.php">
-								<i class="fa fa-desktop fa-2x"></i>
-								<p>Sports</p>
-							</a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="icon-box">
-							<a href="templates.php">
-								<i class="fa fa-file fa-2x"></i>
-								<p>Templates</p>
-							</a>
-						</div>
-				
-			
-						<div class="icon-box">
-							<a href="syndication.php">
-								<i class="fa fa-users fa-2x"></i>
-								<p>Syndication</p>
-							</a>
-						</div>
-				
-					
-						<div class="icon-box">
-							<a href="emails.php">
-								<i class="fa fa-envelope fa-2x"></i>	
-								<p>Newsletters</p>
-								
-							</a>
-						</div>
-			
-					
-						<div class="icon-box">
-							<a href="userbase.php">
-								<i class="fa fa-envelope fa-2x"></i>
-								<p>Userbase</p>
-							</a>
-						</div>
-					
-					
-						<div class="icon-box">
-							<a href="metrics.php">
-								<i class="fa fa-envelope fa-2x"></i>
-								<p>Reporting</p>
-								
-							</a>
-						</div>
-
-					</div> -->
-					
-				
 			
 		</section>
 
@@ -322,43 +231,45 @@ and engage your digital audience.</h2>
 		</section>
 
 		<section class="section slider-section">
-			<div class="container">
-				<h3><strong>Join</strong> hundreds of companies that use Aptivada </h3>
-				<div class="carousel">
-					
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/alphamedia.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/bonn.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/iheartradioLogo.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/salem-media-group.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/Fox_logo.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/MediaGeneral.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/Meredith.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/NBC.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/nexstar.png">
-					</div>
-					<div class="swiper-slide">
-						<img src="img/optimized/brandlogos/tegna.png">
-					</div>
-					
+		
+			<h3><strong>Join</strong> hundreds of companies that use Aptivada </h3>
+			<div class="carousel">
+				
+				<div class="swiper-slide">
+					<img src="img/alphamedia.png" class="alpha-media">
 				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/bonn.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/iheartradioLogo.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/salem-media-group.png">
+				</div>
+
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/Fox_logo.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/MediaGeneral.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/tegna.png" class="tegna">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/Meredith.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/NBC.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/nexstar.png">
+				</div>
+				
+				
 			</div>
+		
 		</section>
 		<section class="section section-four">
 			<div class="container">

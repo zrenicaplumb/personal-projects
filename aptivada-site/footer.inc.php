@@ -16,7 +16,7 @@
 				<li class="nav-link">
 					<a href="">About</a>
 				</li>
-				<li class="col-xs-12 col-lg-3">
+				<li class="col-3 col-lg-3 ">
 					<div class="social">
 						<a href="">
 							<i class="fa fa-facebook-f"></i>
@@ -29,6 +29,7 @@
 						</a>
 					</div>
 				</li>
+				
 			</ul>
 		</div>
 	</div>

@@ -11,6 +11,6 @@
 <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/main.js" type="text/javascript"></script>

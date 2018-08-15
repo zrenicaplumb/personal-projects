@@ -58,8 +58,17 @@ Class DB {
 		}
 	}
 	
-	public function select($table, $where){
-		
+	public function selectAll($table){
+		$sql = "SELECT * FROM $table";
+		try {
+			$result = $this->db->query($sql);
+			if (!$result) {
+				throw new Exception($this->db->error);
+			}
+			return $result;
+		} catch (Exception $e){
+			throw new Exception($e->getMessage());
+		}
 	}
 	
 }

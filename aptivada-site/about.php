@@ -11,7 +11,7 @@
 
 	<header class="about-header">
 		<div class="container">
-			<h1>Aptivada News</h1>
+			<h1>About Us</h1>
 					
 					
 		</div>
