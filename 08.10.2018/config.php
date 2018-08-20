@@ -6,3 +6,4 @@ function error_object($data){
 	error_log(print_r($data, true));
 }
 require_once('models/DB.php');
+require_once('classes/API.php');

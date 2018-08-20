@@ -6,7 +6,7 @@
  		return music;
  	},
  	render:function(){
- 		console.log('rendering');
+ 		
  		var element = $('<div class="col-xs-12 col-sm-4 col-md-3">'+
 							'<div>'+
 								"Name: "+this.title+"<br/>"+
@@ -23,14 +23,16 @@
  		this.listeners();
  	},
  	listeners:function(){
+		
  		var music = this;
- 		
+		 
  		this.element.find('img').on('click', function(){
+			
  			music.showDetails();
  		});
 
  		this.element.find('input[name="title"]').on('change', function(){
- 			console.log( $(this).val());
+ 			// console.log( $(this).val());
  			var title = $(this).val();
  			music.update({title: title});
  		});
