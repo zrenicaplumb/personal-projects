@@ -97,9 +97,7 @@ $(document).ready(function(){
 		} catch(e){
 			
 		}
-
 		var win = window.innerWidth;
-
 		switch(true){
 			case win > 990:
 				var slides = 4;
@@ -114,14 +112,34 @@ $(document).ready(function(){
 				var slides = 1;
 				break;
 		}
-
 		$('.carousel').slick({
 		  	slidesToShow: slides,
 		  	slidesToScroll: 1,
 		  	autoplay: true,
-		  	autoplaySpeed: 1500,
-		  	arrows:false,
+			arrows:false,  
 		});
+	}
+	// $('.underline').slick({
+	// 	arrows:false,
+	// 	infinite: true,
+	// 	autoplaySpeed: 1500,
+	// 	fade: true,
+	// 	cssEase: 'linear',
+	// 	autoplay: true,
+	// 	speed:200,
+	//   });
+	var words = ['CONTESTING','PHILOSOPHIZING','EATING','SLEEPING','SWIMMING'];
+	var index = 0;
+	$('.underline').css({
+		'transition': 'all 1s linear'
+	})
+	function rotate() {
+		$('.underline').html(words[(index++) % (words.length)]);
 		
 	}
+	setInterval(rotate, 2000);
+	
+	
+	
+	
 });

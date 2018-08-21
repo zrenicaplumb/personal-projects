@@ -3,17 +3,21 @@
 				<a href="index.php">
 					<img src="img/optimized/A_White2.png" id="logo">
 				</a>
-				<div class="ham-menu-white hamburger-menu">
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
+				<a class="hamburger-menu">
+					<div class="ham-menu-white">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</a>
 				<!-- <img src="img/hamburger.png" alt="hamburger-menu" class="hamburger-menu"> -->
 				<div class="slide-menu-shadow">
 					
 				</div>
+				
 				<div class="slide-out-menu">
-					<ul>
+		
+				<ul>
 						<li class="nav-item-1">
 							<a href="index.php#products">PRODUCTS</a>
 						</li>
@@ -47,11 +51,10 @@
 						<li class="nav-item">
 							<a href="about.php">ABOUT</a>
 						</li>
-						
-						
+					
 					</ul>
 					<div class="sign-in-wrap">
-						<a class="sign-in-btn btn " href="signin.php" >REQUEST A DEMO</a>
+						<a class="sign-in-btn btn " href="#" >REQUEST A DEMO</a>
 					</div>
 					<div class="sign-in-wrap">
 						<a class="sign-in-btn btn " href="https://www.aptivada.com/dashboard" >SIGN IN</a>

@@ -122,10 +122,10 @@ color: #fff;
 .top-bar .ham-menu-white div{
         
     background: #fff;
-    margin: 6px 0px;
+    margin: 8px 0px;
     width: 43px;
     height: 5px;
-  
+    
     
 }
 
@@ -208,8 +208,12 @@ header h1{
     font-weight: 1600;
 
 }
+.heading-wrap{
+    display: inline;
+}
 .underline{
     border-bottom: 2px solid #fff;
+  
 
 }
 header h4{
@@ -416,6 +420,7 @@ strong{
     font-weight: 100;
 
 }
+
 .carousel{
     margin:100px 0;
 }
@@ -423,14 +428,18 @@ strong{
     max-width: 100px;
     margin: auto;
     height: 20px;
-    zoom:240%;
+    transform: scale(2);
     line-height: 1.5rem;
 }
 img.alpha-media{
-    zoom:350%;
+    transform: scale(3);
 }
+.slick-list{
+    overflow: initial;
+}
+
 img.tegna{
-    zoom:180%;
+    transform: scale(1);
 }
 .section-four{
     background: linear-gradient(to right, rgba(71,191,231), rgba(104,184,84));
@@ -460,7 +469,8 @@ footer a{
 footer .nav-link{
 	
 	line-height: normal;
-	padding: 0;
+    /* padding: 0;
+    -webkit-padding: .5rem 1rem; */
 }
 footer .social{
 	display: flex;
@@ -469,7 +479,10 @@ footer .social{
     @media screen and (max-width: 1199px){
 
 header h1{
-	font-size: 2rem;
+    font-size: 2rem;
+    
+        text-align: left;
+    
 }
 header h4{
 	 font-size: 1.25rem;
@@ -483,7 +496,9 @@ p.lead{
         
 }
   @media screen and (max-width: 991px){
-
+    .heading-wrap{
+        display: block;
+    }
     }
 @media screen and (max-width: 767px){
     .section-header{
@@ -492,12 +507,17 @@ p.lead{
     .top-bar .ham-menu-white{
         display: initial;
 }
-header h1{
-    text-align: left;
+.slide-out-menu{
+    margin-left:-20px;
+    width: 250px;
 }
+
 
 .color{
     margin: 10px;
+}
+hr{
+    background:black;
 }
 .header-text-break{
     display: block;
@@ -508,9 +528,14 @@ header h1{
 /*.show-slide-menu{
      left: 0;
 }*/
+.section-three h4{
+    padding: 10px 0;
+}
 .hamburger-menu{
     display: inline-block;
     cursor: pointer;
+    margin-top: 10px;
+    
 }
 .slide-menu-shadow{
     background-color: rgba(0,0,0,0.7);
@@ -529,24 +554,31 @@ header h1{
 #logo2{
     display: initial;
     width: 80px;
+    position: relative;
+right: -15px;
 }
 .icon{
    
      width: 32%; 
    
 }
+img.alpha-media{
+    transform: scale(4);
+}
 footer{
     text-align: center;
 }
 @media screen and (max-width: 455px){
+    .slide-out-menu{
+      
+        width: 200px;
+    }
 .icon{
    
      width: 45%; 
    
 }
-.carousel img{
-    zoom:320%;
-}
+
 }
 
 }
