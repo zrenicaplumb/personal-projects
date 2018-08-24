@@ -12,9 +12,6 @@
 			$this->files = $files;
 		}
 		public function call(){
-
-		}
-		public function getStoreItem(){
 			if(method_exists($this, $this->method)){
 				try{
 					return $this->{$this->method}($this->params, $this->files);
@@ -24,7 +21,9 @@
 			}else{
 				throw new Exception("Method ".$this->method."Doesn't exist");
 			}
-			
+		}
+		public function createStoreItem($params, $files){
+			return StoreItemController::create($params, $files);
 		}
 		public function output($data){
 			echo json_encode([

@@ -40,7 +40,7 @@
 				init:function(){
 					$.ajax({
 						url:'api.php',
-						data: {method: 'getStoreItem'},
+						data: {method: 'createStoreItem'},
 						dataType:'json',
 						success: function(result){
 							if(result.status == 'success'){
