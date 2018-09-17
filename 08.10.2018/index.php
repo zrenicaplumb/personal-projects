@@ -21,12 +21,11 @@
 				
 			</div>
 			<div class="row">
-				<form method="post" action="api.php" enctype="multipart/form-data" class="store-item">
+				<form method="post" action="api.php" enctype="multipart/form-data" class="store-item-form">
 					<input type="text" name="title">
-					<input type="text" name="location">
 					<input type="file" name="cover_image">
 					<input type="hidden" name="method" value="createStoreItem">
-					<a href="" class="btn" type="submit" name="new-meeting-submit">Upload</a>
+					<a href="" class="btn" type="submit" name="itemSubmit">Upload</a>
 				</form>
 			</div>
 		</div>
@@ -50,7 +49,7 @@
 							}
 						}
 					});
-					$('.store-item').ajaxSubmit(function(result){
+					$('.store-item-form').ajaxSubmit(function(result){
 						if(result.status == 'success'){
 							var storeItem = storeItem.init(result.data);
 							formPage.items.push(storeItem);
@@ -58,12 +57,13 @@
 		                    } else {
 		                    	alert(result.message);
 		                    }
-						}
-					});
+						});
+					}
 				}
-			}
+			
 			formPage.init();
 		});
 	</script>
+	
 </body>
 </html>

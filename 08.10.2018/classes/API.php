@@ -25,6 +25,12 @@
 		public function createStoreItem($params, $files){
 			return StoreItemController::create($params, $files);
 		}
+		public function updateStoreItem($params, $files){
+			$id = $params['id'];
+			$settings = $params['settings'];
+			$music = MusicController::findById($id);
+			return $music->update($settings);
+		}
 		public function output($data){
 			echo json_encode([
 				'status'=>'success',
