@@ -35,44 +35,48 @@ var StoreItem = {
             var title = $(this).val();
             storeItem.update({title:title});
         });
+
+        this.element.find('.deleteStoreItem').on('click',function(){
+            storeItem.delete();
+        });
     },
     delete:function(){
         var storeItem = this;
         $.ajax({
             url: 'api.php',
-            data: {method: 'deleteMusic', id: this.id},
+            data: {method: 'deleteStoreItem', id: this.id},
             dataType: 'json',
             success:function(result){
                 console.log(result);
                 storeItem.element.remove();
             },
         });
-    },
-    showForm:function(){
-        var storeItemForm = $('.storeItemForm');
-        storeItemForm.show();
-    },
-    
-    update:function(){
-        var storeItem = this;
-        Object.assign(storeItem, settings);
-        $.ajax({
-            url: 'api.php',
-            data: {method: 'updateStoreItem', id: this.id, settings: settings},
-            dataType: 'json',
-            success:function(result){
-                console.log(result);
-                storeItem.render();
-            },
-        });
-    },
-    showDetails:function(){
-        var storeItem = this;
-        var detailsElement = "";
-        var properties = ['id','title','price','image'];
-        properties.forEach(function(prop){
-            detailsElement+=(prop+":"+storeItem[prop]);
-        });
-        alert(detailsElement);
     }
+    // showForm:function(){
+    //     var storeItemForm = $('.storeItemForm');
+    //     storeItemForm.show();
+    // },
+    
+    // update:function(){
+    //     var storeItem = this;
+    //     Object.assign(storeItem, settings);
+    //     $.ajax({
+    //         url: 'api.php',
+    //         data: {method: 'updateStoreItem', id: this.id, settings: settings},
+    //         dataType: 'json',
+    //         success:function(result){
+    //             console.log(result);
+    //             storeItem.render();
+    //         },
+    //     });
+    // },
+    // showDetails:function(){
+    //     var storeItem = this;
+    //     var detailsElement = "";
+    //     var properties = ['id','title','price','image'];
+    //     properties.forEach(function(prop){
+    //         detailsElement+=(prop+":"+storeItem[prop]);
+    //     });
+    //     alert(detailsElement);
+    // }
 }

@@ -57,9 +57,12 @@
             return $this;
         }
         public function insert(){
+            
             $tableData = $this->model();
+           
             $this->db->insert($this->table, $tableData);
             $this->{$this->primary_key} = $this->db->db->insert_id;
+            error_object($tableData);
             return $this;
         }
         public function getColumns(){

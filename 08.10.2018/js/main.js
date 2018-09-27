@@ -6,6 +6,7 @@ $.fn.ajaxSubmit = function(finishCallback, settings){
            console.log('submitting with iframe');
            var name = 'iframe_form_'+rand;
            var iframe = $('<iframe name="'+name+'" style="display:none;">').appendTo('body');
+                    
            $(this).attr("target", name);
            
            iframe.load(function(){
@@ -23,6 +24,7 @@ $.fn.ajaxSubmit = function(finishCallback, settings){
            e.preventDefault();
            var data = {};
            $(this).find('input, select, textarea, submit').each(function(){
+               
                var name = $(this).attr('name');
                if(name){
                    data[name] = $(this).val();

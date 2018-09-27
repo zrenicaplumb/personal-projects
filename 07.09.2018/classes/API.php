@@ -115,7 +115,7 @@
 		}
 		public function addCartItem($params){
 			return CartItemController::addCartItem($params);
-			error_object($params);
+			// error_object($params);
 		}
 
 

@@ -196,14 +196,16 @@ require_once('config.php');
 								console.log(result);
 								if(result.status == "success"){
 									result.data.forEach(function(music){
+										
 										Page.musics.push(Music.init(music) );
+										console.log(music);
 									});
 								} else {
 									alert("Something went wrong: "+result.message);
 								}
 							},
 						});
-
+	
 
 						$('.music-form').ajaxSubmit(function(result){
 							if(result.status == "success"){
@@ -234,7 +236,7 @@ require_once('config.php');
 
 				
 				Page.init();
-
+				
 			});
 			
 		</script>

@@ -1,9 +1,12 @@
  var Music = {
  	wrapper: $('.musicWrap'),
  	init:function(music){
- 		music = Object.assign(Object.create(this), music);
- 		music.render();
- 		return music;
+		 music = Object.assign(Object.create(this), music);
+		 console.log(music);
+		music.render();
+	
+		return music;
+		 
  	},
  	render:function(){
  		

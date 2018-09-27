@@ -10,6 +10,7 @@
 			$this->method = $method;
 			$this->params = $params;
 			$this->files = $files;
+			// error_object($files);
 		}
 		public function call(){
 			if(method_exists($this, $this->method)){
@@ -23,13 +24,23 @@
 			}
 		}
 		public function createStoreItem($params, $files){
+			// error_object($files);
 			return StoreItemController::create($params, $files);
 		}
+		
+		public function getStoreItems(){
+			return StoreItemController::findAll();
+		}
+
+		public function deleteStoreItem($params, $files){
+			return StoreItemController::delete($params['id']);
+		}
+		
 		public function updateStoreItem($params, $files){
 			$id = $params['id'];
 			$settings = $params['settings'];
-			$music = MusicController::findById($id);
-			return $music->update($settings);
+			$storeItem = StoreItemController::findById($id);
+			return $storeItem->update($settings);
 		}
 		public function output($data){
 			echo json_encode([

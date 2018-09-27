@@ -10,3 +10,7 @@ form input{
 	display: inline-block;
 	margin: 10px 0;
 }
+.item-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}

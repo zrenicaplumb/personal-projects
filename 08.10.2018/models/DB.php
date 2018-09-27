@@ -1,6 +1,6 @@
 <?php
 Class DB {
-	public function __construct($host="localhost", $username="will", $password="", $db_name="php_practice"){
+	public function __construct($host="localhost", $username="will", $password="password", $db_name="practice"){
 		 $this->db = new mysqli($host, $username, $password, $db_name);
 	}
 	public function query($sql){
@@ -21,6 +21,7 @@ Class DB {
 		
 		$values = implode("','", array_values($data));
 		$sql .= "'". $values. "'";
+		error_object($values);
 		$sql .= " ) ";
 
 		try {

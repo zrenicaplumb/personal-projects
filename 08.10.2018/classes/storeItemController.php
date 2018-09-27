@@ -1,7 +1,8 @@
 <?php 
     class StoreItemController extends ResourceController{
-        static $table = 'store_items';
-        static $primary_key = 'id';
-        static $class = "StoreItem";
-        public $requiredProperties = ['title','image'];
+        public static $table = 'store_items';
+        public static $primary_key = 'id';
+        public static $class = "StoreItem";
+        public $requiredProperties = ['title', 'image'];
+        
     }
