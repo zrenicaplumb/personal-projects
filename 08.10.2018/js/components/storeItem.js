@@ -28,7 +28,7 @@ var StoreItem = {
         var storeItem = this;
 
         this.element.find('img').on('click', function(){
-            storeItem.showForm();
+            storeItem.showDetails();
         });
 
         this.element.find('input[name="title"]').on('change', function(){
@@ -51,11 +51,8 @@ var StoreItem = {
                 storeItem.element.remove();
             },
         });
-    }
-    // showForm:function(){
-    //     var storeItemForm = $('.storeItemForm');
-    //     storeItemForm.show();
-    // },
+    },
+   
     
     // update:function(){
     //     var storeItem = this;
@@ -70,13 +67,13 @@ var StoreItem = {
     //         },
     //     });
     // },
-    // showDetails:function(){
-    //     var storeItem = this;
-    //     var detailsElement = "";
-    //     var properties = ['id','title','price','image'];
-    //     properties.forEach(function(prop){
-    //         detailsElement+=(prop+":"+storeItem[prop]);
-    //     });
-    //     alert(detailsElement);
-    // }
+    showDetails:function(){
+        var storeItem = this;
+        var detailsElement = "";
+        var properties = ['id','title','price','image'];
+        properties.forEach(function(prop){
+            detailsElement+=(prop+":"+storeItem[prop]);
+        });
+        alert(detailsElement);
+    }
 }

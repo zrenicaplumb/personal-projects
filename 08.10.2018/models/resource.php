@@ -1,16 +1,26 @@
 <?php
     class Resource
     {
-        public function __construct($item)
-        {
-            $this->db = new DB();
+        public function __construct($item){
+            $this->db = new Db();
+            
             if(is_array($item)){
+                //assume you've passed in a block of properties for this resource
                 foreach($item as $property=>$value){
                     $this->{$property} = $value;
                 }
-            }
-            else if(is_numeric($item)){
-                
+            } elseif(is_numeric($item)){
+                //assume you've passed in an id, and fetch the data from the db row
+                $sql = "SELECT * FROM {$this->table} WHERE {$this->primary_key} = $this->{$this->primary_key}";
+                error_log($sql);
+                $result = $this->db->query($sql);
+                if($result){
+                    foreach($result as $property=>$value){
+                        $this->{$property} = $value;
+                    }
+                }
+            } else {
+                //do nothing
             }
         }
         public function uploadFile($file){
@@ -56,6 +66,18 @@
             $this->insert();
             return $this;
         }
+
+        public function delete(){
+            $id = $this->{$this->primary_key};
+            $table = $this->table;
+            try {
+                return $this->db->delete($table, "{$this->primary_key} = {$id}");
+            } catch(Exception $e){
+                throw new Exception("Delete Failed: ".$e->getMessage());
+            }
+            
+        }
+
         public function insert(){
             
             $tableData = $this->model();

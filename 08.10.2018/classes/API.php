@@ -32,8 +32,10 @@
 			return StoreItemController::findAll();
 		}
 
-		public function deleteStoreItem($params, $files){
-			return StoreItemController::delete($params['id']);
+		public function deleteStoreItem($params){
+			$id = $params['id'];
+			$fetchedStoreItem = StoreItemController::findById($id);
+			return $fetchedStoreItem->delete();
 		}
 		
 		public function updateStoreItem($params, $files){

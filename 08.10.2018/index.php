@@ -57,7 +57,7 @@
 							if(result.status == 'success'){
 								result.data.forEach(function(storeItem){
 									Page.storeItemsArray.push(StoreItem.init(storeItem));
-									
+									console.log(storeItem);
 								});
 							}
 							else{
