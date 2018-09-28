@@ -1,7 +1,7 @@
 var StoreItem = {
     itemWrap: $('.item-wrap'),
     init:function(storeItem){
-        storeItem = Object.assign(Object.create(this), storeItem);
+        var storeItem = Object.assign(Object.create(this), storeItem);
         storeItem.render();
         return storeItem;
     },

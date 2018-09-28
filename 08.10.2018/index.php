@@ -26,10 +26,11 @@
 	<main>
 		<div class="container">
 			<div class="item-wrap">
-			<div id="aptivada_app" data-app-id="407854" data-app-type="contest" data-height="940" style="background:#ffffff url(https://cdn2.aptivada.com/images/iframeLoader.gif) no-repeat center; min-height:500px;"></div>
-<script src="//www.aptivada.com/js/all.js"></script>
+			
 			</div>
+			
 			<div class="row">
+				
 				<form method="post"  enctype="multipart/form-data" action="api.php" class="store-item-form">
 					<input type="hidden" name="method" value="createStoreItem">
 					<input type="text" name="title" placeholder="Title">
@@ -40,21 +41,23 @@
 					<button class="btn" type="submit" name="submit">Upload</button>
 				</form>
 				
+					<button class="btn overlayBoxBtn" name="overlayBoxBtn" type="submit" >Overlay Box</button>
+				
 			</div>
-			<button class="btn overlayBoxBtn" name="overlayBoxBtn">Overlay Box</button>
+			
 		</div>
-	
+		
 	</main>
 	<script src="js/components/overlayBox.js"></script>
 	<script src="js/components/storeItem.js"></script>
 	<script>
 		$(function()
 		{
-			
 			var Page = {
 				storeItemsArray: [],
 				overlayBoxArray: [],
 				init:function(){
+
 					$.ajax({
 						url:'api.php',
 						data:{method:'getStoreItems'},
@@ -69,10 +72,27 @@
 							else{
 								console.log('Something is wrong. :"(');
 							}
-
 						}
-
-					})
+					});
+					$.ajax({
+						url:'api.php',
+						data:{method:'getOverlayBoxes'},
+						dataType:'json',
+						success:function(result){
+							if(result.status == 'success'){
+								result.data.forEach(function(box){
+									Page.overlayBoxArray.push(Box.init(box));
+									console.log(box);
+								});
+							}
+							else{
+								console.log('Something is wrong. :"(');
+							}
+						}
+					});
+					this.listeners();
+				},
+				listeners:function(){
 					
 					$('.store-item-form').ajaxSubmit(function(result){
 						console.log(result);
@@ -85,11 +105,34 @@
 		                    }
 					});
 
-					$('overlayBoxBtn').on('click',function(){
-						var box = Box.init();
+					$('.overlayBoxForm').ajaxSubmit(function(result){
+						console.log(result);
+						if(result.status == 'success'){
+							var newOverlayBox = Box.init(result.data);
+							Page.overlayBoxArray.push(newOverlayBox);
+							// alert("New Item Id: "+result.data.id);
+		                } else {
+		                    	alert(result.message);
+		                    }
+					});
+
+					$('.overlayBoxBtn').on('click',function(){
+						
+						var box = {};
+						// var settings = {
+						// 	// box_id:box_id,
+						// 	// box_left:box_left,
+						// 	// box_top:box_top,
+						// 	// box_width:box_width,
+						// 	// box_height:box_height,
+						// 	// html:html,
+						// 	// background:background,
+						// 	// background_image:background_image
+						// }
+						box = Box.init(box);
 						Page.overlayBoxArray.push(box);
 
-					})
+					});
 				}
 
 			}

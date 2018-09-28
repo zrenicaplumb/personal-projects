@@ -44,6 +44,15 @@
 			$storeItem = StoreItemController::findById($id);
 			return $storeItem->update($settings);
 		}
+
+		public function createOverlayBox($params){
+			return OverlayBoxController::create($params);
+		}
+		
+		public function getOverlayBoxes(){
+			return OverlayBoxController::findAll();
+		}
+
 		public function output($data){
 			echo json_encode([
 				'status'=>'success',
