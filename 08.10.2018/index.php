@@ -26,7 +26,8 @@
 	<main>
 		<div class="container">
 			<div class="item-wrap">
-				
+			<div id="aptivada_app" data-app-id="407854" data-app-type="contest" data-height="940" style="background:#ffffff url(https://cdn2.aptivada.com/images/iframeLoader.gif) no-repeat center; min-height:500px;"></div>
+<script src="//www.aptivada.com/js/all.js"></script>
 			</div>
 			<div class="row">
 				<form method="post"  enctype="multipart/form-data" action="api.php" class="store-item-form">
@@ -34,13 +35,17 @@
 					<input type="text" name="title" placeholder="Title">
 					<input type="file" name="image" placeholder="Image" required>
 					<input type="text" name="description" placeholder="Description">
-					<input type="number" name="price" placeholder="Price">
+					<input type="number" step="0.01" name="price" placeholder="Price">
 					
 					<button class="btn" type="submit" name="submit">Upload</button>
 				</form>
+				
 			</div>
+			<button class="btn overlayBoxBtn" name="overlayBoxBtn">Overlay Box</button>
 		</div>
+	
 	</main>
+	<script src="js/components/overlayBox.js"></script>
 	<script src="js/components/storeItem.js"></script>
 	<script>
 		$(function()
@@ -48,6 +53,7 @@
 			
 			var Page = {
 				storeItemsArray: [],
+				overlayBoxArray: [],
 				init:function(){
 					$.ajax({
 						url:'api.php',
@@ -74,12 +80,19 @@
 							var newStoreItem = StoreItem.init(result.data);
 							Page.storeItemsArray.push(newStoreItem);
 							// alert("New Item Id: "+result.data.id);
-		                    } else {
+		                } else {
 		                    	alert(result.message);
 		                    }
-						});
-					}
+					});
+
+					$('overlayBoxBtn').on('click',function(){
+						var box = Box.init();
+						Page.overlayBoxArray.push(box);
+
+					})
 				}
+
+			}
 			
 				Page.init();
 		});

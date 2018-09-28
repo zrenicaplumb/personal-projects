@@ -12,6 +12,8 @@ var StoreItem = {
                                 
                                 '<img class="gallery-img" src=img/'+this.image+'>'+
                                 '<p>'+this.price+'</p>'+
+                                '<p>'+this.description+'</p>'+
+                               
                             '</div>'+
                             '<button class="deleteStoreItem">Delete</button>'+
                         '</div>');
