@@ -117,6 +117,9 @@
 			return CartItemController::addCartItem($params);
 			// error_object($params);
 		}
+		public function createOverlayBox($params){
+			return overlayBoxController::create($params);
+		}
 
 
 

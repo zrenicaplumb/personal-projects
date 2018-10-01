@@ -41,10 +41,10 @@
 					<button class="btn" type="submit" name="submit">Upload</button>
 				</form>
 				
-					<button class="btn overlayBoxBtn" name="overlayBoxBtn" type="submit" >Overlay Box</button>
+				
 				
 			</div>
-			
+			<button class="btn overlayBoxBtn" name="overlayBoxBtn" type="submit" >Overlay Box</button>
 		</div>
 		
 	</main>
@@ -105,34 +105,43 @@
 		                    }
 					});
 
-					$('.overlayBoxForm').ajaxSubmit(function(result){
-						console.log(result);
-						if(result.status == 'success'){
-							var newOverlayBox = Box.init(result.data);
-							Page.overlayBoxArray.push(newOverlayBox);
-							// alert("New Item Id: "+result.data.id);
-		                } else {
-		                    	alert(result.message);
-		                    }
-					});
+					// $('.overlayBoxForm').ajaxSubmit(function(result){
+					// 	console.log(result);
+					// 	if(result.status == 'success'){
+					// 		var newOverlayBox = Box.init(result.data);
+					// 		Page.overlayBoxArray.push(newOverlayBox);
+					// 		// alert("New Item Id: "+result.data.id);
+		            //     } else {\
+		            //         	alert(result.message);
+		            //         }
+					// });
 
 					$('.overlayBoxBtn').on('click',function(){
-						
 						var box = {};
-						// var settings = {
-						// 	// box_id:box_id,
-						// 	// box_left:box_left,
-						// 	// box_top:box_top,
-						// 	// box_width:box_width,
-						// 	// box_height:box_height,
-						// 	// html:html,
-						// 	// background:background,
-						// 	// background_image:background_image
-						// }
-						box = Box.init(box);
-						Page.overlayBoxArray.push(box);
+						var settings = {
+							box_left:'50px',
+							box_bottom:'50px',
+							box_width:'150px',
+							box_height:'150px',
+							background_color:'rgba(215,215,215, 0.6)',
+						}
+						box = Box.init(box, settings);
+						$.post({
+							// type:'post',
+							url:'api.php',
+							data:{method:'createOverlayBox'},
+							dataType:'json',
+							success:function(result){
+								if(result == 'success'){
+									result.data.forEach(function(box){
+										Page.overlayBoxArray.push(box);
+									});
+								}
+							}
+						});
 
 					});
+				
 				}
 
 			}

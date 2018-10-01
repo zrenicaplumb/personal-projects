@@ -46,7 +46,7 @@
 		}
 
 		public function createOverlayBox($params){
-			return OverlayBoxController::create($params);
+			return OverlayBoxController::uploadOverlayBox($params);
 		}
 		
 		public function getOverlayBoxes(){
