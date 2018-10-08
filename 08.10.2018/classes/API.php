@@ -46,12 +46,33 @@
 		}
 
 		public function createOverlayBox($params){
-			return OverlayBoxController::uploadOverlayBox($params);
+			// error_object($params);
+			$settings = $params['settings'];
+			return OverlayBoxController::create($settings);
+			
 		}
+
 		
 		public function getOverlayBoxes(){
 			return OverlayBoxController::findAll();
 		}
+
+		public function updateOverlayBox($params){
+			$id = $params['settings']['box_id'];
+			$settings = $params['settings'];
+			// error_object($params);
+			$box = overlayBoxController::findById($id);
+			// error_object($box);
+			return $box->update($settings);
+			
+		}
+
+		public function deleteOverlayBox($params){
+			$id = $params['id'];
+			return overlayBoxController::delete($id);
+		}
+
+		
 
 		public function output($data){
 			echo json_encode([

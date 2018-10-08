@@ -5,7 +5,7 @@ Class ResourceController {
 	static function findById($id){
 		$class = static::$class;
 		$table = static::$table;
-		error_object($table);
+		// error_object($table);
 		$primary_key = static::$primary_key;
 		$db = new DB();
 		$result = $db->query("SELECT * FROM {$table} WHERE {$primary_key} = {$id}");

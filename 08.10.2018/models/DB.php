@@ -42,6 +42,8 @@ Class DB {
 		$sql.= (" WHERE ".$where);
 		try {
 			$result = $this->db->query($sql);
+
+			
 			if (!$result) {
 				throw new Exception($this->db->error);
 			}

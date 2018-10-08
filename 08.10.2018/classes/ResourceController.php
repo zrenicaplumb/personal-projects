@@ -5,16 +5,18 @@ Class ResourceController {
 	static function findById($id){
 		$class = static::$class;
 		$table = static::$table;
-		// error_object($table);
+		
 		$primary_key = static::$primary_key;
+		
 		$db = new DB();
 		$result = $db->query("SELECT * FROM {$table} WHERE {$primary_key} = {$id}");
+		// error_object($result);
 		$data = $result->fetch_assoc();
 		if($data){
 			$class = static::$class;
 			$object = new $class($data);
 			return $object;
-			errorObject($object);
+			// errorObject($object);
 		} else {
 			return null;
 		}
@@ -62,35 +64,32 @@ Class ResourceController {
 		return $resource->create();
 	}
 
-	static function create($data, $files){
+	static function create($data, $files=null){
 		// error_object($data);
 		$class = static::$class;
 		$resource = new $class($data);
-		// error_object($class);
+		// error_object($resource);
 		if(!empty($files)){
 			$file_name = $resource->uploadFile($files['image']);
-			
+			$resource->image = $file_name;
 		}
-		else{
-			
-			error_object($files);
-		}
-		$resource->image = $file_name;
-		
 		return $resource->create();
 	}
 
 	static function delete($id){
+		// error_object($id);
 		$resource = self::findById($id);
+		// error_object($resource);
 		$resource->delete();
 		return $resource;
 	}
-	// static function add($id){
-	// 	$resource = self::findById($id);
-	// 	$resource->insert();
-	// 	return $resource;
+	static function update($params){
+		// $resource = self::findById($params['id']);
+		// error_object($resource)
 		
-	// }
+		
+		
+	}
 
 	
 

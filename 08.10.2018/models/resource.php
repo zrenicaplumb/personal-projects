@@ -24,30 +24,24 @@
             }
         }
         public function uploadFile($file){
-
             $path = 'img/';
-            
-            
             if(!$file || !$file['tmp_name']){
                 throw new Exception("File is Required");
             }
-    
             $tmp_name = $file['tmp_name'];
             $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-    
             if(!in_array(strtolower($ext), ['jpg','jpeg','png','gif'])){
                 throw new Exception ("Invalid File Format");
             }
-            
             $rand = time();
             $image = str_replace(' ', '_', $rand. '.' . $ext);
             $move = move_uploaded_file($tmp_name, $path . $image);
             if(!$move){
                 throw new Exception ("Could not copy file");
             }
-    
             return $image;
         }
+
         public function create(){
             $errors = [];
             if(!empty($this->requiredProperties)){
@@ -68,6 +62,7 @@
         }
 
         public function delete(){
+            
             $id = $this->{$this->primary_key};
             $table = $this->table;
             try {
@@ -78,13 +73,31 @@
             
         }
 
+        public function update($settings){
+            unset($settings[$this->primary_key]);
+            error_object($settings);
+           
+            foreach($settings as $property=>$value){
+                $this->{$property} = $value;
+            }
+    
+            try {
+                $where = $this->primary_key.' = '.$this->{$this->primary_key};
+              
+                return $this->db->update($this->table, $this->model(), $where);
+                
+            } catch(Exception $e){
+                throw new Exception("Update Failed: ".$e->getMessage());
+            }
+        }
+
         public function insert(){
             
             $tableData = $this->model();
            
             $this->db->insert($this->table, $tableData);
             $this->{$this->primary_key} = $this->db->db->insert_id;
-            error_object($tableData);
+            // error_object($tableData);
             return $this;
         }
         public function getColumns(){

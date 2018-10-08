@@ -44,6 +44,7 @@
 			</div>
 			<button class="btn overlayBoxBtn" name="overlayBoxBtn" type="submit" >Overlay Box</button>
 		</div>
+		<div class="aptivada-widget" data-widget-id="14" data-widget-type="widget" style="background:#ffffff url(https://cdn2.aptivada.com/images/iframeLoader.gif) no-repeat center; min-height:500px;"></div>	
 		
 	
 	
@@ -71,7 +72,7 @@
 							if(result.status == 'success'){
 								result.data.forEach(function(storeItem){
 									Page.storeItemsArray.push(StoreItem.init(storeItem));
-									// console.log(storeItem);
+									console.log(storeItem);
 								});
 							}
 							else{
@@ -87,7 +88,7 @@
 							if(result.status == 'success'){
 								result.data.forEach(function(box){
 									Page.overlayBoxArray.push(Box.init(box));
-									
+									console.log(box);
 								});
 							}
 							else{
@@ -100,7 +101,7 @@
 				listeners:function(){
 					
 					$('.store-item-form').ajaxSubmit(function(result){
-						// console.log(result);
+						console.log(result);
 						if(result.status == 'success'){
 							var newStoreItem = StoreItem.init(result.data);
 							Page.storeItemsArray.push(newStoreItem);
@@ -123,9 +124,7 @@
 
 					$('.overlayBoxBtn').on('click',function(){
 						var box = {};
-						Box.create(box);
-						console.log('overlay box made');
-						
+						Box.init(box);
 					});
 				
 				}
@@ -133,7 +132,6 @@
 			}
 			
 				Page.init();
-				
 		});
 	</script>
 	

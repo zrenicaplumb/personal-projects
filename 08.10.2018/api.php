@@ -5,16 +5,16 @@
 	$request_method = $_SERVER['REQUEST_METHOD'];
 	
 	$params = $request_method  == "GET" ? $_GET : $_POST;
-	// error_object($params);
+	// error_object($_REQUEST);
 	$function = isset($params['method']) ? $params['method'] : null;
-	error_object($function);
+	// error_object($function);
 	$redirect = isset($params['redirect']) ? $params['redirect'] : null;
-	// error_object($redirect);
+	// error_object($params);
 	unset($params['method']);
 	unset($params['redirect']);
 	
 	$API = new API($request_method, $function, $params, $_FILES);
-	error_log(print_r($_FILES, true));
+	// error_log(print_r($params, true));
 	try {
 		$result = $API->call();
 		// error_object($result);
