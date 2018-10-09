@@ -39,9 +39,8 @@ var Box = {
                             '<input type="/>'+
                         '</div>');
         element.css({
-            left:this.box_left,
-            
-            bottom:this.box_bottom,
+            left:this.box_left+'px',
+            bottom:this.box_bottom+'px',
             width:this.box_width,
             height:this.box_height,
             background_color:this.background_color
@@ -133,9 +132,9 @@ var Box = {
             box.settingsElement.show();
         });
         // console.log(box);
-        // box.element.draggable({
-        //     containment:box.boxWrapper
-        // });
+        box.element.draggable({
+            containment:box.boxWrapper
+        });
     },
     update:function(settings, rerender){
         var box = this;

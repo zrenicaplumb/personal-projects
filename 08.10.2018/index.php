@@ -116,7 +116,7 @@
 					// 		var newOverlayBox = Box.init(result.data);
 					// 		Page.overlayBoxArray.push(newOverlayBox);
 					// 		// alert("New Item Id: "+result.data.id);
-		            //     } else {\
+		            //     } else {
 		            //         	alert(result.message);
 		            //         }
 					// });
