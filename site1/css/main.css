@@ -1,0 +1,66 @@
+header {
+    background: rgb(46,48,53);
+    box-shadow:1px 1px 1px 1px black; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+h1.logo {
+    display: inline-block;
+    font-size: 45px;
+    color: #fff;
+    margin: .5em;
+    cursor: pointer
+
+}
+header nav ul{
+    margin: 0;
+    display: inline-block;
+}
+header nav ul li {
+    list-style-type: none;
+}
+header nav ul li a{
+    color:#fff;
+}
+.search{
+    margin-right: 25px;
+}
+.search form, .loginRegisterSearch form{
+    margin: 0;
+}
+.loginRegisterSearch a{
+    color: #fff;
+}
+.loginRegisterSearch form{
+    display: flex;
+    justify-content: space-between;
+
+}
+.loginRegisterSearch form > *{
+    display: inline-block;
+}
+
+.loginDropdownToggle{
+
+}
+input[type="search"] {
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+}
+.loginDropdownToggle{
+    display: none;
+}
+main{
+    background: rgb(235,234,244);
+}
+form.createEventForm {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background: red;
+}
+button{
+   background:lightgray; border:none; border-radius:3px;
+}
