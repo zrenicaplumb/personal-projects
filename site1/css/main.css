@@ -5,12 +5,17 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+header > .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 h1.logo {
     display: inline-block;
     font-size: 45px;
     color: #fff;
-    margin: .5em;
-    cursor: pointer
+    margin: .5em 0;
+    cursor: pointer;
 
 }
 header nav ul{
@@ -23,6 +28,15 @@ header nav ul li {
 header nav ul li a{
     color:#fff;
 }
+.loginDropdown{
+    display: none;
+}
+.loginDropdown label{
+    color:#fff;
+}
+.loginDropdown form input{
+    display: block;
+}
 .search{
     margin-right: 25px;
 }
@@ -30,17 +44,17 @@ header nav ul li a{
     margin: 0;
 }
 .loginRegisterSearch a{
-    color: #fff;
+    color: #fff !important;
+    padding: 10px;  
 }
 .loginRegisterSearch form{
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
 
 }
 .loginRegisterSearch form > *{
     display: inline-block;
 }
-
 .loginDropdownToggle{
 
 }
@@ -54,6 +68,7 @@ input[type="search"] {
 }
 main{
     background: rgb(235,234,244);
+    padding-top: 30px;
 }
 form.createEventForm {
     width: 50%;

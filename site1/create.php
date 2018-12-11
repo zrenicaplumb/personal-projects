@@ -1,72 +1,77 @@
 <?php
-require_once('config.php');
+    require_once('config.php');
+    
 ?>
 <html lang="en">
     <head>
-        <?php require_once('includes/inc.head.php') ?>
+        <?php 
+            require_once('includes/inc.head.php') ;
+        ?>
         <title>Create Event</title>
     </head>
     <body>
         <header>
-            <nav>
-                <h1 class="logo">LOGO</h1>
-                <ul>
-                    <li>
-                        <a href="home.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="create.php">Create Event</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="loginRegisterSearch">
-                <form>
-                    <input type="search" placeholder="Search..."/>
-                    <a class="loginDropdownToggle">Login</a>
+            <div class="container">
+                <nav>
+                    <h1 class="logo">LOGO</h1>
+                    <ul>
+                        <li>
+                            <a href="home.php">Home</a>
+                        </li>
+                        <li>
+                            <a href="create.php">Create Event</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="loginRegisterSearch">
+                    <form>
+                        <input type="search" placeholder="Search..."/>
+                        <a class="loginDropdownToggle" href="#">Login</a>
+                        <a href="#">Register</a>
+                    </form>
                     <div class="loginDropdown">
+                        <form>
+                            <input placeholder="Email" type="text" name="email"/>
+                            <input placeholder="Password" type="password"/>
+                            <input type="checkbox" />
+                            <label>Remember me</label>
+                            <button class="btn"></button>
+                            <a href="#">Forgot Password?</a>
+                        </form>
                         
                     </div>
-                    <a>Register</a>
-                </form>
+                        
+                    
+                </div>
             </div>
+            
             
         </header>
         <main>
             <div class="container">
                 <div class="createEventWrap">
-                    <form class="createEventForm" action="post" method="/api/">
-                        <button class="createEventBtn btn">
-                            <i class="fa fa-mail" data-help="createEvent"></i>
-                                Create Event
-                            <i class="fa fa-dropdown-arrow"></i>
-                        </button>
-                        
-                        <div class="eventNameInputWrap">
-                            <label>Event Name</label>
-                            <input type="text"/>
-                        </div>   
-
-                        <div class="locationInputWrap">
-                            <label>Location</label>
-                            <input type="text"/>
-                        </div>   
-
-                        <div class="dateTimeInputWrap">
-                            <label>Date/Time</label>
-                            <input type="date"/>
-                            <input type="time"/>
-                        </div>   
-
-                        <div class="descriptionInputWrap">
-                            <label>Description</label>
-                            <textarea placeholder="Tell more about the event"></textarea>
-                            
-                        </div>  
-                        <button class="btn">Create Event</button>
-                    </form>
+                 
                 </div>
             </div>
             
         </main>
+        <footer>
+
+        </footer>
     </body>
+    <?php
+        require_once('modules/createEventModule.php');
+    ?>
+    <script>
+        
+        var Page = {
+            init:function(){
+                this.initializeEventForm();
+            },
+            initializeEventForm:function(){
+                var eventform = EventForm.init();
+            },
+        }
+        Page.init();
+    </script>
 </html>
