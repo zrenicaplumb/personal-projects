@@ -24,9 +24,13 @@ var EventForm = {
                                 '<input type="text"/>'+
                             '</div>'+   
 
-                            '<div class="dateTimeInputWrap">'+
-                                '<label>Date/Time</label>'+
+                            '<div class="dateInputWrap">'+
+                                '<label>Date</label>'+
                                 '<input type="date"/>'+
+                            '</div>' +
+
+                            '<div class="timeInputWrap">'+
+                                '<label>Time</label>'+
                                 '<input type="time"/>'+
                             '</div>' +
 

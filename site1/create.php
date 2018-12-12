@@ -27,7 +27,15 @@
                     <form>
                         <input type="search" placeholder="Search..."/>
                         <a class="loginDropdownToggle" href="#">Login</a>
-                        <a href="#">Register</a>
+                        <a href="#" class="register">Register</a>
+                        <div class="registerDropdown">
+                            <form method="post" action="api.php" enctype="multipart/form-data">
+                                <input placeholder="Email" type="text" name="email"/>
+                                <input placeholder="Password" type="password" name="password"/>
+                                <button class="btn signupBtn">Signup</button>
+                            </form>
+                            <button class="registerCloseBtn">close</button>
+                        </div>
                     </form>
                     <div class="loginDropdown">
                         <form>
@@ -71,7 +79,30 @@
             initializeEventForm:function(){
                 var eventform = EventForm.init();
             },
+            
         }
         Page.init();
+
+        $('.register').on('click', function(){
+            $('.registerDropdown').show();
+        })
+        $('.registerCloseBtn').on('click', function(){
+            $('.registerDropdown').hide();
+
+        })
+        $('.registerDropdown form').on('submit', function(){
+            e.preventDefault();
+            $('.registerDropdown').hide();
+            var data = {
+                email: $(this).find('input[name="email"]').val(),
+                password: $(this).find('input[name="password"]').val(), 
+
+            }
+            console.log(data);
+            $.post('/api.php', data, function(result){
+                console.log(result);
+            })
+
+        })
     </script>
 </html>

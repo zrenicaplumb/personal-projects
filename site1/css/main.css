@@ -1,9 +1,13 @@
-header {
+header, footer {
     background: rgb(46,48,53);
     box-shadow:1px 1px 1px 1px black; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+footer{
+    padding: 40px;
 }
 header > .container{
     display: flex;
@@ -28,13 +32,21 @@ header nav ul li {
 header nav ul li a{
     color:#fff;
 }
-.loginDropdown{
+.registerDropdown{
+    background: rgb(46,48,53);
+    position: absolute;
+    padding: 10px;
+    right: -50px;
+    top:80px;
+}
+
+.loginDropdown, .registerDropdown{
     display: none;
 }
 .loginDropdown label{
     color:#fff;
 }
-.loginDropdown form input{
+.loginDropdown form input, .registerDropdown input{
     display: block;
 }
 .search{
@@ -50,10 +62,10 @@ header nav ul li a{
 .loginRegisterSearch form{
     /* display: flex; */
     /* justify-content: space-between; */
-
+position: relative;
 }
 .loginRegisterSearch form > *{
-    display: inline-block;
+    /* display: inline-block; */
 }
 .loginDropdownToggle{
 
@@ -63,19 +75,47 @@ input[type="search"] {
     border-radius: 3px;
     padding: 8px;
 }
-.loginDropdownToggle{
+.loginDropdownForm{
     display: none;
 }
 main{
     background: rgb(235,234,244);
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 form.createEventForm {
     width: 50%;
     margin: auto;
     padding: 20px;
-    background: red;
+    background: rgb(46,48,53);
+    
 }
+form.createEventForm label, form.createEventForm input, form.createEventForm textarea{
+    color:#fff;
+    display: block;
+    
+}
+form.createEventForm label{
+    margin-top: 10px;
+}
+
+form.createEventForm input, .registerDropdown input{
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    color:black;
+}
+.registerDropdown input{
+    margin:10px 0;
+}
+form.createEventForm textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
 button{
    background:lightgray; border:none; border-radius:3px;
 }
