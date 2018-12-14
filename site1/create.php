@@ -1,3 +1,4 @@
+
 <?php
     require_once('config.php');
     
@@ -26,6 +27,7 @@
                 <div class="loginRegisterSearch">
                     <form>
                         <input type="search" placeholder="Search..."/>
+                    </form>
                         <a class="loginDropdownToggle" href="#">Login</a>
                         <a href="#" class="register">Register</a>
                         <div class="registerDropdown">
@@ -36,7 +38,7 @@
                             </form>
                             <button class="registerCloseBtn">close</button>
                         </div>
-                    </form>
+                    
                     <div class="loginDropdown">
                         <form>
                             <input placeholder="Email" type="text" name="email"/>
@@ -90,16 +92,18 @@
             $('.registerDropdown').hide();
 
         })
-        $('.registerDropdown form').on('submit', function(){
+        $('.registerDropdown form').on('submit', function(e){
             e.preventDefault();
+            console.log('yes')
+            
             $('.registerDropdown').hide();
             var data = {
                 email: $(this).find('input[name="email"]').val(),
                 password: $(this).find('input[name="password"]').val(), 
-
+                method:'userSignup',
             }
             console.log(data);
-            $.post('/api.php', data, function(result){
+            $.post('api.php/userSignup', data, function(result){
                 console.log(result);
             })
 
