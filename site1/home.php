@@ -126,17 +126,21 @@
           },
           
           showEvents:function(){
+              debugger;
+
               var data = {
                   method:'getUserEvents',
               }
               $.get('api.php', data, function(result){
+                console.log(result);
                   if(result.status == 'success'){
-                      console.log(result);
+                      
                   }
                   else{
                       console.log('get events failed');
                   }
               })
+             
               this.userEvents = this.userEvents.map(function(userEvent){
                   console.log(userEvent);
               })

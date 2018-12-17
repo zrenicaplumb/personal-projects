@@ -67,7 +67,8 @@
 		}
 		public function getUserEvents(){
 
-			return UserEventController::findAll();
-			error_log('findall');
+			$data = UserEventController::findAll();
+			error_object($data);
+			return $data;
 		}
 	}
