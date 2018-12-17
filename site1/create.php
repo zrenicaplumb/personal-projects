@@ -31,7 +31,7 @@
                         <a class="loginDropdownToggle" href="#">Login</a>
                         <a href="#" class="register">Register</a>
                         <div class="registerDropdown">
-                            <form method="post" action="api.php" enctype="multipart/form-data">
+                            <form method="post" action="api.php" enctype="multipart/form-data" class="createEventForm">
                                 <input placeholder="Email" type="text" name="email"/>
                                 <input placeholder="Password" type="password" name="password"/>
                                 <button class="btn signupBtn">Signup</button>
@@ -60,7 +60,40 @@
         <main>
             <div class="container">
                 <div class="createEventWrap">
-                 
+                <!-- <form class="createEventForm" action="post" method="/api/createEvent">
+                            <button class="createEventBtn btn">
+                                <i class="fa fa-mail" data-help="createEvent"></i>
+                                    Event Type
+                                <i class="fa fa-dropdown-arrow"></i>
+                            </button>
+                            
+                            <div class="eventNameInputWrap">
+                                <label>Event Name</label>
+                                <input type="text"/>
+                            </div>
+
+                            <div class="locationInputWrap">
+                                <label>Location</label>
+                                <input type="text"/>
+                            </div> 
+
+                            <div class="dateInputWrap">
+                                <label>Date</label>
+                                <input type="date"/>
+                            </div>
+
+                            <div class="timeInputWrap">
+                                <label>Time</label>
+                                <input type="time"/>
+                            </div>
+
+                            <div class="descriptionInputWrap">
+                                <label>Description</label>
+                                <textarea placeholder="Tell more about the event"></textarea>
+                                
+                            </div>
+                            <button class="btn createEventBtn">Create Event</button>
+                        </form> -->
                 </div>
             </div>
             
@@ -70,7 +103,7 @@
         </footer>
     </body>
     <?php
-        require_once('modules/createEventModule.php');
+        // require_once('modules/createEventModule.php');
     ?>
     <script>
         
@@ -84,7 +117,7 @@
             
         }
         Page.init();
-
+        
         $('.register').on('click', function(){
             $('.registerDropdown').show();
         })
@@ -100,6 +133,7 @@
             var data = {
                 email: $(this).find('input[name="email"]').val(),
                 password: $(this).find('input[name="password"]').val(), 
+                // account: Math.random(00000,99999),
                 method:'userSignup',
             }
             console.log(data);

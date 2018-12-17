@@ -88,12 +88,17 @@ form.createEventForm {
     margin: auto;
     padding: 20px;
     background: rgb(46,48,53);
-    
+    position: absolute;
+    top:120px;
+    display: none;
 }
 form.createEventForm label, form.createEventForm input, form.createEventForm textarea{
     color:#fff;
     display: block;
     
+}
+form.createEventForm textarea{
+    color:black;
 }
 form.createEventForm label{
     margin-top: 10px;
@@ -118,4 +123,15 @@ form.createEventForm textarea {
 
 button{
    background:lightgray; border:none; border-radius:3px;
+}
+
+/* home page */
+.userEvent{
+    background: rgb(46,48,53);
+    
+}
+.closeEventPopup{
+    color:#fff;
+    background: gray;
+    padding: 10px;
 }

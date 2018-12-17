@@ -7,7 +7,7 @@ var EventForm = {
     },
     render:function(){
         var eventForm = this;
-        var element = $('<form class="createEventForm" action="post" method="/api/">'+
+        var element = $('<form class="createEventForm" action="post" method="/api/createEvent">'+
                             '<button class="createEventBtn btn">'+
                                 '<i class="fa fa-mail" data-help="createEvent"></i>'+
                                     'Event Type'+
@@ -39,11 +39,32 @@ var EventForm = {
                                 '<textarea placeholder="Tell more about the event"></textarea>'+
                                 
                             '</div>'+  
-                            '<button class="btn">Create Event</button>'+
+                            '<button class="btn createEventBtn">Create Event</button>'+
                         '</form>');
 
         
-        element.appendTo(this.container);
+            
+        
+        
+            element.appendTo(this.container);
+        
+        
+    },
+    listeners: function(){
+        var self = this;
+        this.element.find('.createEventBtn').on('submit', function(e){
+            e.preventDefault();
+
+            data = {
+               
+                
+            }
+            $.post('api.php/createEvent', data, function(result){
+                if(result.status == 'success'){
+                    console.log($(this));
+                }
+            })
+        })
     }
     
 }

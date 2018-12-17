@@ -61,5 +61,13 @@
 		public function userSignup($data){
                   error_object($data);
                   UserController::create($data);
-            }
+		}
+		public function createEvent($data){
+			return UserEventController::create($data);
+		}
+		public function getUserEvents(){
+
+			return UserEventController::findAll();
+			error_log('findall');
+		}
 	}

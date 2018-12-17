@@ -4,6 +4,6 @@
         <a href="home.php">Home</a>
     </li>
     <li>
-        <a href="create.php">Create Event</a>
+        <div>Create Event</div>
     </li>
 </ul>
