@@ -119,39 +119,47 @@
     <script>
         
         var Page = {
-          userEvents:[],
-          init:function(){
-
-              this.showEvents();
-          },
-          
-          showEvents:function(){
-              debugger;
-
-              var data = {
-                  method:'getUserEvents',
-              }
-              $.get('api.php', data, function(result){
-                console.log(result);
-                  if(result.status == 'success'){
-                      
-                  }
-                  else{
-                      console.log('get events failed');
-                  }
-              })
-             
-              this.userEvents = this.userEvents.map(function(userEvent){
-                  console.log(userEvent);
-              })
-          }
+            userEvents:[],
+            init:function(){
+               
+                this.getEvents();
+                this.renderUserEvents();
+            },
+            
+            getEvents:function(){
+                var page = this;
+                var data = {
+                    method:'getUserEvents',
+                }
+                // debugger;
+                $.ajax({
+                    url:'api.php',
+                    data:{method:'getUserEvents'},
+                    dataType:'json',
+                    success:function(result){
+                        if(result.status == 'success'){
+                            result.data.forEach(function(event){
+                                page.userEvents.push(UserEvent.init(result.data));
+                            })
+                            
+                        }
+                    }
+                })
+                
+                
+            },
+            renderUserEvents:function(){
+                // this.userEvents = this.userEvents.map(function(userEvent){
+                //     console.log(userEvent);
+                // })
+            }
             
         }
 
         var UserEvent = {
             container: $('.eventBoardWrap'),
             init:function(userEvent){
-                var userEvent = Object.create(this);
+                var userEvent = Object.assign(Object.create(this), userEvent);
                 this.render();
             },
             render:function(){
@@ -190,6 +198,7 @@
             };
             $(this).hide();
             console.log(data);
+            debugger;
             $.post('api.php', data, function(result){
                 if(result.status == 'success'){
                     var userEvent = UserEvent.init(result.data);
