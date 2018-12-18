@@ -104,7 +104,16 @@
         <main>
             <div class="container">
                 <div class="eventBoardWrap">
-                    
+                    <!-- <div class="userEvent">
+
+                        <h4>User Event</h4>
+                        <h4>this.type</h4>
+                        <h4>this.name</h4>
+                        <h4>this.location</h4>
+                        <h4>this.date</h4>
+                        <h4>this.time</h4>
+                        <h4>this.description</h4>
+                    </div> -->
                 </div>
             </div>
             
@@ -121,57 +130,46 @@
         var Page = {
             userEvents:[],
             init:function(){
-               
                 this.getEvents();
-                this.renderUserEvents();
             },
-            
             getEvents:function(){
                 var page = this;
-                var data = {
-                    method:'getUserEvents',
-                }
-                // debugger;
                 $.ajax({
                     url:'api.php',
                     data:{method:'getUserEvents'},
                     dataType:'json',
                     success:function(result){
                         if(result.status == 'success'){
-                            result.data.forEach(function(event){
-                                page.userEvents.push(UserEvent.init(result.data));
+                            result.data.forEach(function(userEvent){
+                                page.userEvents.push(UserEvent.init(userEvent));
                             })
                             
                         }
                     }
                 })
-                
-                
             },
-            renderUserEvents:function(){
-                // this.userEvents = this.userEvents.map(function(userEvent){
-                //     console.log(userEvent);
-                // })
-            }
-            
         }
-
         var UserEvent = {
             container: $('.eventBoardWrap'),
             init:function(userEvent){
                 var userEvent = Object.assign(Object.create(this), userEvent);
-                this.render();
+                userEvent.render();
+                return userEvent;
             },
             render:function(){
                 var element = $('<div class="userEvent">'+
-                                    '<h1>User Event</h1>'+
-                                    '<input placeholder="event"/>'+
+                                    '<h4>User Event</h4>'+
+                                    '<h4>'+this.type+'</h4>'+
+                                    '<h4>'+this.name+'</h4>'+
+                                    '<h4>'+this.location+'</h4>'+
+                                    '<h4>'+this.date+'</h4>'+
+                                    '<h4>'+this.time+'</h4>'+
+                                    '<h4>'+this.description+'</h4>'+
                                 '</div>');
                 element.appendTo(this.container);
             },
         }
         Page.init();
-        
         $('.createEventToggle').on('click', function(){
             $('.createEventForm').show();
         })
@@ -180,29 +178,28 @@
         });
         $('.createEventForm').on('submit', function(e){
             e.preventDefault();
-        //    var event_type = $(this).find('[input name="event_type"]').val();
-    
             var name = $(this).find('.name').val();
             var location = $(this).find('.location').val();
             var date = $(this).find('.date').val();
             var time = $(this).find('.time').val();
             var description = $(this).find('.description').val();
             var data = {
-                    method:'createEvent',
+                    method:'createUserEvent',
                     name:name,
                     location:location,
                     date:date,
                     time:time,
                     description: description,
-                
             };
             $(this).hide();
-            console.log(data);
-            debugger;
-            $.post('api.php', data, function(result){
-                if(result.status == 'success'){
-                    var userEvent = UserEvent.init(result.data);
-                    Page.UserEvents.push(userEvent);
+            $.ajax({
+                url:'api.php',
+                data:data,
+                dataType:'json',
+                success:function(result){
+                    if(result.status == 'success'){
+                        Page.userEvents.push(UserEvent.init(result));
+                    }
                 }
             })
        })
