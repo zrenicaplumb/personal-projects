@@ -21,7 +21,7 @@
                         </li>
                         <li>
                             <a href="#" class="createEventToggle">Create Event</a>
-                            <form class="createEventForm" action="post" method="/api/createEvent">
+                            <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
                                 <button class="createEventBtn btn">
                                     <i class="fa fa-mail" data-help="createEvent"></i>
                                         Event Type
@@ -58,6 +58,11 @@
                                 <div class="descriptionInputWrap">
                                     <label>Description</label>
                                     <textarea placeholder="Tell more about the event" name="description"  class="description"></textarea>
+                                    
+                                </div>
+                                <div class="imageInputWrap">
+                                    <label>Images</label>
+                                    <input type="file" placeholder="Tell more about the event" name="image"  class="eventImage"/>
                                     
                                 </div>
                                 <button class="btn createEventBtn">Create Event</button>
@@ -165,6 +170,7 @@
                                     '<h4>'+this.date+'</h4>'+
                                     '<h4>'+this.time+'</h4>'+
                                     '<h4>'+this.description+'</h4>'+
+                                    '<img src="'+this.image+'"/>'+
                                 '</div>');
                 element.appendTo(this.container);
             },
@@ -183,6 +189,7 @@
             var date = $(this).find('.date').val();
             var time = $(this).find('.time').val();
             var description = $(this).find('.description').val();
+            var image = $(this).find('.image').val();
             var data = {
                     method:'createUserEvent',
                     name:name,
@@ -190,14 +197,18 @@
                     date:date,
                     time:time,
                     description: description,
+                    image:image,
             };
             $(this).hide();
             $.ajax({
                 url:'api.php',
                 data:data,
+                files:data.files,
                 dataType:'json',
                 success:function(result){
+                   debugger;
                     if(result.status == 'success'){
+                        console.log(result);
                         Page.userEvents.push(UserEvent.init(result));
                     }
                 }

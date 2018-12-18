@@ -62,8 +62,8 @@
                   error_object($data);
                   UserController::create($data);
 		}
-		public function createUserEvent($data){
-			return UserEventController::create($data);
+		public function createUserEvent($data, $files){
+			return UserEventController::create($data, $files);
 		}
 		public function getUserEvents(){
 			return UserEventController::findAll();

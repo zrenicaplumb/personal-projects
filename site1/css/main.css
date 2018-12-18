@@ -127,13 +127,15 @@ button{
 
 /* home page */
 .eventBoardWrap{
-    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .userEvent{
     background: rgb(46,48,53);
-    width: 50%;
+    width: 30%;
     margin: 20px auto;
-    padding: 10px;
+    padding: 20px;
     border-radius: 3px;
 }
 .closeEventPopup{
