@@ -21,7 +21,9 @@
                         </li>
                         <li>
                             <a href="#" class="createEventToggle">Create Event</a>
-                            <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
+                           
+                        </li>
+                        <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
                                 <button class="createEventBtn btn">
                                     <i class="fa fa-mail" data-help="createEvent"></i>
                                         Event Type
@@ -69,8 +71,6 @@
                                 <a class="btn closeEventPopup">Close</a>
 
                             </form>
-                        </li>
-
                     </ul>
                 </nav>
                 <div class="loginRegisterSearch">
@@ -176,43 +176,9 @@
             },
         }
         Page.init();
-        $('.createEventToggle').on('click', function(){
-            $('.createEventForm').show();
-        })
-        $('.closeEventPopup').on('click', function(){
-            $('.createEventForm').hide();
-        });
-        $('.createEventForm').on('submit', function(e){
-            e.preventDefault();
-            var name = $(this).find('.name').val();
-            var location = $(this).find('.location').val();
-            var date = $(this).find('.date').val();
-            var time = $(this).find('.time').val();
-            var description = $(this).find('.description').val();
-            var image = $(this).find('.image').val();
-            var data = {
-                    method:'createUserEvent',
-                    name:name,
-                    location:location,
-                    date:date,
-                    time:time,
-                    description: description,
-                    image:image,
-            };
-            $(this).hide();
-            $.ajax({
-                url:'api.php',
-                data:data,
-                files:data.files,
-                dataType:'json',
-                success:function(result){
-                   debugger;
-                    if(result.status == 'success'){
-                        console.log(result);
-                        Page.userEvents.push(UserEvent.init(result));
-                    }
-                }
-            })
-       })
+
+
+ 
     </script>
+    <script src="js/nav.js"></script>
 </html>

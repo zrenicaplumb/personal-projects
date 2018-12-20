@@ -1,5 +1,6 @@
 <?php
       class ResourceController{
+
             static function create($data, $files){
                   $class = static::$class;
                   $resource = new $class($data);
@@ -13,7 +14,6 @@
             }
             
             static function findAll(){
-                  
                   $class = static::$class;
                   $db = new DB();
                   $data = [];
