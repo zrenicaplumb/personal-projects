@@ -27,6 +27,7 @@ header nav ul{
     display: inline-block;
     
     position: relative;
+    bottom: 8px;
 }
 header nav ul li {
     list-style-type: none;
@@ -140,6 +141,7 @@ button{
     margin: 95px auto;
     padding: 20px;
     border-radius: 3px;
+    color:gray;
 }
 .closeEventPopup{
     color:#fff;

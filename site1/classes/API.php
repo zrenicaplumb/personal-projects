@@ -59,14 +59,24 @@
 		}
 		
 		public function userSignup($data){
-                  error_object($data);
-                  UserController::create($data);
+			$user = UserController::create($data);
+			if($user){
+				$_SESSION['email'] = $data['email'];
+				$_SESSION['password'] = $data['password'];
+
+			}
+			
+			return $user;
 		}
 		public function createUserEvent($data, $files){
 			return UserEventController::create($data, $files);
 		}
-		public function getUserEvents(){
+		public function getPublicUserEvents(){
 			return UserEventController::findAll();
+			
+		}
+		public function deleteUserEvent(){
+			return UserEventController::delete();
 			
 		}
 	}

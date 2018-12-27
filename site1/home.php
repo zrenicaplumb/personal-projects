@@ -17,25 +17,28 @@
                     <h1 class="logo">LOGO</h1>
                     <ul>
                         <li>
+                        
                             <a href="home.php">Home</a>
                         </li>
-                        <li>
-                            <a href="#" class="createEventToggle">Create Event</a>
-                           
-                        </li>
+                        
+                        <?php if (isset($_SESSION['email'])){
+                            echo '<li>';
+                            echo       '<a href="#" class="createEventToggle">Create Event</a>';
+                            echo   '</li>';
+                        } ?>
                         <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
                                 <button class="createEventBtn btn">
                                     <i class="fa fa-mail" data-help="createEvent"></i>
                                         Event Type
                                     <i class="fa fa-dropdown-arrow"></i>
                                 </button>
-                                <!-- <div class="eventTypeInputWrap">
+                                <div class="eventTypeInputWrap">
                                     <label>Event Type</label>
-                                    <select name="event_type">
-                                        <option>Private</option>
+                                    <select class="event_type">
                                         <option>Public</option>
+                                        <option>Private</option>
                                     </select>
-                                </div> -->
+                                </div>
                                 
                                 <div class="eventNameInputWrap">
                                     <label>Event Name</label>
@@ -77,10 +80,23 @@
                     <form>
                         <input type="search" placeholder="Search..."/>
                     </form>
-                        <a class="loginDropdownToggle" href="#">Login</a>
-                        <a href="#" class="register">Register</a>
+                    <?php if(isset($_SESSION['email'])){
+                            echo '<a class="welcomeLink" href="#">'.$_SESSION['email'].'</a>';
+                            echo '<a class="logoutBtn" href="logout.php">Logout</a>';
+                            echo '<a class="accountLink" href="account.php">Account</a>';
+                            
+                        } ?>
+                    <?php if(!isset($_SESSION['email'])){
+                            echo '<a class="loginDropdownToggle" href="#">Login</a>';
+                            echo '<a href="#" class="register">Register</a>';
+                        } ?>
+
+                   
+
+
+                        
                         <div class="registerDropdown">
-                            <form method="post" action="api.php" enctype="multipart/form-data">
+                            <form method="post" action="api.php">
                                 <input placeholder="Email" type="text" name="email"/>
                                 <input placeholder="Password" type="password" name="password"/>
                                 <button class="btn signupBtn">Signup</button>
@@ -109,6 +125,10 @@
         <main>
             <div class="container">
                 <div class="eventBoardWrap">
+                <?php if(!isset($_SESSION['email'])){
+                    
+                }
+                ?>
                     <!-- <div class="userEvent">
 
                         <h4>User Event</h4>
@@ -129,56 +149,13 @@
     </body>
     <?php
         require_once('modules/createEventModule.php');
-    ?>
-    <script>
         
-        var Page = {
-            userEvents:[],
-            init:function(){
-                this.getEvents();
-            },
-            getEvents:function(){
-                var page = this;
-                $.ajax({
-                    url:'api.php',
-                    data:{method:'getUserEvents'},
-                    dataType:'json',
-                    success:function(result){
-                        if(result.status == 'success'){
-                            result.data.forEach(function(userEvent){
-                                page.userEvents.push(UserEvent.init(userEvent));
-                            })
-                            
-                        }
-                    }
-                })
-            },
-        }
-        var UserEvent = {
-            container: $('.eventBoardWrap'),
-            init:function(userEvent){
-                var userEvent = Object.assign(Object.create(this), userEvent);
-                userEvent.render();
-                return userEvent;
-            },
-            render:function(){
-                var element = $('<div class="userEvent">'+
-                                    '<h4>User Event</h4>'+
-                                    '<h4>'+this.type+'</h4>'+
-                                    '<h4>'+this.name+'</h4>'+
-                                    '<h4>'+this.location+'</h4>'+
-                                    '<h4>'+this.date+'</h4>'+
-                                    '<h4>'+this.time+'</h4>'+
-                                    '<h4>'+this.description+'</h4>'+
-                                    '<img src="'+this.image+'"/>'+
-                                '</div>');
-                element.appendTo(this.container);
-            },
-        }
-        Page.init();
-
-
- 
-    </script>
+    ?>
     <script src="js/nav.js"></script>
+    <?php if(isset($_SESSION['email'])){
+         echo '<script src="js/homePage.js"></script>';
+    }
+    ?>
+   
+
 </html>
