@@ -34,4 +34,16 @@
                   $resource->delete();
                   return $resource;
             }
+            // static function login($email, $password){
+            //       $table = static::$table;
+            //       $db = new DB();
+            //       $result = $db->query("SELECT * FROM {static::$table} WHERE {static::$email} = {$email} AND {static::$password} = {$password}");
+            //       $data = $result->fetch_assoc();
+            //       if($data){
+            //             $class = static::$class;
+            //             return new $class($data);
+            //       } else {
+            //             return null;
+            //       }
+            // }
       }

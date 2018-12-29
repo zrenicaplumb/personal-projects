@@ -79,4 +79,18 @@
 			return UserEventController::delete();
 			
 		}
+		public function userLogin($data){
+			$loggedIn = UserController::login($data['email'], $data['password']);
+			error_object('loggedin:',$loggedIn);
+			if($loggedIn){
+				$_SESSION['email'] = $loggedIn['email'];
+				$_SESSION['password'] = $loggedIn['password'];
+
+			}
+			else{
+				return null;
+			}
+			return $loggedIn;
+			
+		}	
 	}

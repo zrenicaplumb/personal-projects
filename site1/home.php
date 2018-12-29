@@ -65,6 +65,11 @@
                                     <textarea placeholder="Tell more about the event" name="description"  class="description"></textarea>
                                     
                                 </div>
+                                <div class="descriptionInputWrap">
+                                    <label>Tags</label>
+                                    <textarea placeholder="Enter hashtags to identify event" name="tags"  class="hashtags" type="text"></textarea>
+                                    
+                                </div>
                                 <div class="imageInputWrap">
                                     <label>Images</label>
                                     <input type="file" placeholder="Tell more about the event" name="image"  class="eventImage"/>
@@ -110,8 +115,10 @@
                             <input placeholder="Password" type="password"/>
                             <input type="checkbox" />
                             <label>Remember me</label>
-                            <button class="btn"></button>
+                            <button class="btn">Submit</button>
                             <a href="#">Forgot Password?</a>
+                            <button class="loginCloseBtn">Close</button>
+
                         </form>
                         
                     </div>

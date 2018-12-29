@@ -37,7 +37,7 @@ header nav ul li {
 header nav ul li a{
     color:#fff;
 }
-.registerDropdown{
+.registerDropdown, .loginDropdown{
     background: rgb(46,48,53);
     position: absolute;
     padding: 10px;
@@ -147,4 +147,15 @@ button{
     color:#fff;
     background: gray;
     padding: 10px;
+}
+span.templateTag {
+    background: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 5px 2px;
+    display: inline-block;
+}
+h4.tagWrap :first-child{
+    margin-left:0;
 }

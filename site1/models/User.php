@@ -4,5 +4,8 @@
             public $table = "user";
             public $class = "User";
 
+            public function userLogin(){
+                  
+            }
            
       }
