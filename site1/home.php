@@ -35,8 +35,8 @@
                                 <div class="eventTypeInputWrap">
                                     <label>Event Type</label>
                                     <select class="event_type">
-                                        <option>Public</option>
-                                        <option>Private</option>
+                                        <option>public</option>
+                                        <option>private</option>
                                     </select>
                                 </div>
                                 
@@ -158,9 +158,12 @@
         require_once('modules/createEventModule.php');
         
     ?>
+    
     <script src="js/nav.js"></script>
+    <script src="js/publicUserEvent.js"></script>
+    <script src="js/homePage.js"></script>
     <?php if(isset($_SESSION['email'])){
-         echo '<script src="js/homePage.js"></script>';
+        //  echo '<script src="js/privateUserEvent.js"></script>';
     }
     ?>
    

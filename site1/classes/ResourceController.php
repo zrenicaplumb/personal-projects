@@ -29,6 +29,20 @@
                   return $data;
                   
             }
+            static function getPublicEvents(){
+                  $class = static::$class;
+                  $db = new DB();
+                  $data = [];
+                  $sql = "SELECT * FROM {static::$table} WHERE event_type = 'public'";
+                
+                  $result = $db->query($sql);
+                  
+                  while($row = $result->fetch_assoc()){
+                        $data[] = new $class($row);
+                  }
+                  error_log('findall');
+                  return $data;
+            }
             static function delete($id){
                   $resource = self::findById($id);
                   $resource->delete();

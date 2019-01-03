@@ -21,7 +21,10 @@
                   success:function(result){
                         if(result.status='success'){
                               window.location.href="home.php";
+                              
+                              
                               console.log(result);
+                              
                               if(result.data.email == '' || result.data.email == null){
                                     console.log('no matching email');
                               }
@@ -99,7 +102,7 @@
                 success:function(result){
                     if(result.status == 'success'){
                         console.log(result);
-                        Page.userEvents.push(UserEvent.init(result));
+                        Page.publicUserEvents.push(PublicUserEvent.init(result));
                     }
                 }
             })
