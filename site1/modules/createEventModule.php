@@ -1,5 +1,6 @@
 <script>
 var EventForm = {
+    // userEmail:userEmail,
     container: $('.createEventWrap'),
     init:function(){
         var eventForm = Object.create(this);
@@ -7,7 +8,12 @@ var EventForm = {
     },
     render:function(){
         var eventForm = this;
+    
         var element = $('<form class="createEventForm" action="post" method="/api/createEvent">'+
+                            '<div class="accountEmailWrap" style="display:hidden;">'+
+                                '<input type="text" value="test.com" class="email"/>'+
+                            '</div>'+   
+
                             '<button class="createEventBtn btn">'+
                                 '<i class="fa fa-mail" data-help="createEvent"></i>'+
                                     'Event Type'+

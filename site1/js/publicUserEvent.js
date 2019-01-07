@@ -21,6 +21,8 @@ var PublicUserEvent = {
             var element = $('<div class="userEvent">'+
                               '<h4>User Event</h4>'+
                               '<h4>'+this.event_type+'</h4>'+
+                              '<h4>'+this.user_email+'</h4>'+
+
                               '<h4>'+this.name+'</h4>'+
                               '<h4>'+this.location+'</h4>'+
                               '<h4>'+this.date+'</h4>'+

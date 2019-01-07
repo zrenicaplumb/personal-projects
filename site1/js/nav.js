@@ -6,11 +6,13 @@
         })
         $('.loginDropdown form').on('submit', function(e){
             e.preventDefault();
-            var email = $(this).find('input[type="text"]').val();
+            var email = $(this).find('.email').val();
             var password = $(this).find('input[type="password"]').val();
+            // $('.createEventForm .accountEmailWrap input').val() = email;
+            console.log(email);
             var data = {
                   method:'userLogin',
-                  email:email,
+                  user_email:email,
                   password:password,
             }
             $.ajax({
@@ -22,16 +24,7 @@
                         if(result.status='success'){
                               window.location.href="home.php";
                               
-                              
-                              console.log(result);
-                              
-                              if(result.data.email == '' || result.data.email == null){
-                                    console.log('no matching email');
-                              }
-                              if(result.data.password == '' || result.data.password == null){
-                                    console.log('no matching pw');
-
-                              }
+                             
                         }
                         
                         
@@ -73,8 +66,9 @@
         $('.createEventForm').on('submit', function(e){
             e.preventDefault();
             var tags = $(this).find('.hashtags').val();
-            console.log(tags);
             var event_type = $(this).find('.event_type').val();
+            var user_email = $(this).find('.email').val();
+            console.log(user_email);
             var name = $(this).find('.name').val();
             var location = $(this).find('.location').val();
             var date = $(this).find('.date').val();
@@ -83,6 +77,7 @@
             var image = $(this).find('.image').val();
             var data = {
                   tags:tags,
+                  user_email:user_email,
                   method:'createUserEvent',
                   event_type:event_type,
                   name:name,
@@ -92,8 +87,8 @@
                   description: description,
                   image:image,
             };
-            console.log(event_type);
             $(this).hide();
+            debugger;
             $.ajax({
                 url:'api.php',
                 data:data,

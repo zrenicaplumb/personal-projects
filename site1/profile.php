@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-           <?php require_once('inc.header.php') ?>
+            <?php require_once('inc.header.php') ?>
             
             
         </header>
@@ -45,14 +45,37 @@
         require_once('modules/createEventModule.php');
         
     ?>
-    
     <script src="js/nav.js"></script>
-    <script src="js/publicUserEvent.js"></script>
-    <script src="js/homePage.js"></script>
-    <?php if(isset($_SESSION['email'])){
-        //  echo '<script src="js/privateUserEvent.js"></script>';
-    }
-    ?>
+    
+   <script>
+      var Page = {
+            init:function(){
+                  
+                  this.getUserEvents();
+            },
+            getUserEvents:function(){
+                  var page = this;
+                  $.ajax({
+                        url:'api.php',
+                        data:{
+                              method:'getUserEvents',
+                              // email:email,
+                        },
+                        dataType:'json',
+                        success:function(result){
+                              if(result.status=='success'){
+                                    // var userField = UserField.init(result.data);
+                                    // page.userFields.push(userField);
+                              }
+                        }
+                  })
+            },
+            render: function(){
+
+            }
+      }
+      Page.init();
+   </script>
    
 
 </html>

@@ -48,6 +48,9 @@
                   $resource->delete();
                   return $resource;
             }
+           static function getUserEvents($data){
+                        
+            }
             // static function login($email, $password){
             //       $table = static::$table;
             //       $db = new DB();
