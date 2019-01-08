@@ -9,7 +9,12 @@
 	</div>
 	<header>
 		<div class="container">
-		<h1><div class="heading-wrap"><span class="underline">CONTESTING</span></div> DONE DIFFERENTLY</h1>
+		<h1>
+			<div class="heading-wrap">
+				<span class="underline">CONTESTING</span>
+			</div> 
+			DONE DIFFERENTLY
+		</h1>
 			<!-- <h1><span class="underline"> 
 				<div>
 					CONTESTING
@@ -283,7 +288,7 @@ and engage your digital audience.</h2>
 		<section class="section section-four">
 			<div class="container">
 				
-					<a href="#" class="btn ">REQUEST A DEMO</a>
+				<a href="#" class="btn ">REQUEST A DEMO</a>
 				
 				
 			</div>

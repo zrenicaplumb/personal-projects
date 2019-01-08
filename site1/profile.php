@@ -23,32 +23,32 @@
                     
                 }
                 ?>
-                    <!-- <div class="userEvent">
-
-                        <h4>User Event</h4>
-                        <h4>this.type</h4>
-                        <h4>this.name</h4>
-                        <h4>this.location</h4>
-                        <h4>this.date</h4>
-                        <h4>this.time</h4>
-                        <h4>this.description</h4>
-                    </div> -->
+                <h2><?=$_SESSION['username']."'s"?> Events</h2>
+                    
                 </div>
             </div>
             
         </main>
+        
         <footer>
-
+            <?php if(isset($_SESSION['email'])){
+                
+                  echo '<form method="post" class="deleteProfileForm">
+                              <button class="deleteProfileBtn" href="logout.php">Delete Profile</button>
+                        </form>';
+                  
+                
+                  
+            } ?>
         </footer>
     </body>
-    <?php
-        require_once('modules/createEventModule.php');
-        
-    ?>
+   
     <script src="js/nav.js"></script>
-    
+    <script src="js/publicEvent.js"></script>
+
    <script>
       var Page = {
+            publicEvents:[],
             init:function(){
                   
                   this.getUserEvents();
@@ -59,23 +59,45 @@
                         url:'api.php',
                         data:{
                               method:'getUserEvents',
-                              // email:email,
                         },
                         dataType:'json',
                         success:function(result){
                               if(result.status=='success'){
-                                    // var userField = UserField.init(result.data);
-                                    // page.userFields.push(userField);
+                                    result.data.forEach(function(publicEvent){ 
+                              
+                                          console.log(publicEvent);
+                                          page.publicEvents.push(PublicEvent.init(publicEvent));
+                                    })
                               }
                         }
                   })
             },
             render: function(){
 
+            },
+            listeners:function(){
+
             }
       }
       Page.init();
+      $('.deleteProfileForm').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                  url:'api.php',
+                  data:{
+                        method:'deleteUser'
+                  },
+                  dataType:'json',
+                  success:function(result){
+                        if(result.status = 'success'){
+                              console.log('user deleted');
+                              window.location.href='logout.php';
+                        }
+                  }
+            })
+      });
    </script>
-   
+   <!-- profile page requires a user email = $_SESSION['email'] that is set after the user submits the login form with their email -->
+   <!-- if the session email is set, get the value and put it in the js email variable and
 
 </html>

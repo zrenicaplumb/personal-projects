@@ -26,6 +26,10 @@
                                     </select>
                                 </div>
                                 
+                                <div class="accountEmailWrap" style="display:hidden;">
+                                    <input type="hidden" value="<?=$_SESSION['email'] == '' ? '' : $_SESSION['email'];?>" class="userEmail"/>
+                              </div>
+                              
                                 <div class="eventNameInputWrap">
                                     <label>Event Name</label>
                                     <input type="text" name="name" class="name"/>
@@ -88,9 +92,11 @@
                         
                         <div class="registerDropdown">
                             <form method="post" action="api.php">
-                                <input placeholder="Email" type="text" name="email"/>
-                                <input placeholder="Password" type="password" name="password"/>
-                                <button class="btn signupBtn">Signup</button>
+                              <input placeholder="Username" type="text" name="username"/>
+
+                              <input placeholder="Email" type="text" name="email"/>
+                              <input placeholder="Password" type="password" name="password"/>
+                              <button class="btn signupBtn">Signup</button>
                             </form>
                             <button class="registerCloseBtn">close</button>
                         </div>

@@ -41,18 +41,48 @@
 
         </footer>
     </body>
-    <?php
-        require_once('modules/createEventModule.php');
-        
-    ?>
+    
     
     <script src="js/nav.js"></script>
-    <script src="js/publicUserEvent.js"></script>
-    <script src="js/homePage.js"></script>
+    <script src="js/publicEvent.js"></script>
+    <script>
+        var Page = {
+            loggedIn:null,
+            publicEvents:[],
+            init:function(){
+                this.getPublicEvents();
+                // this.getPrivateUserEvents();
+            },
+            getPublicEvents:function(){
+                var page = this;
+                $.ajax({
+                    url:'api.php',
+                    data:{method:'getPublicEvents'},
+                    dataType:'json',
+                    success:function(result){
+                        if(result.status == 'success'){
+                            result.data.forEach(function(publicEvent){ 
+                                console.log('user event',publicEvent);
+                                page.publicEvents.push(PublicEvent.init(publicEvent, Page.loggedIn));
+                            })
+                            
+                        }
+                    }
+                })
+            },
+        }
+
+        Page.init();
+    </script>
     <?php if(isset($_SESSION['email'])){
         //  echo '<script src="js/privateUserEvent.js"></script>';
     }
     ?>
    
+<!-- dont show events on the home scroll unless they have an account and are logged in. -->
+<!-- if they are logged in, show all the public events, -->
+<!-- if they are logged in, show all the private events that they are invited to -->
+<!-- on the create module be able to add/invite friends to the private event that only they can see.-->
+<!-- on profile page be able to add friends. use fb api.-->
 
 </html>

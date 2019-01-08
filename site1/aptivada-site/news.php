@@ -12,9 +12,9 @@
 	<header class="news-header">
 		<div class="container">
 			
-					<h1>Aptivada News</h1>
-					
-					<p>Our very own Newsboard where we share all our latest news and updates. </p>
+			<h1>Aptivada News</h1>
+			
+			<p>Our very own Newsboard where we share all our latest news and updates. </p>
 
 					
 				

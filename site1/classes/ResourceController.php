@@ -1,8 +1,7 @@
 <?php
       class ResourceController{
 
-            static function create($data, $files=null
-            ){
+            static function create($data, $files=null){
                   $class = static::$class;
                   $resource = new $class($data);
                   // error_object($class);
@@ -29,28 +28,51 @@
                   return $data;
                   
             }
+
+            static function findByEmail($email){
+                  $db = new DB();
+                  $result = $db->query("SELECT * FROM {static::$table} WHERE {static::$email} = {$email}");
+                  $data = $result->fetch_assoc();
+                  if($data){
+                        $class = static::$class;
+                        return new $class($data);
+                  } else {
+                        return null;
+                  }
+            }
+
+            static function findById($id){
+                  $class = static::$class;
+                  $table = static::$table;
+                  // error_object($table);
+                  $primary_key = static::$primary_key;
+                  $db = new DB();
+                  $result = $db->query("SELECT * FROM {$table} WHERE {$primary_key} = {$id}");
+                  $data = $result->fetch_assoc();
+                  if($data){
+                        $class = static::$class;
+                        $object = new $class($data);
+                        return $object;
+                        errorObject($object);
+                  } else {
+                        return null;
+                  }
+            }
             static function getPublicEvents(){
                   $class = static::$class;
                   $db = new DB();
                   $data = [];
-                  $sql = "SELECT * FROM {static::$table} WHERE event_type = 'public'";
+                  $sql = "SELECT * FROM user_event WHERE event_type = 'public'";
                 
                   $result = $db->query($sql);
-                  
+                  // error_object($result);
                   while($row = $result->fetch_assoc()){
                         $data[] = new $class($row);
                   }
-                  error_log('findall');
                   return $data;
             }
-            static function delete($id){
-                  $resource = self::findById($id);
-                  $resource->delete();
-                  return $resource;
-            }
-           static function getUserEvents($data){
-                        
-            }
+            
+           
             // static function login($email, $password){
             //       $table = static::$table;
             //       $db = new DB();

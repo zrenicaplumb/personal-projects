@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 var EventForm = {
     // userEmail:userEmail,
     container: $('.createEventWrap'),
@@ -10,9 +10,7 @@ var EventForm = {
         var eventForm = this;
     
         var element = $('<form class="createEventForm" action="post" method="/api/createEvent">'+
-                            '<div class="accountEmailWrap" style="display:hidden;">'+
-                                '<input type="text" value="test.com" class="email"/>'+
-                            '</div>'+   
+                           
 
                             '<button class="createEventBtn btn">'+
                                 '<i class="fa fa-mail" data-help="createEvent"></i>'+
@@ -20,10 +18,14 @@ var EventForm = {
                                 '<i class="fa fa-dropdown-arrow"></i>'+
                             '</button>'+
                             
-                            '<div class="eventNameInputWrap">'+
-                                '<label>Event Name</label>'+
-                                '<input type="text"/>'+
-                            '</div>' +
+                            // '<div class="accountEmailWrap" >'+
+                            //     '<input type="text" placeholder="<?php $_SESSION['email']?>" class="email"/>'+
+                            // '</div>'+   
+
+                            // '<div class="eventNameInputWrap">'+
+                            //     '<label>Event Name</label>'+
+                            //     '<input type="text"/>'+
+                            // '</div>' +
 
                             '<div class="locationInputWrap">'+
                                 '<label>Location</label>'+
@@ -75,4 +77,4 @@ var EventForm = {
     
 }
 </script>
-
+ -->

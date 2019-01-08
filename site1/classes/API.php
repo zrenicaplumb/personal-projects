@@ -62,26 +62,36 @@
 			$user = UserController::create($data);
 			if($user){
 				$_SESSION['email'] = $data['email'];
+				$_SESSION['username'] = $data['username'];
 				$_SESSION['password'] = $data['password'];
+				
 
 			}
 			
 			return $user;
 		}
+		public function deleteUser(){
+			$userEmail = $_SESSION['email'];
+			
+			return UserController::delete($userEmail);
+			
+		}
 		public function createUserEvent($data, $files){
 			return UserEventController::create($data, $files);
 		}
-		public function getPublicUserEvents(){
-			return UserEventController::findAll();
+		public function getPublicEvents(){
+			return UserEventController::getPublicEvents();
 			
 		}
-		public function deleteUserEvent(){
-			return UserEventController::delete();
+		public function deleteUserEvent($data){
+			return UserEventController::deleteUserEvent($data);
 			
 		}
+		
 		public function userLogin($data){
 			$loggedIn = UserController::login($data['email'], $data['password']);
 			if($loggedIn){
+				$_SESSION['username'] = $loggedIn['username'];
 				$_SESSION['email'] = $loggedIn['email'];
 				$_SESSION['password'] = $loggedIn['password'];
 
@@ -92,8 +102,10 @@
 			return $loggedIn;
 			
 		}	
-		public function getUserEvents($data){
-			return UserEventController::getUserEvents($data);
+		public function getUserEvents(){
+			$userEmail = $_SESSION['email'];
+
+			return UserEventController::getUserEvents($userEmail);
 			
 		}
 	}
