@@ -135,7 +135,7 @@ button{
 .eventBoardWrap{
     
 }
-.publicEvent{
+.publicEvent, .homepageEvent{
     background: rgb(46,48,53);
     width: 85%;
     margin: 95px auto;

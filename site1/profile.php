@@ -97,7 +97,6 @@
             })
       });
    </script>
-   <!-- profile page requires a user email = $_SESSION['email'] that is set after the user submits the login form with their email -->
-   <!-- if the session email is set, get the value and put it in the js email variable and
+  
 
 </html>

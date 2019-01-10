@@ -27,8 +27,26 @@
                   
             }
 
-            static function getHomepageEvents($data){
+            static function getHomepageEvents(){
+                  //grab all public events
+                  //grab all events made by the user
+                  //grab all private events where the user's name is in the invite_list column
+                  $class = static::$class;
+                  $db = new DB();
+                  $data = [];
+                  $sql = "SELECT * FROM user_event";
+                  $result = $db->query($sql);
                   
+                  error_object($result->num_rows);
+                  
+
+                  if(!$result){
+                       throw new Exception('That user email does not exist.');
+                  }
+                  while($row = $result->fetch_assoc()){
+                        $data[] = new $class($row);
+                  }
+                  return $data;
                   
             }
       }

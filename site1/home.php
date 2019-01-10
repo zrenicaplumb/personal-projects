@@ -67,8 +67,8 @@
                     success:function(result){
                         if(result.status == 'success'){
                             result.data.forEach(function(homepageEvent){
-                                console.log('Event', event);
-                                page.homepageEvents.push(homepageEvent.init(homepageEvent, Page.loggedIn));
+                                console.log('Event', homepageEvent);
+                                page.homepageEvents.push(HomepageEvent.init(homepageEvent, Page.loggedIn));
                             })
                             
                         }
