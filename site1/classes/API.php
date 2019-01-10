@@ -83,6 +83,10 @@
 			return UserEventController::getPublicEvents();
 			
 		}
+		public function getHomepageEvents(){
+			return UserEventController::getHomepageEvents();
+			
+		}
 		public function deleteUserEvent($data){
 			return UserEventController::deleteUserEvent($data);
 			

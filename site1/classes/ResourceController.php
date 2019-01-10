@@ -29,17 +29,7 @@
                   
             }
 
-            static function findByEmail($email){
-                  $db = new DB();
-                  $result = $db->query("SELECT * FROM {static::$table} WHERE {static::$email} = {$email}");
-                  $data = $result->fetch_assoc();
-                  if($data){
-                        $class = static::$class;
-                        return new $class($data);
-                  } else {
-                        return null;
-                  }
-            }
+            
 
             static function findById($id){
                   $class = static::$class;

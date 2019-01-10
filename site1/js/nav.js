@@ -67,6 +67,7 @@
         $('.createEventForm').on('submit', function(e){
             e.preventDefault();
             var tags = $(this).find('.hashtags').val();
+            var invite_list = $(this).find('.inviteList').val();
             var event_type = $(this).find('.event_type').val();
             var user_email = $(this).find('.userEmail').val();
             console.log(user_email);
@@ -87,18 +88,24 @@
                   time:time,
                   description: description,
                   image:image,
+                  invite_list:invite_list,
             };
             $(this).hide();
+            debugger;
             $.ajax({
                 url:'api.php',
                 data:data,
+                
             //     files:data.files,
                 dataType:'json',
                 success:function(result){
                     if(result.status == 'success'){
                         console.log(result);
-                        Page.publicEvents.push(PublicEvent.init(result));
+                        Page.publicEvents.push(PublicEvent.init(result.data));
                     }
                 }
             })
        })
+       $('.searchForm').on('submit', function(){
+
+       });

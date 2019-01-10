@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="eventBoardWrap">
                 <?php if(!isset($_SESSION['email'])){
-                    
+                    echo '<h4>Log in to see all events.</h4>';
                 }
                 ?>
                     <!-- <div class="userEvent">
@@ -44,38 +44,76 @@
     
     
     <script src="js/nav.js"></script>
-    <script src="js/publicEvent.js"></script>
+    <script src="js/homepageEvent.js"></script>
+
+    <!-- <script src="js/publicEvent.js"></script> -->
     <script>
         var Page = {
-            loggedIn:null,
-            publicEvents:[],
+            homepageEvents:[],
+            // publicEvents:[],
+            // privateEvents:[],
             init:function(){
-                this.getPublicEvents();
+                // this.getPublicEvents();
+                
                 // this.getPrivateUserEvents();
+                this.getHomepageEvents();
             },
-            getPublicEvents:function(){
+            getHomepageEvents:function(){
                 var page = this;
                 $.ajax({
                     url:'api.php',
-                    data:{method:'getPublicEvents'},
+                    data:{method:'getHomepageEvents'},
                     dataType:'json',
                     success:function(result){
                         if(result.status == 'success'){
-                            result.data.forEach(function(publicEvent){ 
-                                console.log('user event',publicEvent);
-                                page.publicEvents.push(PublicEvent.init(publicEvent, Page.loggedIn));
+                            result.data.forEach(function(homepageEvent){
+                                console.log('Event', event);
+                                page.homepageEvents.push(homepageEvent.init(homepageEvent, Page.loggedIn));
                             })
                             
                         }
                     }
                 })
             },
+            // getPublicEvents:function(){
+            //     var page = this;
+            //     $.ajax({
+            //         url:'api.php',
+            //         data:{method:'getPublicEvents'},
+            //         dataType:'json',
+            //         success:function(result){
+            //             if(result.status == 'success'){
+            //                 result.data.forEach(function(publicEvent){
+            //                     console.log('user event',publicEvent);
+            //                     page.publicEvents.push(PublicEvent.init(publicEvent, Page.loggedIn));
+            //                 })
+                            
+            //             }
+            //         }
+            //     })
+            // },
+            // getPrivateUserEvents:function(){
+            //     $.ajax({
+            //         url:'api.php',
+            //         data:{method:'getPrivateEvents'},
+            //         dataType:'json',
+            //         success:function(result){
+            //             if(result.status == 'success'){
+            //                 result.data.forEach(function(privateEvent){
+            //                     console.log('user event',publicEvent);
+            //                     page.privateEvents.push(PrivateEvent.init(privateEvent, Page.loggedIn));
+            //                 })
+                            
+            //             }
+            //         }
+            //     })
+            // }
         }
-
-        Page.init();
+        
+        // Page.init();
     </script>
     <?php if(isset($_SESSION['email'])){
-        //  echo '<script src="js/privateUserEvent.js"></script>';
+         echo '<script> Page.init();</script>';
     }
     ?>
    

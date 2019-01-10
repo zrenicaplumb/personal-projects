@@ -13,11 +13,7 @@
                             echo   '</li>';
                         } ?>
                         <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
-                                <button class="createEventBtn btn">
-                                    <i class="fa fa-mail" data-help="createEvent"></i>
-                                        Event Type
-                                    <i class="fa fa-dropdown-arrow"></i>
-                                </button>
+                                
                                 <div class="eventTypeInputWrap">
                                     <label>Event Type</label>
                                     <select class="event_type">
@@ -32,37 +28,43 @@
                               
                                 <div class="eventNameInputWrap">
                                     <label>Event Name</label>
-                                    <input type="text" name="name" class="name"/>
+                                    <input type="text" name="name" class="name" required/>
                                 </div>
 
                                 <div class="locationInputWrap">
                                     <label>Location</label>
-                                    <input type="text" name="location" class="location"/>
+                                    <input type="text" name="location" class="location" required/>
                                 </div> 
 
                                 <div class="dateInputWrap">
                                     <label>Date</label>
-                                    <input type="date" name="date" class="date"/>
+                                    <input type="date" name="date" class="date" />
                                 </div>
 
                                 <div class="timeInputWrap">
                                     <label>Time</label>
-                                    <input type="time" name="time" class="time"/>
+                                    <input type="time" name="time" class="time" required/>
                                 </div>
 
                                 <div class="descriptionInputWrap">
                                     <label>Description</label>
-                                    <textarea placeholder="Tell more about the event" name="description"  class="description"></textarea>
+                                    <textarea placeholder="Tell more about the event" name="description"  class="description" required></textarea>
                                     
                                 </div>
                                 <div class="descriptionInputWrap">
                                     <label>Tags</label>
-                                    <textarea placeholder="Enter hashtags to identify event" name="tags"  class="hashtags" type="text"></textarea>
+                                    <textarea placeholder="Enter hashtags to identify event" name="tags"  class="hashtags" type="text" required></textarea>
                                     
                                 </div>
+
+                                <div class="inviteListWrap">
+                                    <label>Invite List</label>
+                                    <input type="text" name="invite_list" class="inviteList" placeholder="Add people to invite" required/>
+                                </div>
+
                                 <div class="imageInputWrap">
                                     <label>Images</label>
-                                    <input type="file" placeholder="Tell more about the event" name="image"  class="eventImage"/>
+                                    <input type="file" placeholder="Tell more about the event" name="image"  class="eventImage" />
                                     
                                 </div>
                                 <button class="btn createEventBtn">Create Event</button>
@@ -72,15 +74,17 @@
                     </ul>
                 </nav>
                 <div class="loginRegisterSearch">
-                    <form>
+                    <form class="searchForm" >
                         <input type="search" placeholder="Search..."/>
                     </form>
+                    
                     <?php if(isset($_SESSION['email'])){
                             echo '<a class="welcomeLink" href="#">'.$_SESSION['email'].'</a>';
                             echo '<a class="logoutBtn" href="logout.php">Logout</a>';
                             echo '<a class="profileLink" href="profile.php">Profile</a>';
                             
                         } ?>
+                        
                     <?php if(!isset($_SESSION['email'])){
                             echo '<a class="loginDropdownToggle" href="#">Login</a>';
                             echo '<a href="#" class="register">Register</a>';

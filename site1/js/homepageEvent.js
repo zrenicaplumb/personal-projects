@@ -1,14 +1,14 @@
-var PublicEvent = {
+var HomepageEvent = {
             
     container: $('.eventBoardWrap'),
-    init:function(publicEvent, loggedIn=false){
+    init:function(homepageEvent, loggedIn=false){
 
         if(loggedIn){
             this.loggedIn = true;
         }
-        var publicEvent = Object.assign(Object.create(this), publicEvent);
-        publicEvent.render();
-        return publicEvent;
+        var homepageEvent = Object.assign(Object.create(this), homepageEvent);
+        homepageEvent.render();
+        return homepageEvent;
         
     },
     render:function(){
@@ -26,7 +26,7 @@ var PublicEvent = {
         }
         
         
-        var element = $('<div class="publicEvent">'+
+        var element = $('<div class="homepageEvent">'+
                             '<h4>Event Name:  <em>'+this.name+'</em></h4>'+
                             '<h4>Event type:  <em>'+this.event_type+'</em></h4>'+
                             (this.invite_list ? '<h4>Invite List:  '+

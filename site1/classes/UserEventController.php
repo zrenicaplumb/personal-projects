@@ -26,4 +26,9 @@
                   return $resource;
                   
             }
+
+            static function getHomepageEvents($data){
+                  
+                  
+            }
       }
