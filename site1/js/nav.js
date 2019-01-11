@@ -44,6 +44,8 @@
             $('.registerDropdown').hide();
             var data = {
                 username: $(this).find('input[name="username"]').val(),
+                firstname: $(this).find('input[name="firstname"]').val(),
+
                 email: $(this).find('input[name="email"]').val(),
                 password: $(this).find('input[name="password"]').val(), 
                 // account: Math.random(00000,99999),
@@ -77,6 +79,8 @@
             var time = $(this).find('.time').val();
             var description = $(this).find('.description').val();
             var image = $(this).find('.image').val();
+            // debugger;
+          console.log(invite_list);
             var data = {
                   tags:tags,
                   user_email:user_email,
@@ -91,7 +95,6 @@
                   invite_list:invite_list,
             };
             $(this).hide();
-            debugger;
             $.ajax({
                 url:'api.php',
                 data:data,
@@ -101,7 +104,7 @@
                 success:function(result){
                     if(result.status == 'success'){
                         console.log(result);
-                        Page.publicEvents.push(PublicEvent.init(result.data));
+                        Page.homepageEvents.push(HomepageEvent.init(result.data));
                     }
                 }
             })

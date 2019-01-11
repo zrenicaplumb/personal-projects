@@ -142,6 +142,19 @@ button{
     padding: 20px;
     border-radius: 3px;
     color:gray;
+    width: 50%;
+    
+}
+.profileEvent{
+    background: rgb(46,48,53);
+    width: 85%;
+    margin: 95px auto;
+    padding: 20px;
+    border-radius: 3px;
+    color:gray;
+    width: 30%;
+    padding: 28px;
+
 }
 .closeEventPopup{
     color:#fff;

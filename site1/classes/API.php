@@ -77,6 +77,8 @@
 			
 		}
 		public function createUserEvent($data, $files){
+			$x = explode(',', $data['invite_list']);
+			error_object($x);
 			return UserEventController::create($data, $files);
 		}
 		public function getPublicEvents(){
@@ -84,7 +86,8 @@
 			
 		}
 		public function getHomepageEvents(){
-			return UserEventController::getHomepageEvents();
+			$email = $_SESSION['email'];
+			return UserEventController::getHomepageEvents($email);
 			
 		}
 		public function deleteUserEvent($data){

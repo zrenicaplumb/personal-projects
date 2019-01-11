@@ -28,12 +28,12 @@
                               
                                 <div class="eventNameInputWrap">
                                     <label>Event Name</label>
-                                    <input type="text" name="name" class="name" required/>
+                                    <input type="text" name="name" class="name" />
                                 </div>
 
                                 <div class="locationInputWrap">
                                     <label>Location</label>
-                                    <input type="text" name="location" class="location" required/>
+                                    <input type="text" name="location" class="location" />
                                 </div> 
 
                                 <div class="dateInputWrap">
@@ -43,23 +43,23 @@
 
                                 <div class="timeInputWrap">
                                     <label>Time</label>
-                                    <input type="time" name="time" class="time" required/>
+                                    <input type="time" name="time" class="time" />
                                 </div>
 
                                 <div class="descriptionInputWrap">
                                     <label>Description</label>
-                                    <textarea placeholder="Tell more about the event" name="description"  class="description" required></textarea>
+                                    <textarea placeholder="Tell more about the event" name="description"  class="description" ></textarea>
                                     
                                 </div>
                                 <div class="descriptionInputWrap">
                                     <label>Tags</label>
-                                    <textarea placeholder="Enter hashtags to identify event" name="tags"  class="hashtags" type="text" required></textarea>
+                                    <textarea placeholder="Enter hashtags to identify event" name="tags"  class="hashtags" type="text" ></textarea>
                                     
                                 </div>
 
                                 <div class="inviteListWrap">
                                     <label>Invite List</label>
-                                    <input type="text" name="invite_list" class="inviteList" placeholder="Add people to invite" required/>
+                                    <input type="text" name="invite_list" class="inviteList" placeholder="Separate invites with a comma" />
                                 </div>
 
                                 <div class="imageInputWrap">
@@ -96,6 +96,8 @@
                         
                         <div class="registerDropdown">
                             <form method="post" action="api.php">
+                              <input placeholder="firstname" type="text" name="firstname"/>
+
                               <input placeholder="Username" type="text" name="username"/>
 
                               <input placeholder="Email" type="text" name="email"/>

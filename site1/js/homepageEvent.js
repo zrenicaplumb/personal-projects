@@ -1,17 +1,19 @@
 var HomepageEvent = {
             
     container: $('.eventBoardWrap'),
-    init:function(homepageEvent, loggedIn=false){
+    init:function(homepageEvent, homepage){
 
-        if(loggedIn){
-            this.loggedIn = true;
-        }
-        var homepageEvent = Object.assign(Object.create(this), homepageEvent);
-        homepageEvent.render();
-        return homepageEvent;
+      if(homepage){
+            this.homepage = homepage;
+      }
+      
+      var homepageEvent = Object.assign(Object.create(this), homepageEvent);
+      homepageEvent.render();
+      return homepageEvent;
         
     },
     render:function(){
+          var self = this;
         if(this.tags){
             this.tags = this.tags.split(' ');
         }
@@ -19,7 +21,7 @@ var HomepageEvent = {
             this.tags = null;
         }
         if(this.invite_list){
-            this.invite_list = this.invite_list.split(' ');
+            this.invite_list = this.invite_list.split(',');
         }
         else{
             this.invite_list = null;
@@ -37,6 +39,8 @@ var HomepageEvent = {
                             '<h4>Location:  <em>'+this.location+'</em></h4>'+
                             '<h4>Date:  <em>'+this.date+'</em></h4>'+
                             '<h4>Time:  <em>'+this.time+'</em></h4>'+
+                            '<h4>Event host email:  <em>'+this.user_email+'</em></h4>'+
+
                             '<h4>Description:  <em>'+this.description+'</em></h4>'+
                             (this.tags ? '<h4 class="tagWrap">Tags:  <em>'+
                                 this.tags.map(function(tag){
@@ -52,6 +56,13 @@ var HomepageEvent = {
         
         this.element = element;                      
         element.appendTo(this.container);
+        if(self.homepage){
+              console.log(self.element.find('.homepageEvent'));
+            self.element.find('.homepageEvent').css({
+                  'background':'red'
+            })
+        }
+        
         this.listeners();
     },
     listeners:function(){

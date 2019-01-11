@@ -64,7 +64,6 @@
                         success:function(result){
                               if(result.status=='success'){
                                     result.data.forEach(function(publicEvent){ 
-                              
                                           console.log(publicEvent);
                                           page.publicEvents.push(PublicEvent.init(publicEvent));
                                     })

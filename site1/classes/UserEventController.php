@@ -31,19 +31,27 @@
                   //grab all public events
                   //grab all events made by the user
                   //grab all private events where the user's name is in the invite_list column
+                  // select all from user event except private events taht dont match the users email unless their email exists in the invite_list column
+                  $email = $_SESSION['email'];
                   $class = static::$class;
                   $db = new DB();
                   $data = [];
-                  $sql = "SELECT * FROM user_event";
-                  $result = $db->query($sql);
-                  
-                  error_object($result->num_rows);
-                  
-
-                  if(!$result){
+                  $sql = "SELECT * 
+                        FROM user_event 
+                        WHERE event_type = 'public'
+                        OR (
+                              event_type = 'private'
+                              AND invite_list LIKE '%".$email."%'
+                        ) 
+                        OR (
+                              event_type = 'private'
+                              AND user_email LIKE '%".$email."%'
+                        )";
+                  $publicEvents = $db->query($sql);
+                  if(!$publicEvents){
                        throw new Exception('That user email does not exist.');
                   }
-                  while($row = $result->fetch_assoc()){
+                  while($row = $publicEvents->fetch_assoc()){
                         $data[] = new $class($row);
                   }
                   return $data;

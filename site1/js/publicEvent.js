@@ -19,7 +19,7 @@ var PublicEvent = {
             this.tags = null;
         }
         if(this.invite_list){
-            this.invite_list = this.invite_list.split(' ');
+            this.invite_list = this.invite_list.split(',');
         }
         else{
             this.invite_list = null;

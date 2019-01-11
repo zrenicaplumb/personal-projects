@@ -50,67 +50,33 @@
     <script>
         var Page = {
             homepageEvents:[],
-            // publicEvents:[],
-            // privateEvents:[],
+           
             init:function(){
-                // this.getPublicEvents();
-                
-                // this.getPrivateUserEvents();
                 this.getHomepageEvents();
             },
             getHomepageEvents:function(){
                 var page = this;
                 $.ajax({
                     url:'api.php',
-                    data:{method:'getHomepageEvents'},
+                    data:{  
+                        method:'getHomepageEvents',
+                    
+                    },
                     dataType:'json',
                     success:function(result){
                         if(result.status == 'success'){
                             result.data.forEach(function(homepageEvent){
-                                console.log('Event', homepageEvent);
-                                page.homepageEvents.push(HomepageEvent.init(homepageEvent, Page.loggedIn));
+                                page.homepageEvents.push(HomepageEvent.init(homepageEvent, 'homepage'));
                             })
                             
                         }
                     }
                 })
             },
-            // getPublicEvents:function(){
-            //     var page = this;
-            //     $.ajax({
-            //         url:'api.php',
-            //         data:{method:'getPublicEvents'},
-            //         dataType:'json',
-            //         success:function(result){
-            //             if(result.status == 'success'){
-            //                 result.data.forEach(function(publicEvent){
-            //                     console.log('user event',publicEvent);
-            //                     page.publicEvents.push(PublicEvent.init(publicEvent, Page.loggedIn));
-            //                 })
-                            
-            //             }
-            //         }
-            //     })
-            // },
-            // getPrivateUserEvents:function(){
-            //     $.ajax({
-            //         url:'api.php',
-            //         data:{method:'getPrivateEvents'},
-            //         dataType:'json',
-            //         success:function(result){
-            //             if(result.status == 'success'){
-            //                 result.data.forEach(function(privateEvent){
-            //                     console.log('user event',publicEvent);
-            //                     page.privateEvents.push(PrivateEvent.init(privateEvent, Page.loggedIn));
-            //                 })
-                            
-            //             }
-            //         }
-            //     })
-            // }
+          
         }
         
-        // Page.init();
+        
     </script>
     <?php if(isset($_SESSION['email'])){
          echo '<script> Page.init();</script>';
