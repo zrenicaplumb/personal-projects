@@ -213,8 +213,18 @@ header h1{
 }
 .underline{
     border-bottom: 2px solid #fff;
-  
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
 
+}
+.fadeIn {
+    
+  }
+.fadeOut {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
 }
 header h4{
 	 font-weight: 100;

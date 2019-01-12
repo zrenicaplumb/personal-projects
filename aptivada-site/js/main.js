@@ -130,16 +130,17 @@ $(document).ready(function(){
 	//   });
 	var words = ['CONTESTING','PHILOSOPHIZING','EATING','SLEEPING','SWIMMING'];
 	var index = 0;
-	$('.underline').css({
-		'transition': 'all 1s linear'
-	})
+	
 	function rotate() {
 		$('.underline').html(words[(index++) % (words.length)]);
 		
+		if($('.underline').hasClass('.fadeout')){
+			$('.underline').removeClass('.fadeout');
+		}
+		else{
+			$('.underline').addClass('.fadeout');
+		}
 	}
 	setInterval(rotate, 2000);
-	
-	
-	
-	
+
 });

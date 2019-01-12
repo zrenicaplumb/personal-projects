@@ -11,7 +11,7 @@
 		<div class="container">
 		<h1>
 			<div class="heading-wrap">
-				<span class="underline">CONTESTING</span>
+				<span class="underline visible">CONTESTING</span>
 			</div> 
 			DONE DIFFERENTLY
 		</h1>
@@ -112,9 +112,7 @@ and engage your digital audience.</h2>
 			<div class="container">
 				<h5 class="text-white">What does it take to make your brand 
 					<strong>standout?</strong></h5>
-				
 					<a href="#" class="btn ">REQUEST A DEMO</a>
-				
 			</div>
 		</section>
 
@@ -134,7 +132,6 @@ and engage your digital audience.</h2>
 					<div class="col-xs-12 col-md-7">
 						<h4>Sweepstakes</h4>
 						<p>Create unlimited mobile optimized sweepstakes built for any website and mobile device. Have all of your contests and promotions in one place via our Promo Grid to increase engagement and entries to other active promotions. Add over 25 possible bonus entries to increase and incentivize further engagement.</p>
-					
 						<a href="#"></a>
 					</div>
 				</div>
@@ -223,7 +220,6 @@ and engage your digital audience.</h2>
 					<div class="col-xs-12 col-md-7">
 						<h4>UserBase</h4>
 						<p>Go beyond simply collecting data. View and manage all of your digital audiences together in one intuitive platform. Import, export, manage and analyze all of your user data. Build targeted campaigns based on intelligent filters and custom reports. Use this data to attract new advertisers, promote new products, and prove the success of past ad campaigns. 
-
 						<p>By having this suite of products in one centralized platform you will be able to manage and execute contests, promotions, newsletters and more. View trends and demographics on your multiple social networks or on the user data that you have collected from campaigns and promotions. UserBase can integrate with any other platforms through an existing or custom developed API integration. Now it’s easier than ever to find out who and what is driving engagement across all of your social and digital platforms.</p> 
 						<a href="#"></a>
 					</div>
@@ -245,10 +241,8 @@ and engage your digital audience.</h2>
 		</section>
 
 		<section class="section slider-section">
-		
 			<h3><strong>Join</strong> hundreds of companies that use Aptivada </h3>
 			<div class="carousel">
-				
 				<div class="swiper-slide">
 					<img src="img/alphamedia.png" class="alpha-media">
 				</div>
@@ -261,7 +255,6 @@ and engage your digital audience.</h2>
 				<div class="swiper-slide">
 					<img src="img/optimized/brandlogos/salem-media-group.png">
 				</div>
-
 				<div class="swiper-slide">
 					<img src="img/optimized/brandlogos/Fox_logo.png">
 				</div>
@@ -280,17 +273,11 @@ and engage your digital audience.</h2>
 				<div class="swiper-slide">
 					<img src="img/optimized/brandlogos/nexstar.png">
 				</div>
-				
-				
 			</div>
-		
 		</section>
 		<section class="section section-four">
 			<div class="container">
-				
 				<a href="#" class="btn ">REQUEST A DEMO</a>
-				
-				
 			</div>
 		</section>
 	</main>

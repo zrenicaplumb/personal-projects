@@ -4,14 +4,12 @@
 			<p>Copyright © 2018 Aptivada, Inc. | All rights reserved.</p>
 		</div>
 		<div class="col-xs-12 col-md-6">
-
 			<ul>
 				<li class="nav-link">
 					<a href="">Terms</a>
 				</li>
-				
 				<li class="nav-link">
-					<a href="">Privacy Policy</a>
+					<a href=""><span>Privacy</span> <span>Policy</span></a>
 				</li>
 				<li class="nav-link">
 					<a href="">About</a>
@@ -29,7 +27,6 @@
 						</a>
 					</div>
 				</li>
-				
 			</ul>
 		</div>
 	</div>

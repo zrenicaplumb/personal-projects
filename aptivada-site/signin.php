@@ -4,11 +4,9 @@
 	<?php require_once('head.inc.php'); ?>
 </head>
 <body>
-	
 	<div class="top-bar">
 		<?php require_once('top_bar.inc.php'); ?>
 	</div>
-
 	<header>
 		<div class="container">
 			<div class="row">
@@ -24,8 +22,6 @@
 		</div>
 	</header>
 	<main class="main-content">
-
-		<!-- section with row of icons -->
 		<section class="section section-one">
 			<div class="container">
 				<div class="section-header">
@@ -78,8 +74,6 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- section with background image -->
 		<section class="section section-two">
 			<div class="container">
 				<h5 class="text-white">What does it take to make your brand 
@@ -89,7 +83,6 @@
 				</p>
 			</div>
 		</section>
-
 		<section class="section section-three">
 			<div class="container">
 				<div class="section-header">
@@ -163,7 +156,6 @@
 						<img src="https://picsum.photos/450/400/?random"" alt="gif">
 					</div>
 				</div>
-
 			</div>
 		</section>
 

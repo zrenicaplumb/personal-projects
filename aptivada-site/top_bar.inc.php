@@ -14,10 +14,8 @@
 		<div class="slide-menu-shadow">
 			
 		</div>
-		
 		<div class="slide-out-menu">
-
-		<ul>
+			<ul>
 				<li class="nav-item-1">
 					<a href="index.php#products">PRODUCTS</a>
 				</li>
@@ -37,7 +35,6 @@
 		</div>
 	</div>
 	<div class="top-bar-right">
-
 		<nav>
 			<ul>
 				<li class="nav-item nav-item-1">
@@ -51,7 +48,6 @@
 				<li class="nav-item">
 					<a href="about.php">ABOUT</a>
 				</li>
-			
 			</ul>
 			<div class="sign-in-wrap">
 				<a class="sign-in-btn btn " href="#" >REQUEST A DEMO</a>
@@ -59,7 +55,6 @@
 			<div class="sign-in-wrap">
 				<a class="sign-in-btn btn " href="https://www.aptivada.com/dashboard" >SIGN IN</a>
 			</div>
-
 		</nav>
 		<a href="index.php">
 			<img src="img/A_White2.png" id="logo2">
