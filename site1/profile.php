@@ -23,7 +23,9 @@
                     
                 }
                 ?>
-                <h2><?=$_SESSION['username']."'s"?> Events</h2>
+                <h2>
+                      <?=(isset($_SESSION['username']) ? $_SESSION['username'] . "'s events" : 'Log in to see profile events. ')?>
+                  </h2>
                     
                 </div>
             </div>

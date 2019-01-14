@@ -71,27 +71,20 @@ $(document).ready(function(){
 	});
 
 	$.fn.scrollView = function () {
-
 	  	return this.each(function () {
-
 		    $('html, body').animate({
-
 		      	scrollTop: $(this).offset().top
-		      	
 		    }, 1000);
 		});
 	}
 
 	updateContainer();
 
-    $(window).on('resize', function() {
-
-        updateContainer();
-
-    });
+    	$(window).on('resize', function() {
+        	updateContainer();
+   	});
 
 	function updateContainer(){
-
 		try {
 			$('.carousel').slick('destroy');
 		} catch(e){
@@ -117,30 +110,20 @@ $(document).ready(function(){
 		  	slidesToScroll: 1,
 		  	autoplay: true,
 			arrows:false,  
+			// cssEase:true,
+			// fade:true,
 		});
 	}
-	// $('.underline').slick({
-	// 	arrows:false,
-	// 	infinite: true,
-	// 	autoplaySpeed: 1500,
-	// 	fade: true,
-	// 	cssEase: 'linear',
-	// 	autoplay: true,
-	// 	speed:200,
-	//   });
-	var words = ['CONTESTING','PHILOSOPHIZING','EATING','SLEEPING','SWIMMING'];
-	var index = 0;
 	
-	function rotate() {
-		$('.underline').html(words[(index++) % (words.length)]);
-		
-		if($('.underline').hasClass('.fadeout')){
-			$('.underline').removeClass('.fadeout');
-		}
-		else{
-			$('.underline').addClass('.fadeout');
-		}
-	}
-	setInterval(rotate, 2000);
+	$('.underline').slick({
+		// slidesToShow: slides,
+		slidesToScroll: 1,
+		autoplay: true,
+		arrows:false,  
+		cssEase:'ease',
+		fade:true,
+		autoplaySpeed:1500,
+    });
+
 
 });

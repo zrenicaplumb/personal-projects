@@ -9,26 +9,30 @@
 	</div>
 	<header>
 		<div class="container">
-		<h1>
+		<!-- <h1>
 			<div class="heading-wrap">
 				<span class="underline visible">CONTESTING</span>
 			</div> 
 			DONE DIFFERENTLY
-		</h1>
-			<!-- <h1><span class="underline"> 
-				<div>
-					CONTESTING
-				</div>
-				<div>
-					PINATA PARTIES
-				</div>
-				<div>
-					NATURE HIKES
-				</div>
-				<div>
-					BUFFET EVERY DAY
-				</div>
-			</span> DONE DIFFERENTLY</h1> -->
+		</h1> -->
+			<h1>
+				<div class="underline"> 
+					<div>
+						CONTESTING
+					</div>
+					<div>
+						PINATA PARTIES
+					</div>
+					<div>
+						NATURE HIKES
+					</div>
+					<div>
+						BUFFET EVERY DAY
+					</div>
+				</div> 
+				<div>DONE DIFFERENTLY</div>
+			</h1>
+			
 		</div>
 	</header>
 	<main class="main-content">
@@ -37,9 +41,7 @@
 			<div class="container">
 				<div class="section-header">
 					<small>PRODUCTS</small>
-					<h2>Marketing and promotional tools that grow
-and engage your digital audience.</h2>
-					
+					<h2>Marketing and promotional tools that grow and engage your digital audience.</h2>
 					<p class="lead">We’ve created an extremely easy to use engagement and monetization platform that includes the most important digital products all under one roof.</p>
 				</div>
 				<div class="container center">
@@ -111,8 +113,9 @@ and engage your digital audience.</h2>
 		<section class="section section-two">
 			<div class="container">
 				<h5 class="text-white">What does it take to make your brand 
-					<strong>standout?</strong></h5>
-					<a href="#" class="btn ">REQUEST A DEMO</a>
+					<strong>standout?</strong>
+				</h5>
+				<a href="#" class="btn ">REQUEST A DEMO</a>
 			</div>
 		</section>
 
@@ -269,6 +272,9 @@ and engage your digital audience.</h2>
 				</div>
 				<div class="swiper-slide">
 					<img src="img/optimized/brandlogos/NBC.png">
+				</div>
+				<div class="swiper-slide">
+					<img src="img/optimized/brandlogos/bell_media.png">
 				</div>
 				<div class="swiper-slide">
 					<img src="img/optimized/brandlogos/nexstar.png">
