@@ -53,6 +53,7 @@
            
             init:function(){
                 this.getHomepageEvents();
+                
             },
             getHomepageEvents:function(){
                 var page = this;
@@ -72,8 +73,8 @@
                         }
                     }
                 })
-            },
-          
+                console.log(this.homepageEvents);
+            }
         }
         
         

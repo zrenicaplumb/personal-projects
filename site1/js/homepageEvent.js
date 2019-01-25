@@ -57,7 +57,6 @@ var HomepageEvent = {
         this.element = element;                      
         element.appendTo(this.container);
         if(self.homepage){
-              console.log(self.element.find('.homepageEvent'));
             self.element.find('.homepageEvent').css({
                   'background':'red'
             })

@@ -109,6 +109,31 @@
                 }
             })
        })
-       $('.searchForm').on('submit', function(){
+        $('.searchForm').on('submit', function(e){
+            e.preventDefault();
+            // console.log(Page.homepageEvents);
+            // var searchableAttributes = [];
+            // Page.homepageEvents.forEach(function(event){
+            //     var description = event.description;
+            //     var event_type = event.event_type;
+            //     var location = event.location;
+            //     var name = event.name;
+            //     var tags = event.tags;
+            //     searchableAttributes.push(description, event_type, location, name, tags);
+            // })
+            // console.log(searchableAttributes);
+           console.log($(this).find('input').val());
+           var search = $(this).find('input').val().toLowerCase();
+           if(search){
+               Page.homepageEvents.forEach(function(item){
+                    var description = item.description.toLowerCase().indexOf(search) > -1;
+                    if(description){
+                        // item.element.
+                    }
+               })
+           }
+           searchableAttributes.forEach(function(item){
+               
+           })
 
-       });
+        });
