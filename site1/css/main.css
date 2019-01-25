@@ -172,3 +172,6 @@ span.templateTag {
 h4.tagWrap :first-child{
     margin-left:0;
 }
+.hiddenFromSearch{
+    display: none;  
+}

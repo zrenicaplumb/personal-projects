@@ -109,31 +109,32 @@
                 }
             })
        })
-        $('.searchForm').on('submit', function(e){
+        $('.searchForm').on('keyup', function(e){
             e.preventDefault();
-            // console.log(Page.homepageEvents);
-            // var searchableAttributes = [];
-            // Page.homepageEvents.forEach(function(event){
-            //     var description = event.description;
-            //     var event_type = event.event_type;
-            //     var location = event.location;
-            //     var name = event.name;
-            //     var tags = event.tags;
-            //     searchableAttributes.push(description, event_type, location, name, tags);
-            // })
-            // console.log(searchableAttributes);
-           console.log($(this).find('input').val());
-           var search = $(this).find('input').val().toLowerCase();
-           if(search){
-               Page.homepageEvents.forEach(function(item){
-                    var description = item.description.toLowerCase().indexOf(search) > -1;
-                    if(description){
-                        // item.element.
-                    }
-               })
-           }
-           searchableAttributes.forEach(function(item){
-               
-           })
+            var search = $(this).find('input').val().toLowerCase();
+            console.log(Page.homepageEvents);
+
+            if(search){
+                Page.homepageEvents.forEach(function(homepageEvent){
+                    homepageEvent.tags.map(function(tag){
+                        if(search == tag){
+                            console.log('match');
+                        }
+                    })
+                })
+            }
+            
+            
+            //get the search value
+            //if search, check each event's tags to see if the search value exists anywhere in the tags array
+            //if it does, 
+            
+            
+            
+
+
+
+      
+           
 
         });
