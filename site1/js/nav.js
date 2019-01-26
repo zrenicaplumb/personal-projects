@@ -114,22 +114,18 @@
             var search = $(this).find('input').val().toLowerCase();
             console.log(Page.homepageEvents);
 
-            if(search){
-                Page.homepageEvents.forEach(function(homepageEvent){
-                    homepageEvent.tags.map(function(tag){
-                        if(search == tag){
-                            console.log('match');
-                        }
-                    })
-                })
-            }
+            // if(search){
+            //     Page.homepageEvents.forEach(function(homepageEvent){
+            //         homepageEvent.tags.map(function(tag){
+            //             // if(search == tag){
+                         
+            //             // }
+            //         })
+            //     })
+            // }
             
             
-            //get the search value
-            //if search, check each event's tags to see if the search value exists anywhere in the tags array
-            //if it does, 
-            
-            
+       
             
 
 

@@ -132,18 +132,26 @@ button{
 }
 
 /* home page */
-.eventBoardWrap{
-    
+.eventBoardWrap {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
-.publicEvent, .homepageEvent{
+.publicEvent, .homepageEvent, .profileEvent{
     background: rgb(46,48,53);
     width: 85%;
-    margin: 95px auto;
+    margin: 20px;
     padding: 20px;
     border-radius: 3px;
     color:gray;
     width: 50%;
     
+}
+.homepageEvent{
+    width:35%;
+}
+.homepageEvent h4{
+    font-size:14px;
 }
 .profileEvent{
     background: rgb(46,48,53);

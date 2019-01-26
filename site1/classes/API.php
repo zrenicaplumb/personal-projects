@@ -98,7 +98,6 @@
 		public function userLogin($data){
 			$loggedIn = UserController::login($data['email'], $data['password']);
 			if($loggedIn){
-				$_SESSION['username'] = $loggedIn['username'];
 				$_SESSION['email'] = $loggedIn['email'];
 				$_SESSION['password'] = $loggedIn['password'];
 
@@ -111,7 +110,7 @@
 		}	
 		public function getUserEvents(){
 			$userEmail = $_SESSION['email'];
-
+			
 			return UserEventController::getUserEvents($userEmail);
 			
 		}

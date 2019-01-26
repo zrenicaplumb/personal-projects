@@ -1,6 +1,6 @@
 <?php
 Class DB {
-	public function __construct($host="localhost", $username="will", $password="root", $db_name="site1"){
+	public function __construct($host="localhost", $username="bulbo", $password="root", $db_name="site1"){
 		 $this->db = new mysqli($host, $username, $password, $db_name);
 	}
 	public function query($sql){
