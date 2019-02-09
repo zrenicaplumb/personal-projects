@@ -81,6 +81,7 @@
             }
       }
       Page.init();
+      
       $('.deleteProfileForm').on('submit', function(e){
             e.preventDefault();
             

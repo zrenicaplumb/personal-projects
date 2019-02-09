@@ -40,6 +40,7 @@ var HomepageEvent = {
                             '<h4>Date:  <em>'+this.date+'</em></h4>'+
                             '<h4>Time:  <em>'+this.time+'</em></h4>'+
                             '<h4>Event host email:  <em>'+this.user_email+'</em></h4>'+
+                            '<h4>Image:<img src="'+this.image+'"/></h4>'+
 
                             '<h4>Description:  <em>'+this.description+'</em></h4>'+
                             (this.tags ? '<h4 class="tagWrap">Tags:  <em>'+
@@ -70,6 +71,10 @@ var HomepageEvent = {
         this.element.find('.deleteEventBtn').on('click', function(e){
                 self.delete();
         })
+        
+    },
+    update:function(){
+
     },
     delete:function(){
         var self = this;
@@ -83,6 +88,7 @@ var HomepageEvent = {
                 success:function(result){
                     if(status == 'success'){
                         self.element.remove();
+                        
                     }
                 }
         })

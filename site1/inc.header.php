@@ -9,7 +9,7 @@
                 
                 <?php if (isset($_SESSION['email'])){
                     echo '<li>';
-                    echo       '<a href="#" class="createEventToggle">Create Event</a>';
+                    echo       '<a href="createEvent.php" class="createEventToggle">Create Event</a>';
                     echo   '</li>';
                 } ?>
                 <form class="createEventForm" action="post" method="/api/createEvent" enctype="multipart/form-data">
@@ -109,8 +109,8 @@
             
             <div class="loginDropdown">
                 <form>
-                    <input placeholder="Email" type="text" name="email"/>
-                    <input placeholder="Password" type="password"/>
+                    <input placeholder="Email" type="text" name="email" required/>
+                    <input placeholder="Password" type="password" required/>
                     <input type="checkbox" />
                     <label>Remember me</label>
                     <button class="btn">Submit</button>

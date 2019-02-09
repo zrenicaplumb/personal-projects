@@ -1,15 +1,13 @@
 <?php
       class ResourceController{
 
-            static function create($data, $files=null){
+            static function create($data){
                   $class = static::$class;
                   $resource = new $class($data);
-                  // error_object($class);
-                  // if(!empty($files)){
-                  //       $file_name = $resource->uploadFile($files['image']);
-                        
-                  // }
-                  // $resource->image = $file_name;
+                  if($data['image']){
+                        $file_name = $resource->uploadFile($data['image']);
+                  }
+                  $resource->image = $file_name;
                   return $resource->create();
             }
             
@@ -60,6 +58,24 @@
                         $data[] = new $class($row);
                   }
                   return $data;
+            }
+            static function login($email, $password){
+
+                  $db = new DB();
+                  $result = $db->query("SELECT * FROM user WHERE email='$email' AND password='$password' ");
+                  if(!$result){
+                        throw new Exception("User doesn't exist");
+                  }
+                  $data = $result->fetch_assoc();
+                  error_object($data);
+                  return $data;
+            }
+            static function delete($email){
+                  
+
+                  $resource = self::findByEmail($email);
+                  $resource->delete();
+                  return $resource;
             }
             
            

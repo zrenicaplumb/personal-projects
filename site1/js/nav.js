@@ -8,21 +8,31 @@
             e.preventDefault();
             var email = $(this).find('input[name="email"]').val();
             var password = $(this).find('input[type="password"]').val();
+            
             // $('.createEventForm .accountEmailWrap input').val() = email;
             console.log(email);
             var data = {
                   method:'userLogin',
                   email:email,
                   password:password,
-            }
+            }  
+             
+           
             $.ajax({
                   
                   url:'api.php',
                   data:data,
                   dataType:'json',
                   success:function(result){
+                      console.log(result);
                         if(result.status='success'){
-                              window.location.href="home.php";
+                            if(result.data==null){
+                                alert('User doesnt exist');
+                            }
+                            else{
+                                window.location.href="home.php";
+                            }
+                            
                               
                              
                         }
@@ -78,9 +88,9 @@
             var date = $(this).find('.date').val();
             var time = $(this).find('.time').val();
             var description = $(this).find('.description').val();
-            var image = $(this).find('.image').val();
+            var image = $(this).find('.eventImage').val();
             // debugger;
-          console.log(invite_list);
+          console.log(image);
             var data = {
                   tags:tags,
                   user_email:user_email,
@@ -94,12 +104,13 @@
                   image:image,
                   invite_list:invite_list,
             };
+            console.log(data.image);
             $(this).hide();
             $.ajax({
                 url:'api.php',
                 data:data,
                 
-            //     files:data.files,
+                
                 dataType:'json',
                 success:function(result){
                     if(result.status == 'success'){

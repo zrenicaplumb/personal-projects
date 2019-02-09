@@ -76,10 +76,13 @@
 			return UserController::delete($userEmail);
 			
 		}
-		public function createUserEvent($data, $files){
+		public function createUserEvent($data){
+			error_object($data);
+			if(!$data['invite_list']){
+				$data['invite_list'] = null;
+			}
 			$x = explode(',', $data['invite_list']);
-			error_object($x);
-			return UserEventController::create($data, $files);
+			return UserEventController::create($data);
 		}
 		public function getPublicEvents(){
 			return UserEventController::getPublicEvents();
@@ -96,6 +99,7 @@
 		}
 		
 		public function userLogin($data){
+			// error_object($data);
 			$loggedIn = UserController::login($data['email'], $data['password']);
 			if($loggedIn){
 				$_SESSION['email'] = $loggedIn['email'];
