@@ -11,27 +11,17 @@
     </head>
     <body>
         <header>
-           <?php require_once('inc.header.php') ?>
+           <?php require_once('includes/inc.header.php') ?>
             
             
         </header>
         <main>
             <div class="container">
                 <div class="eventBoardWrap">
-                <?php if(!isset($_SESSION['email'])){
-                    echo '<h4>Log in to see all events.</h4>';
-                }
-                ?>
-                    <!-- <div class="userEvent">
-
-                        <h4>User Event</h4>
-                        <h4>this.type</h4>
-                        <h4>this.name</h4>
-                        <h4>this.location</h4>
-                        <h4>this.date</h4>
-                        <h4>this.time</h4>
-                        <h4>this.description</h4>
-                    </div> -->
+                    <?php if(!isset($_SESSION['email'])){
+                        echo '<h4>Log in to see all events.</h4>';
+                    }
+                    ?>
                 </div>
             </div>
             

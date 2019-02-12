@@ -94,9 +94,7 @@ form.createEventForm {
     margin: auto;
     padding: 20px;
     background: rgb(46,48,53);
-    position: fixed;
-    top:120px;
-    display: none;
+
 }
 form.createEventForm label, form.createEventForm input, form.createEventForm textarea{
     color:#fff;
