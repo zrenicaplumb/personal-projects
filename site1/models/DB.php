@@ -34,6 +34,7 @@ Class DB {
 		}
 	}
 	public function update($table, $data, $where){
+		error_object($data);
 		$sql = "UPDATE $table SET ";
 		foreach($data as $property=>$value){
 			$sql.= "{$property}='{$value}', ";
@@ -51,6 +52,10 @@ Class DB {
 		} catch (Exception $e){
 			throw new Exception($e->getMessage());
 		}
+	}
+	public function singleUpdate($table, $email, $where){
+		$sql = "UPDATE $table SET friends = $email";
+
 	}
 	public function delete($table, $where){
 		try {

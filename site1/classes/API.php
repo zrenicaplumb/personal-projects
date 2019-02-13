@@ -77,21 +77,19 @@
 			
 		}
 		public function createUserEvent($data){
-			error_object($data);
 			if(!$data['invite_list']){
 				$data['invite_list'] = null;
 			}
 			$invite_list = explode(',', $data['invite_list']);
 			return UserEventController::create($data);
 		}
-		public function friendSearch($data){
-			error_object($data);
-			$result = userController::findByEmail($data['email']);
-			if($result == null){
-				$error = new Exception('User doesnt exist');
-				return $error;
+		public function addFriend($data){
+
+			$result = UserController::findByEmail($data['email']);
+			
+			if($result){
+				$newFriend = UserController::addFriend($data);
 			}
-			return $result;
 			
 		}
 		public function getPublicEvents(){

@@ -21,7 +21,7 @@ Class DB {
 		
 		$values = implode("','", array_values($data));
 		$sql .= "'". $values. "'";
-		error_object($values);
+		// error_object($values);
 		$sql .= " ) ";
 
 		try {

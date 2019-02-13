@@ -10,7 +10,7 @@
                   $data = [];
                   $sql = "SELECT * FROM user_event WHERE user_email = '$userEmail'";
                   $result = $db->query($sql);
-                  error_object($result);
+                  // error_object($result);
                   if(!$result){
                        throw new Exception('That user email does not exist.');
                   }

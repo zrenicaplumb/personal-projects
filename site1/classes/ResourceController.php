@@ -6,8 +6,9 @@
                   $resource = new $class($data);
                   if($data['image']){
                         $file_name = $resource->uploadFile($data['image']);
+                        $resource->image = $file_name;
                   }
-                  $resource->image = $file_name;
+                  
                   return $resource->create();
             }
             
@@ -41,7 +42,7 @@
                         $class = static::$class;
                         $object = new $class($data);
                         return $object;
-                        errorObject($object);
+                        // errorObject($object);
                   } else {
                         return null;
                   }
@@ -67,7 +68,7 @@
                         throw new Exception("User doesn't exist");
                   }
                   $data = $result->fetch_assoc();
-                  error_object($data);
+                  // error_object($data);
                   return $data;
             }
             static function delete($email){
@@ -80,6 +81,7 @@
 
 
             static function findByEmail($email){
+                  // error_object($email);
                   $db = new DB();
                   $result = $db->query("SELECT * FROM user WHERE email = '$email'");
                   $data = $result->fetch_assoc();

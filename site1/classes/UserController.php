@@ -4,6 +4,10 @@
             public static $table = "user";
             public static $class = "User";
 
-           
+           public static function addFriend($data){
+                  $db = new DB();
+                  $result = $db->singleUpdate(static::$table, $data['email'], $_SESSION['email']);
+                  error_object($result);
+           }
            
       }
