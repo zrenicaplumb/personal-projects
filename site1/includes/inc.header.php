@@ -17,3 +17,22 @@
         </nav>
         <?php require_once('includes/inc.userForm.php'); ?>
     </div>
+    <script>
+      
+       
+        // $('.searchForm').on('keyup', function(e){
+        //     e.preventDefault();
+        //     var search = $(this).find('input').val().toLowerCase();
+        //     console.log(Page.homepageEvents);
+
+        //     if(search){
+        //         Page.homepageEvents.forEach(function(homepageEvent){
+        //             homepageEvent.tags.map(function(tag){
+        //                 if(search == tag){
+                         
+        //                 }
+        //             })
+        //         })
+        //     }
+        // });
+    </script>

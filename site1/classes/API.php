@@ -81,8 +81,18 @@
 			if(!$data['invite_list']){
 				$data['invite_list'] = null;
 			}
-			$x = explode(',', $data['invite_list']);
+			$invite_list = explode(',', $data['invite_list']);
 			return UserEventController::create($data);
+		}
+		public function friendSearch($data){
+			error_object($data);
+			$result = userController::findByEmail($data['email']);
+			if($result == null){
+				$error = new Exception('User doesnt exist');
+				return $error;
+			}
+			return $result;
+			
 		}
 		public function getPublicEvents(){
 			return UserEventController::getPublicEvents();
@@ -102,6 +112,7 @@
 			// error_object($data);
 			$loggedIn = UserController::login($data['email'], $data['password']);
 			if($loggedIn){
+				$_SESSION['username'] = $loggedIn['username'];
 				$_SESSION['email'] = $loggedIn['email'];
 				$_SESSION['password'] = $loggedIn['password'];
 

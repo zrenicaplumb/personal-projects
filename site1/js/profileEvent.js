@@ -1,14 +1,14 @@
-var PublicEvent = {
+var ProfileEvent = {
             
     container: $('.eventBoardWrap'),
-    init:function(publicEvent, loggedIn=false){
+    init:function(profileEvent, loggedIn=false){
 
         if(loggedIn){
             this.loggedIn = true;
         }
-        var publicEvent = Object.assign(Object.create(this), publicEvent);
-        publicEvent.render();
-        return publicEvent;
+        var profileEvent = Object.assign(Object.create(this), profileEvent);
+        profileEvent.render();
+        return profileEvent;
         
     },
     render:function(){
@@ -26,7 +26,7 @@ var PublicEvent = {
         }
         
         
-        var element = $('<div class="publicEvent">'+
+        var element = $('<div class="profileEvent">'+
                             '<h4>Event Name:  <em>'+this.name+'</em></h4>'+
                             '<h4>Event type:  <em>'+this.event_type+'</em></h4>'+
                             (this.invite_list ? '<h4>Invite List:  '+
@@ -43,22 +43,49 @@ var PublicEvent = {
                                     return '<span class="templateTag"> '+tag+'</span>'
                                 }) : ' ')+  
                             '</em></h4>'+
+                            '<button class="inviteBtn">Invite some peeps: <i class="far fa-envelope"></i></button>'+
                             (this.user_email ? '<button class="deleteEventBtn">Delete</button>' : '<button class="deleteEventBtn" style="display:none;">Delete</button>')+
                             
                         '</div>');
+
+        var invitePopup = $('<div class="invitePopupShadow">'+
+                            '</div>'+
+                            '<div class="popupBox">'+
+                                '<form>'+
+                                    '<input type="text" class="inviteList"/>'+
+                                    '<button class="inviteListBtn">Invite</button>'+
+                                '</form>'+
+                                
+                            '</div>');
+
+        
         if(this.element){
             this.element.replaceWith(element);
         }
+        if(this.invitePopup){
+            this.invitePopup.replaceWith(invitePopup);
+        }
         
-        this.element = element;                      
+        this.element = element;       
+        this.invitePopup = invitePopup;                      
+               
         element.appendTo(this.container);
+        invitePopup.appendTo(this.container);
         this.listeners();
     },
     listeners:function(){
         var self = this;
-        // console.log(this.element);
+        this.invitePopup.find('.invitePopupShadow').on('click', function(){
+            $(this).hide();
+        })
         this.element.find('.deleteEventBtn').on('click', function(e){
-                self.delete();
+            self.delete();
+        })
+        this.element.find('.inviteBtn').on('click', function(e){
+            self.invitePopup.show();
+        })
+        this.invitePopup.find('.inviteListBtn').on('click', function(){
+            
         })
     },
     delete:function(){

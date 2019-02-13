@@ -22,6 +22,7 @@
         </header>
         <main>
             <div class="container">
+                <h2>Create an event</h2>
                 <div class="createEventWrap">
                     <?php require_once('createEventForm.php'); ?>
 
@@ -35,41 +36,52 @@
     </body>
 
     <script>
-        
-        // var Page = {
-        //     init:function(){
-        //         this.initializeEventForm();
-        //     },
-        //     initializeEventForm:function(){
-        //         var eventform = EventForm.init();
-        //     },
-            
-        // }
-        // Page.init();
-        
-        $('.register').on('click', function(){
-            $('.registerDropdown').show();
+        $('.createEventToggle').on('click', function(){
+            $('.createEventForm').show();
         })
-        $('.registerCloseBtn').on('click', function(){
-            $('.registerDropdown').hide();
-
-        })
-        $('.registerDropdown form').on('submit', function(e){
+        $('.closeEventPopup').on('click', function(){
+            $('.createEventForm').hide();
+        });
+        $('.createEventForm').on('submit', function(e){
             e.preventDefault();
-            console.log('yes')
+            var tags = $(this).find('.hashtags').val();
+            var invite_list = $(this).find('.inviteList').val();
+            var event_type = $(this).find('.event_type').val();
+            var user_email = $(this).find('.userEmail').val();
+            var name = $(this).find('.name').val();
+            var location = $(this).find('.location').val();
+            var date = $(this).find('.date').val();
+            var time = $(this).find('.time').val();
+            var description = $(this).find('.description').val();
+            var image = $(this).find('.eventImage').val();
             
-            $('.registerDropdown').hide();
             var data = {
-                email: $(this).find('input[name="email"]').val(),
-                password: $(this).find('input[name="password"]').val(), 
-                // account: Math.random(00000,99999),
-                method:'userSignup',
-            }
-            console.log(data);
-            $.post('api.php/userSignup', data, function(result){
-                console.log(result);
+                  tags:tags,
+                  user_email:user_email,
+                  method:'createUserEvent',
+                  event_type:event_type,
+                  name:name,
+                  location:location,
+                  date:date,
+                  time:time,
+                  description: description,
+                  image:image,
+                  invite_list:invite_list,
+            };
+            console.log(data.invite_list);
+            $(this).hide();
+            $.ajax({
+                url:'api.php',
+                data:data,
+                dataType:'json',
+                success:function(result){
+                    if(result.status == 'success'){
+                        console.log(result);
+                        Page.homepageEvents.push(HomepageEvent.init(result.data));
+                    }
+                }
             })
-
-        })
+       })
+        
     </script>
 </html>

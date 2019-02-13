@@ -2,6 +2,22 @@
     require_once('config.php');
     
 ?>
+<style>
+.homepageEvent{
+    background: rgb(46,48,53);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 3px;
+    color:gray;
+    width: 50%;
+    
+}
+
+.homepageEvent h4{
+    font-size:14px;
+}
+</style>
+
 <html lang="en">
     <head>
         <?php 
@@ -30,13 +46,11 @@
 
         </footer>
     </body>
-    
-    
-    <script src="js/nav.js"></script>
+                    
     <script src="js/homepageEvent.js"></script>
-
-    <!-- <script src="js/publicEvent.js"></script> -->
     <script>
+        
+
         var Page = {
             homepageEvents:[],
            
@@ -73,10 +87,4 @@
     }
     ?>
    
-<!-- dont show events on the home scroll unless they have an account and are logged in. -->
-<!-- if they are logged in, show all the public events, -->
-<!-- if they are logged in, show all the private events that they are invited to -->
-<!-- on the create module be able to add/invite friends to the private event that only they can see.-->
-<!-- on profile page be able to add friends. use fb api.-->
-
 </html>

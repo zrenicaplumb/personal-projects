@@ -13,35 +13,22 @@ var HomepageEvent = {
         
     },
     render:function(){
-          var self = this;
+        var self = this;
         if(this.tags){
             this.tags = this.tags.split(' ');
         }
         else{
             this.tags = null;
         }
-        if(this.invite_list){
-            this.invite_list = this.invite_list.split(',');
-        }
-        else{
-            this.invite_list = null;
-        }
-        
         
         var element = $('<div class="homepageEvent">'+
                             '<h4>Event Name:  <em>'+this.name+'</em></h4>'+
                             '<h4>Event type:  <em>'+this.event_type+'</em></h4>'+
-                            (this.invite_list ? '<h4>Invite List:  '+
-                                this.invite_list.map(function(person){
-                                    return '<span class="templateTag">'+person+'</span>'
-                                }) : ' ') +
-                            '</em></h4>'+
                             '<h4>Location:  <em>'+this.location+'</em></h4>'+
                             '<h4>Date:  <em>'+this.date+'</em></h4>'+
                             '<h4>Time:  <em>'+this.time+'</em></h4>'+
                             '<h4>Event host email:  <em>'+this.user_email+'</em></h4>'+
                             '<h4>Image:<img src="'+this.image+'"/></h4>'+
-
                             '<h4>Description:  <em>'+this.description+'</em></h4>'+
                             (this.tags ? '<h4 class="tagWrap">Tags:  <em>'+
                                 this.tags.map(function(tag){
