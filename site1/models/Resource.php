@@ -2,11 +2,9 @@
     class Resource
     {
         public function __construct($item){
-
             $this->coolProperty = 'cool property';
             $this->coolFunction = 'cool function';
             $this->coolerFunction = $this->sayHello();
-            error_object($this);
             $this->db = new Db();
             if(is_array($item)){
                 //assume you've passed in a block of properties for this resource
@@ -30,12 +28,10 @@
         public function sayHello(){
             return 'hello';
         }
-        // public function uploadFile($file){
-        //     error_object($file);
-            
-        //     $targetFile = 'img'.basename($file['image']['name']);
-        // }
-
+        public function uploadFile($file){
+            error_log('file upload');
+            $targetFile = 'img'.basename($file['image']['name']);
+        }
         public function create(){
             $errors = [];
             if(!empty($this->requiredProperties)){
@@ -45,18 +41,14 @@
                     }
                 }
             }
-    
             if(!empty($errors)){
                 $message = implode(". ", $errors);
                 throw new Exception ($message);
             }
-
             $this->insert();
             return $this;
         }
-
         public function delete(){
-            
             $id = $this->{$this->primary_key};
             $table = $this->table;
             try {
@@ -64,48 +56,34 @@
             } catch(Exception $e){
                 throw new Exception("Delete Failed: ".$e->getMessage());
             }
-            
         }
-
         public function update($settings){
             unset($settings[$this->primary_key]);
-            error_object($settings);
-           
             foreach($settings as $property=>$value){
                 $this->{$property} = $value;
             }
-    
             try {
                 $where = $this->primary_key.' = '.$this->{$this->primary_key};
-              
                 return $this->db->update($this->table, $this->model(), $where);
-                
             } catch(Exception $e){
                 throw new Exception("Update Failed: ".$e->getMessage());
             }
         }
-
         public function insert(){
-            
             $tableData = $this->model();
-
             $this->db->insert($this->table, $tableData);
             $this->{$this->primary_key} = $this->db->db->insert_id;
-            // error_object($tableData);
             return $this;
         }
         public function getColumns(){
             $columns = [];
-            
             $result = $this->db->query("DESCRIBE ".$this->table)->fetch_all();
-            
             foreach($result as $column){
                 $columns[] = $column[0];
             }
             $this->columns = $columns;
             return $this;
         }
-    
         public function model(){
             $data = [];
             $this->getColumns();
@@ -117,8 +95,5 @@
                 }
             }
             return $data;
-        }
-        public function login(){
-            
         }
     }

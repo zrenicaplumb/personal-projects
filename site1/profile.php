@@ -1,7 +1,5 @@
-
 <?php
     require_once('config.php');
-    
 ?>
 <style>
 .inviteBtn{display:block; margin:20px 0; background:#fff; padding:5px 10px; cursor:pointer;}

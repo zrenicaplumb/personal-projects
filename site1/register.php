@@ -54,7 +54,7 @@
                 email: $(this).find('input[name="email"]').val(),
                 password: $(this).find('input[name="password"]').val(), 
                 method:'userSignup',
-                // image: $(this).find('input[name="profile_image"]').val(),
+                image: $(this).find('input[name="profile_image"]').val(),
             }
             $.ajax({
                   url:'api.php',

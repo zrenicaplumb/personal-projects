@@ -2,6 +2,9 @@
       class ResourceController{
 
             static function create($data){
+                  if(!$data['invite_list']){
+				$data['invite_list'] = null;
+			}
                   $class = static::$class;
                   $resource = new $class($data);
                   // if($data['image']){
@@ -35,19 +38,9 @@
                         return null;
                   }
             }
-            static function getPublicEvents(){
-                  $class = static::$class;
-                  $db = new DB();
-                  $data = [];
-                  $sql = "SELECT * FROM user_event WHERE event_type = 'public'";
-                  $result = $db->query($sql);
-                  while($row = $result->fetch_assoc()){
-                        $data[] = new $class($row);
-                  }
-                  return $data;
-            }
-            static function delete($email){
-                  $resource = self::findByEmail($email);
+            static function delete(){
+                  $userEmail = $_SESSION['email'];
+                  $resource = self::findByEmail($userEmail);
                   $resource->delete();
                   return $resource;
             }

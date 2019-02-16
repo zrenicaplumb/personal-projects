@@ -6,8 +6,6 @@ Class DB {
 	public function query($sql){
 		try {
 			$result = $this->db->query($sql);
-			// error_object($result);
-
 			return $result;
 		} catch(Exception $e){
 			echo $e->getMessage();
@@ -20,12 +18,9 @@ Class DB {
 		$sql .= $columns;
 		$sql .= " ) ";
 		$sql .= " VALUES ( ";
-		
 		$values = implode("','", array_values($data));
 		$sql .= "'". $values. "'";
-		// error_object($values);
 		$sql .= " ) ";
-
 		try {
 			$result = $this->db->query($sql);
 			if (!$result) {
@@ -44,8 +39,6 @@ Class DB {
 		$sql.= (" WHERE ".$where);
 		try {
 			$result = $this->db->query($sql);
-
-			
 			if (!$result) {
 				throw new Exception($this->db->error);
 			}
@@ -62,7 +55,6 @@ Class DB {
 			throw new Exception ($e->getMessage());
 		}
 	}
-	
 	public function selectAll($table){
 		$sql = "SELECT * FROM $table";
 		try {
@@ -75,10 +67,8 @@ Class DB {
 			throw new Exception($e->getMessage());
 		}
 	}
-	
 	public function select($table, $column, $where, $input){
 		$sql = "SELECT $column FROM $table WHERE $where = $input";
 		return $this->db->query($sql);
-		
 	}
 }

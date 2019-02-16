@@ -1,5 +1,4 @@
 <?php
-
 	Class API {
 		public $request_method;
 		public $method;
@@ -41,7 +40,6 @@
 				$url.="?";
 			}
 			$url .= $output;
-
 			header("location: ".$url);
 		}
 		public function redirectFail($url, $message){
@@ -57,50 +55,31 @@
 			$url .= $output;
 			header("location: ".$url);
 		}
-		
 		public function userSignup($data){
 			return UserController::userSignup($data);
 		}
 		public function deleteUser(){
-			$userEmail = $_SESSION['email'];
-			return UserController::delete($userEmail);
-			
+			return UserController::delete();
 		}
 		public function createUserEvent($data){
-			if(!$data['invite_list']){
-				$data['invite_list'] = null;
-			}
-			$invite_list = explode(',', $data['invite_list']);
 			return UserEventController::create($data);
 		}
 		public function addFriend($data){
 			return UserController::addFriend($data);
 		}
-		public function getPublicEvents(){
-			return UserEventController::getPublicEvents();
-			
+		public function getPublicEvents($data){
+			return UserEventController::getUserEvents($data);
 		}
 		public function getHomepageEvents(){
-			$email = $_SESSION['email'];
-			return UserEventController::getHomepageEvents($email);
-			
+			return UserEventController::getHomepageEvents();
 		}
 		public function deleteUserEvent($data){
 			return UserEventController::deleteUserEvent($data);
-			
-		}
-		
-		public function userLogin($data){
-			// error_object($data);
-			return UserController::login($data['email'], $data['password'], $data['username']);
-			
-			
-			
 		}	
-		public function getUserEvents(){
-			$userEmail = $_SESSION['email'];
-			
-			return UserEventController::getUserEvents($userEmail);
-			
+		public function userLogin($data){
+			return UserController::login($data);
+		}	
+		public function getUserEvents($data){
+			return UserEventController::getUserEvents($data);
 		}
 	}

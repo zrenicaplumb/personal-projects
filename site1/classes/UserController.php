@@ -13,27 +13,24 @@
                   $db = new DB();
                   $userEmail = $_SESSION['email'];
                   $friendsEmails = $db->select(static::$table, 'friends', 'email', $userEmail);
-
                   $newFriendsEmails = $friendsEmails. $data['friend_email'];
                   error_object($newFriendsEmails);
-
                   $sql = "UPDATE user SET friends = $newFriendsEmails WHERE email = $userEmail";
                   $result = $db->query($sql);
-                  // error_object($result);
                   return $result;
             }
-            public static function login($email, $password, $username){
+            public static function login($data){
+                  $email = $data['email'];
                   $db = new DB();
-                  $result = $db->query("SELECT * FROM user WHERE email='$email' AND password='$password' ");
+                  $result = $db->query("SELECT * FROM user WHERE email = $email");
                   if(!$result){
                         throw new Exception("User doesn't exist");
                   }
                   else{
                         $data = $result->fetch_assoc();
                         $_SESSION['email'] = $email;
-                        $_SESSION['password'] = $password;
-                        $_SESSION['username'] = $username;
-                        error_object($_SESSION['email']);
+                        $_SESSION['password'] = $data['password'];
+                        $_SESSION['username'] = $data['username'];
                         return $data;
                   }
             }
