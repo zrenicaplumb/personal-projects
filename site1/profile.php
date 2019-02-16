@@ -236,7 +236,7 @@
                $.ajax({
                      url:'api.php',
                      data:{
-                           email:friend,
+                           friend_email:friend,
                            method:'addFriend',
                            
                      },

@@ -6,6 +6,8 @@ Class DB {
 	public function query($sql){
 		try {
 			$result = $this->db->query($sql);
+			// error_object($result);
+
 			return $result;
 		} catch(Exception $e){
 			echo $e->getMessage();
@@ -34,7 +36,6 @@ Class DB {
 		}
 	}
 	public function update($table, $data, $where){
-		error_object($data);
 		$sql = "UPDATE $table SET ";
 		foreach($data as $property=>$value){
 			$sql.= "{$property}='{$value}', ";
@@ -52,10 +53,6 @@ Class DB {
 		} catch (Exception $e){
 			throw new Exception($e->getMessage());
 		}
-	}
-	public function singleUpdate($table, $email, $where){
-		$sql = "UPDATE $table SET friends = $email";
-
 	}
 	public function delete($table, $where){
 		try {
@@ -79,4 +76,9 @@ Class DB {
 		}
 	}
 	
+	public function select($table, $column, $where, $input){
+		$sql = "SELECT $column FROM $table WHERE $where = $input";
+		return $this->db->query($sql);
+		
+	}
 }

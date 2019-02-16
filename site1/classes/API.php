@@ -84,13 +84,7 @@
 			return UserEventController::create($data);
 		}
 		public function addFriend($data){
-
-			$result = UserController::findByEmail($data['email']);
-			
-			if($result){
-				$newFriend = UserController::addFriend($data);
-			}
-			
+			return UserController::addFriend($data);
 		}
 		public function getPublicEvents(){
 			return UserEventController::getPublicEvents();
