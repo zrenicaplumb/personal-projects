@@ -7,7 +7,7 @@
         <?php 
             require_once('includes/inc.head.php') ;
         ?>
-        <title>Create Event</title>
+        <title>Register</title>
     </head>
     <body>
         <header>
@@ -23,8 +23,11 @@
 
 				<input placeholder="Username" type="text" name="username"/>
 
-				<input placeholder="Email" type="text" name="email"/>
-				<input placeholder="Password" type="password" name="password"/>
+                <input placeholder="Email" type="text" name="email"/>
+
+                <input placeholder="Password" type="password" name="password"/>
+                <input type="file" name="profile_image"/>
+
 				<button class="btn signupBtn">Signup</button>
 				</form>
 				<button class="registerCloseBtn">close</button>
@@ -51,13 +54,20 @@
                 email: $(this).find('input[name="email"]').val(),
                 password: $(this).find('input[name="password"]').val(), 
                 method:'userSignup',
+                // image: $(this).find('input[name="profile_image"]').val(),
             }
             $.ajax({
                   url:'api.php',
                   data:data,
                   dataType:'json',
                   success:function(result){
-                        window.location.href="home.php";
+                      if(result.status="success"){
+                            window.location.href="home.php";
+                      }
+                      else{
+                          console.log('user doesnt exist');
+                      }
+                    
                   }
             })
         })

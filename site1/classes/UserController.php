@@ -21,6 +21,30 @@
                   $result = $db->query($sql);
                   // error_object($result);
                   return $result;
-           }
+            }
+            public static function login($email, $password, $username){
+                  $db = new DB();
+                  $result = $db->query("SELECT * FROM user WHERE email='$email' AND password='$password' ");
+                  if(!$result){
+                        throw new Exception("User doesn't exist");
+                  }
+                  else{
+                        $data = $result->fetch_assoc();
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;
+                        $_SESSION['username'] = $username;
+                        error_object($_SESSION['email']);
+                        return $data;
+                  }
+            }
+            public static function userSignup($data){
+                  $result = parent::create($data);
+                  if($result){
+                        $_SESSION['email'] = $data['email'];
+                        $_SESSION['password'] = $data['password'];
+                        $_SESSION['username'] = $data['username'];
+                  }
+                  return $result;
+            }
            
       }

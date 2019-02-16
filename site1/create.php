@@ -16,9 +16,6 @@
     <body>
         <header>
             <?php require_once('includes/inc.header.php') ?>
-
-            
-            
         </header>
         <main>
             <div class="container">
@@ -138,7 +135,7 @@
                 success:function(result){
                     if(result.status == 'success'){
                         console.log(result);
-                        Page.homepageEvents.push(HomepageEvent.init(result.data));
+                        window.location.href="profile.php";
                     }
                 }
             })

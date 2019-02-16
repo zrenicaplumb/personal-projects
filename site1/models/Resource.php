@@ -2,8 +2,12 @@
     class Resource
     {
         public function __construct($item){
+
+            $this->coolProperty = 'cool property';
+            $this->coolFunction = 'cool function';
+            $this->coolerFunction = $this->sayHello();
+            error_object($this);
             $this->db = new Db();
-            
             if(is_array($item)){
                 //assume you've passed in a block of properties for this resource
                 foreach($item as $property=>$value){
@@ -23,24 +27,14 @@
                 //do nothing
             }
         }
-        public function uploadFile($file){
-            $path = 'img/';
-            if(!$file || !$file['tmp_name']){
-                throw new Exception("File is Required");
-            }
-            $tmp_name = $file['tmp_name'];
-            $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-            if(!in_array(strtolower($ext), ['jpg','jpeg','png','gif'])){
-                throw new Exception ("Invalid File Format");
-            }
-            $rand = time();
-            $image = str_replace(' ', '_', $rand. '.' . $ext);
-            $move = move_uploaded_file($tmp_name, $path . $image);
-            if(!$move){
-                throw new Exception ("Could not copy file");
-            }
-            return $image;
+        public function sayHello(){
+            return 'hello';
         }
+        // public function uploadFile($file){
+        //     error_object($file);
+            
+        //     $targetFile = 'img'.basename($file['image']['name']);
+        // }
 
         public function create(){
             $errors = [];

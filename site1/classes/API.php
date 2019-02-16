@@ -59,20 +59,10 @@
 		}
 		
 		public function userSignup($data){
-			$user = UserController::create($data);
-			if($user){
-				$_SESSION['email'] = $data['email'];
-				$_SESSION['username'] = $data['username'];
-				$_SESSION['password'] = $data['password'];
-				
-
-			}
-			
-			return $user;
+			return UserController::userSignup($data);
 		}
 		public function deleteUser(){
 			$userEmail = $_SESSION['email'];
-			
 			return UserController::delete($userEmail);
 			
 		}
@@ -102,17 +92,9 @@
 		
 		public function userLogin($data){
 			// error_object($data);
-			$loggedIn = UserController::login($data['email'], $data['password']);
-			if($loggedIn){
-				$_SESSION['username'] = $loggedIn['username'];
-				$_SESSION['email'] = $loggedIn['email'];
-				$_SESSION['password'] = $loggedIn['password'];
-
-			}
-			else{
-				return null;
-			}
-			return $loggedIn;
+			return UserController::login($data['email'], $data['password'], $data['username']);
+			
+			
 			
 		}	
 		public function getUserEvents(){
