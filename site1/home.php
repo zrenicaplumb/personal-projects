@@ -53,10 +53,10 @@
 
         var Page = {
             homepageEvents:[],
-           
+            
             init:function(){
                 this.getHomepageEvents();
-                
+                this.getUserNotifications();
             },
             getHomepageEvents:function(){
                 var page = this;
@@ -77,6 +77,25 @@
                     }
                 })
                 console.log(this.homepageEvents);
+            },
+            getUserNotifications:function(){
+                $.ajax({
+                    url:'api.php',
+                    data:{
+                       method:'getUserNotifications'
+                    },
+                    dataType:'json',
+                    success:function(result){
+                        console.log(result);
+                        if(result.status == 'success'){
+
+                        }
+                        else{
+                            console.log('no notifications');
+                        }
+                    }
+            
+                })
             }
         }
         

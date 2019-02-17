@@ -21,7 +21,7 @@
                 <div class="createEventWrap">
                     <form class="createEventForm" action="post" enctype="multipart/form-data">
                         <div class="eventUserEmailWrap">
-                                <input type="hidden" name="user_email" class="userEmail" value=<?php $_SESSION['email'];?> />
+                                <input type="hidden" name="user_email" class="userEmail" value="<?php echo $_SESSION['email'];?>" />
                         </div>
 
                         <div class="eventTypeInputWrap">

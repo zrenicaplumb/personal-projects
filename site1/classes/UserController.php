@@ -4,44 +4,57 @@
             public static $table = "user";
             public static $class = "User";
 
-
-            //find the db entry where the email = $data['userEmail'] 
-            //grab the value that is already in friends column
-            //concatenate it with the friend email
-            //insert into friends column
+            public static function setUserCredentials($data){
+                  $_SESSION['email'] = $data['email'];
+                  $_SESSION['password'] = $data['password'];
+                  $_SESSION['username'] = $data['username'];
+            }
             public static function addFriend($data){
+                  $table = static::$table;
                   $db = new DB();
                   $userEmail = $_SESSION['email'];
-                  $friendsEmails = $db->select(static::$table, 'friends', 'email', $userEmail);
-                  $newFriendsEmails = $friendsEmails. $data['friend_email'];
-                  error_object($newFriendsEmails);
-                  $sql = "UPDATE user SET friends = $newFriendsEmails WHERE email = $userEmail";
-                  $result = $db->query($sql);
+                  $friendEmail = $data['friend_email'];
+                  $result = $db->query("UPDATE $table SET friends = CONCAT(friends, '', '$friendEmail') WHERE email = '$userEmail'");
                   return $result;
             }
             public static function login($data){
+                  $table = static::$table;
                   $email = $data['email'];
+                  $password = $data['password'];
                   $db = new DB();
-                  $result = $db->query("SELECT * FROM user WHERE email = $email");
-                  if(!$result){
-                        throw new Exception("User doesn't exist");
+                  $result = $db->query("SELECT * FROM $table WHERE email = '$email' AND password='$password' ");
+                  if($result){
+                        $data = $result->fetch_assoc();
+                        self::setUserCredentials($data);
+                        return $data;
                   }
                   else{
-                        $data = $result->fetch_assoc();
-                        $_SESSION['email'] = $email;
-                        $_SESSION['password'] = $data['password'];
-                        $_SESSION['username'] = $data['username'];
-                        return $data;
+                        throw new Exception("User doesn't exist.");
                   }
             }
             public static function userSignup($data){
                   $result = parent::create($data);
                   if($result){
-                        $_SESSION['email'] = $data['email'];
-                        $_SESSION['password'] = $data['password'];
-                        $_SESSION['username'] = $data['username'];
+                        self::setUserCredentials($data);
+                  }
+                  else{
+                        throw new Exception("User already exists.");
                   }
                   return $result;
             }
-           
+            public static function getFriendRequests(){
+                  $db = new DB();
+                  $userEmail = $_SESSION['email'];
+                  $datas = $db->select('friends', static::$table);
+                  if($datas){
+                        error_object($datas);
+                        foreach($datas as $data){
+                              error_object($data);
+                              
+                        }
+                  }
+                  else{
+                        return false;
+                  }  
+            }
       }

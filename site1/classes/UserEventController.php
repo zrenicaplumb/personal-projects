@@ -4,26 +4,25 @@
             public static $primary_key = 'event_id';
             public static $class = "UserEvent";
             
-            // public static function getPublicEvents(){
-            //       $class = static::$class;
-            //       $db = new DB();
-            //       $data = [];
-            //       $sql = "SELECT * FROM user_event WHERE event_type = 'public'";
-            //       $result = $db->query($sql);
-            //       while($row = $result->fetch_assoc()){
-            //             $data[] = new $class($row);
-            //       }
-            //       return $data;
-            // }
-            public static function getUserEvents($data){
-                  $where = $data['where'];
-                  $value = $data['value'];
-                  $userEmail = $_SESSION['email'];
+            public static function getPublicEvents(){
+                  $table = static::$table;
                   $class = static::$class;
                   $db = new DB();
                   $data = [];
-                  $sql = "SELECT * FROM {static::$table} WHERE $where = $userEmail";
-                  $result = $db->query($sql);
+                  $result = $db->query("SELECT * FROM $table WHERE event_type = 'public'");
+                  while($row = $result->fetch_assoc()){
+                        $data[] = new $class($row);
+                  }
+                  return $data; 
+            }
+            public static function getUserEvents($data){
+                  $table = static::$table;
+                  $userEmail = $_SESSION['email'];
+                  error_object($userEmail);
+                  $class = static::$class;
+                  $db = new DB();
+                  $data = [];
+                  $result = $db->query("SELECT * FROM $table WHERE user_email = '$userEmail' ");
                   if(!$result){
                        throw new Exception('That user email does not exist.');
                   }

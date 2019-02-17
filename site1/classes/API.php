@@ -82,4 +82,8 @@
 		public function getUserEvents($data){
 			return UserEventController::getUserEvents($data);
 		}
+		public function getUserNotifications(){
+			$friendRequests = UserController::getFriendRequests();
+			return $friendRequests;
+		}
 	}

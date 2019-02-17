@@ -82,6 +82,8 @@
                   
                   
                   var element = $('<div class="profileEvent">'+
+                                    '<button class="editEventBtn btn">Edit this event <i class="fas fa-cog"></i></button>'+
+
                                     '<h4>Event Name:  <em>'+this.name+'</em></h4>'+
                                     '<h4>Event type:  <em>'+this.event_type+'</em></h4>'+
                                     (this.invite_list ? '<h4>Invite List:  '+
@@ -175,9 +177,11 @@
                         url:'api.php',
                         data:{
                               method:'getUserEvents',
+                  
                         },
                         dataType:'json',
                         success:function(result){
+console.log(result);
                               if(result.status=='success'){
                                     result.data.forEach(function(profileEvent){ 
                                           console.log(profileEvent);
@@ -208,7 +212,9 @@
             }
       }
       Page.init();
-      
+      $('.editEventBtn').on('click', function(e){
+
+      })
       $('.deleteProfileForm').on('submit', function(e){
             e.preventDefault();
             
@@ -249,6 +255,7 @@
                         }
                })
          })
+         
    </script>
   
 
