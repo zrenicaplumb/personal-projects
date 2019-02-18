@@ -6,7 +6,11 @@
       <?php if(isset($_SESSION['email'])){
                   echo '<a class="welcomeLink" href="#">'.$_SESSION['email'].'</a>';
                   echo '<a class="logoutBtn" href="logout.php">Logout</a>';
-                  echo '<a class="profileLink" href="profile.php">Profile</a>';
+                  
+                        echo '<a class="profileLink" href="profile.php">Profile</a>';
+
+                  
+                  
                   
             } ?>
             

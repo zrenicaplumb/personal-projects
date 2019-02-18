@@ -50,6 +50,16 @@
     <script src="js/homepageEvent.js"></script>
     <script>
         
+        // var Request = {
+        //     init:function(){
+                
+        //     },
+        //     render:function(){
+        //         var element = $(
+        //             '<span class="notification">'this.</span>'
+        //         )
+        //     }
+        // }
 
         var Page = {
             homepageEvents:[],
@@ -64,7 +74,6 @@
                     url:'api.php',
                     data:{  
                         method:'getHomepageEvents',
-                    
                     },
                     dataType:'json',
                     success:function(result){
@@ -72,7 +81,6 @@
                             result.data.forEach(function(homepageEvent){
                                 page.homepageEvents.push(HomepageEvent.init(homepageEvent, 'homepage'));
                             })
-                            
                         }
                     }
                 })
@@ -88,13 +96,9 @@
                     success:function(result){
                         console.log(result);
                         if(result.status == 'success'){
-
-                        }
-                        else{
-                            console.log('no notifications');
+                            
                         }
                     }
-            
                 })
             }
         }

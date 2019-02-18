@@ -65,7 +65,7 @@
 			return UserEventController::create($data);
 		}
 		public function addFriend($data){
-			return UserController::addFriend($data);
+			return FriendController::addFriend($data);
 		}
 		public function getPublicEvents($data){
 			return UserEventController::getUserEvents($data);
@@ -83,7 +83,7 @@
 			return UserEventController::getUserEvents($data);
 		}
 		public function getUserNotifications(){
-			$friendRequests = UserController::getFriendRequests();
+			$friendRequests = FriendController::getFriendRequests();
 			return $friendRequests;
 		}
 	}

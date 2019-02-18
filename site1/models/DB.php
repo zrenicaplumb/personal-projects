@@ -4,11 +4,8 @@
 			$this->db = new mysqli($host, $username, $password, $db_name);
 		}
 		public function query($sql){
-			error_object($sql);
 			try {
 				$result = $this->db->query($sql);
-				// error_object($result);
-
 				return $result;
 			} catch(Exception $e){
 				echo $e->getMessage();
@@ -70,7 +67,17 @@
 				throw new Exception($e->getMessage());
 			}
 		}
-		public function select($column, $table){
-			return $this->query("SELECT $column FROM $table WHERE email = 'will@aptivada.com' ");
+		public function selectWhere($column, $table, $where, $userEmail){
+			$sql = "SELECT $column FROM $table WHERE $where IN ('$userEmail')";
+			error_object($sql);
+			try {
+				$result = $this->db->query($sql);
+				if (!$result) {
+					throw new Exception($this->db->error);
+				}
+				return $result;
+			} catch (Exception $e){
+				throw new Exception($e->getMessage());
+			}
 		}
 	}

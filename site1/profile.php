@@ -32,6 +32,7 @@
                   <div>
                         <h2>Add a friend</h2>
                         <form class="addFriendForm">
+                              <input type="hidden" class="userEmail" value="<?php echo $_SESSION['email']; ?>"/>
                               <input type="text" class="addFriend"/>
                         </form>
                   </div>
@@ -234,16 +235,18 @@ console.log(result);
       });
 
       $('.addFriendForm').on('submit', function(e){
-               e.preventDefault(e);
-               var friend = $(this).find('.addFriend').val();
-               console.log(friend);
+                  e.preventDefault(e);
+                  var requested_friend_email = $(this).find('.addFriend').val();
+                  var request_sender_email = $(this).find('.userEmail').val();
+                  var data = {
+                        requested_friend_email:requested_friend_email,
+                        request_sender_email:request_sender_email,
+                        method:'addFriend',
+                  }
+                  console.log(data);
                $.ajax({
                      url:'api.php',
-                     data:{
-                           friend_email:friend,
-                           method:'addFriend',
-                           
-                     },
+                     data:data,
                      dataType:'json',
                         success:function(result){
                               if(result.status=='success'){
