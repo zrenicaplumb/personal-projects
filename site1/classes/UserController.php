@@ -17,6 +17,8 @@
                   $result = $db->query("SELECT * FROM $table WHERE email = '$email' AND password='$password' ");
                   if($result){
                         $data = $result->fetch_assoc();
+                        error_object($result);
+
                         self::setUserCredentials($data);
                         return $data;
                   }

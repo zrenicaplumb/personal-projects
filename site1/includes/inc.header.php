@@ -15,7 +15,7 @@
 
             </ul>
         </nav>
-        <?php require_once('includes/inc.userForm.php'); ?>
+        <?php require_once('includes/inc.rightNav.php'); ?>
     </div>
     <script>
       

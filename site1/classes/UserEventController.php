@@ -18,7 +18,6 @@
             public static function getUserEvents($data){
                   $table = static::$table;
                   $userEmail = $_SESSION['email'];
-                  error_object($userEmail);
                   $class = static::$class;
                   $db = new DB();
                   $data = [];

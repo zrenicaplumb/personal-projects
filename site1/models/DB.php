@@ -67,8 +67,8 @@
 				throw new Exception($e->getMessage());
 			}
 		}
-		public function selectWhere($column, $table, $where, $userEmail){
-			$sql = "SELECT $column FROM $table WHERE $where IN ('$userEmail')";
+		public function selectWhere($column, $table, $where, $value){
+			$sql = "SELECT $column FROM $table WHERE $where = '$value' ";
 			error_object($sql);
 			try {
 				$result = $this->db->query($sql);

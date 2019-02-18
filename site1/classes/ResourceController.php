@@ -2,9 +2,6 @@
       class ResourceController{
 
             static function create($data){
-                  if(!$data['invite_list']){
-				$data['invite_list'] = null;
-			}
                   $class = static::$class;
                   $resource = new $class($data);
                   // if($data['image']){
