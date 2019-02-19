@@ -3,7 +3,7 @@
             public static $primary_key = "id";
             public static $table = "friend";
             public static $class = "Friend";
-
+            
             public static function addFriend($data){
                 $table = static::$table;
                 $db = new DB();
@@ -27,11 +27,11 @@
                         foreach($rows as $row){
                               array_push($data['notifications']['friend_requests'], $row); 
                         }
-                } 
-                else{
-                    $data = 'No friend requests';
-                }
-                return $data;
+                  } 
+                  else{
+                        $data = 'No friend requests';
+                  }
+                  return $data;
         }
 
             

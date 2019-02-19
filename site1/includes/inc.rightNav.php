@@ -3,43 +3,51 @@
             <input type="search" placeholder="Search for an event..."/>
       </form>
       
-      <?php if(isset($_SESSION['email'])){
-                  echo '<a class="welcomeLink" href="#">'.$_SESSION['email'].'</a>';
-                  echo '<a class="logoutBtn" href="logout.php">Logout</a>';
+      <?php            
+            if(isset($_SESSION['email'])){
+                  NavController::renderLoggedIn();
+            }
+            else{
+                  NavController::renderLoggedOut();
+            }
                   
-                  echo '<a class="profileLink" href="profile.php">Profile</a>';
-
-                  
-                  
-                  
-            } ?>
-            
-      <?php if(!isset($_SESSION['email'])){
-                  echo '<a class="loginDropdownToggle" href="login.php">Login</a>';
-                  echo '<a href="register.php" class="register">Register</a>';
-            } ?>
+      ?>
 
 </div>
 <script>
-      var Notifications = {
-            notificationsWrap:$('.profileLink'),
-            init:function(notifications){
-                  var notifications = Object.assign(Object.create(this), notifications);
-                  console.log(notifications);
-                  this.renderUserNotifications();
+      
+      var NotificationDot = {
+            notificationDotWrap: $('.notificationsLink'),
+            notificationBoardWrap: $('.boardWrap'),
+            notificationsLink: $('notificationsLink'),
+            init:function(notificationData){
+                  var notificationDot = Object.assign(Object.create(this), notificationData);
+                  notificationDot.render();
             },
-            renderUserNotifications:function(){debugger;
-                  var nav = this;
-                  var element = $('<span class="notifications">'+this.notifications+'</span>');
-                  if(this.element){
-                        this.element = element.replaceWith(element);
+            render:function(){
+                  var count = this.notifications.friend_requests.length;
+                  var notificationDot = $('<span class="notificationDot">'+count+'</span>');
+                  if(this.notificationDot){
+                        this.notificationDot = notificationDot.replaceWith(notificationDot);
                   }
                   else{
-                        this.element = element.appendTo(this.notificationsWrap);
+                        this.notificationDot = notificationDot.appendTo(this.notificationDotWrap);
                   }
-                  console.log(this.element);
-
+                  this.renderNotificationBoard();
             },
+            renderNotificationBoard:function(){
+                  var friendRequests = this.notifications.friend_requests;
+                  
+                  var notification = $('<div class="notificationBoard">'+friendRequests.map(function(request){
+                                          return '<span class="notification>'+request+'</span>';
+                                    '</div>'}));
+                  if(this.notification){
+                        this.notification = notification.replaceWith(notification);
+                  }
+                  else{
+                        this.notification = notification.appendTo(this.notificationBoardWrap);
+                  }
+            }
       }
       var Nav = {
             init:function(){
@@ -56,12 +64,24 @@
                         success:function(result){
                               console.log(result);
                               if(result.status == 'success'){
-                                    Notifications.init(result.data); 
+                                    NotificationDot.init(result.data); 
                               }
                         }
                   })
             },
             
       }
-      Nav.init()
+      Nav.init();
+      $('.notificationsLink').on('click', function(){
+            $('.notificationBoard').show();
+      });
+      $(window).scroll(function(){
+            if ($(window).scrollTop() >= 1) {
+                  $('header').addClass('shrinkHeader');
+            }
+            else{
+                  $('header').removeClass('shrinkHeader');
+
+            }
+      });
 </script>

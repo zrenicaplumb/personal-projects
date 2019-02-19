@@ -6,6 +6,13 @@ header, footer {
     align-items: center;
 }
 
+header{
+    position: fixed;
+    width: 100%;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+    transition: all 2s;
+
+}
 footer{
     padding: 40px;
 }
@@ -82,7 +89,7 @@ input[type="search"] {
 }
 main{
     background: rgb(235,234,244);
-    padding-top: 30px;
+    padding-top: 120px;
     padding-bottom: 30px;
 }
 form.createEventForm {
@@ -152,4 +159,35 @@ h4.tagWrap :first-child{
 }
 .hiddenFromSearch{
     display: none;  
+}
+.notificationsLink{
+    position:relative;
+    font-size: 17px;
+    cursor:pointer;
+}
+span.notificationDot {
+    background: #dc3545;
+    padding: 0px 4px;
+    border-radius: 1px;
+    font-size: 14px;
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    line-height: 16px;
+}
+.notificationBoard{
+    display: none;
+    background:#fff;
+  
+    position: fixed;
+}
+.shrinkHeader{
+    height:60px;
+}
+.boardWrap{
+    display: inline-block;
+    position: relative;
+}
+.notification span{
+    display:block;
 }
