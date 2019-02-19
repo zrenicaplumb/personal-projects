@@ -29,8 +29,20 @@
             return 'hello';
         }
         public function uploadFile($file){
-            error_log('file upload');
-            $targetFile = 'img'.basename($file['image']['name']);
+            // error_object($file);
+            $root = '/img';
+            $fileInfo = PATHINFO($file);
+            // error_object($fileInfo);
+            $newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
+            // error_object($newFilename);
+            error_object($file['image']);
+            move_uploaded_file($file["tmp_name"],"img/" . $newFilename);
+            $location="img/" . $newFilename;
+            
+            
+           
+
+
         }
         public function create(){
             $errors = [];

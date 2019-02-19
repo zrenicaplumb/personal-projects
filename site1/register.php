@@ -18,7 +18,7 @@
         <main>
             <div class="container">
 			<div class="registerDropdown">
-				<form method="post" action="api.php">
+				<form method="post" action="api.php" enctype="multipart/form-data">
 				<input placeholder="firstname" type="text" name="firstname"/>
 
 				<input placeholder="Username" type="text" name="username"/>
@@ -56,12 +56,15 @@
                 method:'userSignup',
                 image: $(this).find('input[name="profile_image"]').val(),
             }
+            console.log(data);
             $.ajax({
                   url:'api.php',
                   data:data,
                   dataType:'json',
                   success:function(result){
+                    console.log(result);
                       if(result.status="success"){
+                         
                             window.location.href="home.php";
                       }
                       else{

@@ -178,8 +178,11 @@ span.notificationDot {
 .notificationBoard{
     display: none;
     background:#fff;
-  
+    right:50px;
     position: fixed;
+}
+.notificationsWrap{
+
 }
 .shrinkHeader{
     height:60px;
@@ -188,6 +191,9 @@ span.notificationDot {
     display: inline-block;
     position: relative;
 }
-.notification span{
-    display:block;
+.notification {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    cursor:pointer; 
 }

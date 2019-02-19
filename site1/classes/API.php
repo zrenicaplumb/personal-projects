@@ -56,6 +56,7 @@
 			header("location: ".$url);
 		}
 		public function userSignup($data){
+			error_object($data);
 			return UserController::userSignup($data);
 		}
 		public function deleteUser(){
@@ -85,5 +86,8 @@
 		public function getUserNotifications(){
 			$friendRequests = FriendController::getFriendRequests();
 			return $friendRequests;
+		}
+		public function getUserFriends(){
+			return FriendController::getFriendsList();
 		}
 	}

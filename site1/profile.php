@@ -41,7 +41,7 @@
                   </h2>
             
                 <div class="eventBoardWrap">
-                 
+                        
                 </div>
             </div>
             
@@ -54,6 +54,8 @@
 
   <script>
         
+      
+
       var ProfileEvent = {
       
             container: $('.eventBoardWrap'),
@@ -182,7 +184,7 @@
                         },
                         dataType:'json',
                         success:function(result){
-console.log(result);
+                              console.log(result);
                               if(result.status=='success'){
                                     result.data.forEach(function(profileEvent){ 
                                           console.log(profileEvent);
@@ -192,19 +194,18 @@ console.log(result);
                         }
                   })
             },
-            // getUserFriends:function(){
-
-            //       $.ajax({
-            //             url:'api.php',
-            //             data:{
-            //                   method:'getUserFriends'
-            //             },
-            //             dataType:'json',
-            //             success:function(result){
-            //                   console.log(result);
-            //             }
-            //       })
-            // },
+            getUserFriends:function(){
+                  $.ajax({
+                        url:'api.php',
+                        data:{
+                              method:'getUserFriends'
+                        },
+                        dataType:'json',
+                        success:function(result){
+                              console.log(result);
+                        }
+                  })
+            },
             render: function(){
 
             },

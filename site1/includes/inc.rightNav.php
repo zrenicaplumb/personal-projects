@@ -18,7 +18,7 @@
       
       var NotificationDot = {
             notificationDotWrap: $('.notificationsLink'),
-            notificationBoardWrap: $('.boardWrap'),
+            notificationBoard: $('.notificationBoard'),
             notificationsLink: $('notificationsLink'),
             init:function(notificationData){
                   var notificationDot = Object.assign(Object.create(this), notificationData);
@@ -35,18 +35,22 @@
                   }
                   this.renderNotificationBoard();
             },
-            renderNotificationBoard:function(){
+            renderFriendRequests: function(){
                   var friendRequests = this.notifications.friend_requests;
-                  
-                  var notification = $('<div class="notificationBoard">'+friendRequests.map(function(request){
-                                          return '<span class="notification>'+request+'</span>';
-                                    '</div>'}));
+                  var notification = $('<div class="notificationsWrap">'+friendRequests.map(function(request){
+                        console.log(request);
+                                          return '<span class="notification">You have a friend request from: '+request.from+'</span>';
+                                    '</div>'}).join(''));
                   if(this.notification){
                         this.notification = notification.replaceWith(notification);
                   }
                   else{
-                        this.notification = notification.appendTo(this.notificationBoardWrap);
+                        this.notification = notification.appendTo(this.notificationBoard);
                   }
+            },
+            renderNotificationBoard:function(){
+                  this.renderFriendRequests();
+                  
             }
       }
       var Nav = {
@@ -76,7 +80,7 @@
             $('.notificationBoard').show();
       });
       $(window).scroll(function(){
-            if ($(window).scrollTop() >= 1) {
+            if ($(window).scrollTop() >= 15) {
                   $('header').addClass('shrinkHeader');
             }
             else{
