@@ -10,21 +10,34 @@
                   $_SESSION['username'] = $data['username'];
             }
             public static function login($data){
-                  $table = static::$table;
-                  $email = $data['email'];
-                  $password = $data['password'];
-                  $db = new DB();
-                  $result = $db->query("SELECT * FROM $table WHERE email = '$email' AND password='$password' ");
+                  $user = new User($data);
+                  $result = $user->login($data);
                   if($result){
-                        $data = $result->fetch_assoc();
-                        error_object($result);
-
-                        self::setUserCredentials($data);
-                        return $data;
+                        return $result;
                   }
                   else{
-                        throw new Exception("User doesn't exist.");
+                        return $this->generateResponse('fail', 'User not logged in');
                   }
+
+                  
+                  
+                  
+                  
+                  // $table = static::$table;
+                  // $email = $data['email'];
+                  // $password = $data['password'];
+                  // $db = new DB();
+                  // $result = $db->query("SELECT * FROM $table WHERE email = '$email' AND password='$password' ");
+                  // if($result){
+                  //       $data = $result->fetch_assoc();
+                  //       error_object($result);
+
+                  //       self::setUserCredentials($data);
+                  //       return $data;
+                  // }
+                  // else{
+                  //       throw new Exception("User doesn't exist.");
+                  // }
             }
             public static function userSignup($data){
                   $result = parent::create($data);

@@ -54,13 +54,13 @@
                   dataType:'json',
                   success:function(result){
                         console.log(result);
-                        if(result.status=='success'){
+                        if(result.status=='active'){
                               if(result.data==null){
                                     alert('User doesnt exist');
                               }
                               // else if(result.data == )
                               else{
-                                    window.location.href="home.php";
+                                    // window.location.href="home.php";
                               }
                         }
                   }
