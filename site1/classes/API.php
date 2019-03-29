@@ -56,11 +56,10 @@
 			header("location: ".$url);
 		}
 		public function userSignup($data){
-			error_object($data);
 			return UserController::userSignup($data);
 		}
-		public function deleteUser(){
-			return UserController::delete();
+		public function deleteUser($data){
+			return UserController::deleteUser($data);
 		}
 		public function createUserEvent($data){
 			return UserEventController::create($data);

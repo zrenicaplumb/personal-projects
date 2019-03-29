@@ -36,4 +36,15 @@
                   }
                   return $result;
             }
+            public static function deleteUser($data){
+                  $user = new User($data);
+                  $result = $user->deleteUser($data);
+                  if($result){
+                        return $result;
+                  }
+                  else{
+                        return $this->generateResponse('fail', 'User not deleted.');
+                  }
+                  
+            }
       }

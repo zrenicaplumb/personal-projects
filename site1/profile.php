@@ -213,17 +213,23 @@
 
             }
       }
+
+
+
+
       Page.init();
       $('.editEventBtn').on('click', function(e){
 
       })
       $('.deleteProfileForm').on('submit', function(e){
             e.preventDefault();
-            
+            var deleted_at = new Date();
+            console.log(deleted_at);
             $.ajax({
                   url:'api.php',
                   data:{
-                        method:'deleteUser'
+                        method:'deleteUser',
+                        deleted_at:deleted_at
                   },
                   dataType:'json',
                   success:function(result){
