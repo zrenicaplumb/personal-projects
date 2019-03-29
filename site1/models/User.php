@@ -20,12 +20,16 @@
             }
             public function login($data){
                   error_object($data);
+
                   $email = $data['email'];
                   $sql = "SELECT * FROM {$this->table} WHERE 'email' = '$email' ";
-                  $row = $this->db->query($sql);
-                  error_object($row);
-                  if($row){
-                        if($row['deleted_at'] == null){
+                  $result= $this->db->query($sql);
+                  $rows = MYSQLI_FETCH_ASSOC($result);
+                  error_log('yo');
+                  error_object($rows);
+
+                  if($rows){
+                        if($rows['deleted_at'] == null){
                               return $this->generateResponse('active', 'User account is active');
                         }
                   }else{
