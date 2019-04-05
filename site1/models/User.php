@@ -19,22 +19,16 @@
 
             }
             public function login($data){
-                  error_object($data);
-
                   $email = $data['email'];
-                  $sql = "SELECT * FROM {$this->table} WHERE 'email' = '$email' ";
-                  $result= $this->db->query($sql);
+                  $sql = "SELECT * FROM {$this->table} WHERE email = '$email' ";
+                  $result = $this->db->query($sql);
                   $rows = MYSQLI_FETCH_ASSOC($result);
-                  error_log('yo');
-                  error_object($rows);
-
                   if($rows){
                         if($rows['deleted_at'] == null){
-                              return $this->generateResponse('active', 'User account is active');
+                              return $result;
                         }
                   }else{
                         return $this->generateResponse('deleted', 'User account is inactive');
-
                   }
             }
 

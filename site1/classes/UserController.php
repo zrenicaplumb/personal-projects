@@ -13,12 +13,12 @@
                   $user = new User($data);
                   $result = $user->login($data);
                   if($result){
-                        return $result;
+                        self::setUserCredentials($data);
                   }
                   else{
-                        return $this->generateResponse('fail', 'User not logged in');
+                        throw new Exception("User doesn't exist.");
                   }
-
+                  return $result;
                   
                   
                   

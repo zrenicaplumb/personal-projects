@@ -108,7 +108,5 @@
             }
             return $data;
         }
-        public function generateResponse($status, $message){
-            return $status . ' ' . $message;
-      }
+        
     }
