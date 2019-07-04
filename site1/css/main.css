@@ -88,7 +88,7 @@ input[type="search"] {
     
 }
 main{
-    background: rgb(235,234,244);
+    background: rgb(230,232,235);
     padding-top: 120px;
     padding-bottom: 30px;
 }
@@ -96,11 +96,11 @@ form.createEventForm {
     width: 50%;
     margin: 100px auto;
     padding: 20px;
-    background: rgb(46,48,53);
+    background: #fff;
 
 }
 form.createEventForm label, form.createEventForm input, form.createEventForm textarea{
-    color:#fff;
+   
     display: block;
     
 }
@@ -113,8 +113,7 @@ form.createEventForm label{
 
 form.createEventForm input, .registerDropdown input{
     width: 100%;
-    border: none;
-    border-radius: 3px;
+    border-radius: 2px;
     color:black;
 }
 .registerDropdown input{
@@ -139,7 +138,19 @@ button{
     flex-wrap: wrap;
     margin:80px;
 }
- 
+.homepageEvent{
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 3px;
+    color:gray;
+    width: 50%;
+    
+}
+
+.homepageEvent h4{
+    font-size:14px;
+}
 
 .closeEventPopup{
     color:#fff;

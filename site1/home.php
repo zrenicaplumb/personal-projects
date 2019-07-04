@@ -3,19 +3,7 @@
     
 ?>
 <style>
-.homepageEvent{
-    background: rgb(46,48,53);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 3px;
-    color:gray;
-    width: 50%;
-    
-}
 
-.homepageEvent h4{
-    font-size:14px;
-}
 </style>
 
 <html lang="en">

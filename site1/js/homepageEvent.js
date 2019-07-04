@@ -22,13 +22,13 @@ var HomepageEvent = {
         }
         
         var element = $('<div class="homepageEvent">'+
+                            '<div class="eventPicture">'+this.image+'</div>'+
                             '<h4>Event Name:  <em>'+this.name+'</em></h4>'+
                             '<h4>Event type:  <em>'+this.event_type+'</em></h4>'+
                             '<h4>Location:  <em>'+this.location+'</em></h4>'+
                             '<h4>Date:  <em>'+this.date+'</em></h4>'+
                             '<h4>Time:  <em>'+this.time+'</em></h4>'+
                             '<h4>Event host email:  <em>'+this.user_email+'</em></h4>'+
-                            '<h4>Image:<img src="'+this.image+'"/></h4>'+
                             '<h4>Description:  <em>'+this.description+'</em></h4>'+
                             (this.tags ? '<h4 class="tagWrap">Tags:  <em>'+
                                 this.tags.map(function(tag){

@@ -3,7 +3,7 @@
             public static $primary_key = "id";
             public static $table = "friend";
             public static $class = "Friend";
-            
+
             public static function addFriend($data){
                 $table = static::$table;
                 $db = new DB();
@@ -19,9 +19,7 @@
                   if($result){
                         $data = [
                               'notifications' => [
-                                    'friend_requests' => [
-                                          
-                                    ]
+                                    'friend_requests' => []
                               ],
                         ];
                         $rows = $result->fetch_all(MYSQLI_ASSOC);

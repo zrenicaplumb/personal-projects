@@ -25,8 +25,9 @@
                   if(!$result){
                        throw new Exception('That user email does not exist.');
                   }
-                  while($row = $result->fetch_assoc()){
-                        $data[] = new $class($row);
+                  error_object($result);
+                  while($row = $result->fetch_all(MYSQLI_ASSOC)){
+                        $data['user_event'] = new $class($row);
                   }
                   return $data;
             }
