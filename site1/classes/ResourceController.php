@@ -52,5 +52,9 @@
                         return null;
                   }
             }
+            public function generateResponse($status, $message){
+                  return $status . ' ' . $message;
+            }
+           
             
       }

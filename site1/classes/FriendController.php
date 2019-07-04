@@ -23,7 +23,6 @@
                               ],
                         ];
                         $rows = $result->fetch_all(MYSQLI_ASSOC);
-                        error_object($rows);
                         foreach($rows as $row){
                               array_push($data['notifications']['friend_requests'], [
                                     'from' => $row['request_sender_email'],
