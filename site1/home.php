@@ -2,9 +2,7 @@
     require_once('config.php');
     
 ?>
-<style>
 
-</style>
 
 <html lang="en">
     <head>
@@ -35,38 +33,11 @@
         </footer>
     </body>
                     
-    <script src="js/homepageEvent.js"></script>
-    <script>
+    
 
-        var Page = {
-            homepageEvents:[],
-            
-            init:function(){
-                this.getHomepageEvents();
-            },
-            getHomepageEvents:function(){
-                var page = this;
-                $.ajax({
-                    url:'api.php',
-                    data:{  
-                        method:'getHomepageEvents',
-                    },
-                    dataType:'json',
-                    success:function(result){
-                        if(result.status == 'success'){
-                            result.data.forEach(function(homepageEvent){
-                                page.homepageEvents.push(HomepageEvent.init(homepageEvent, 'homepage'));
-                            })
-                        }
-                    }
-                })
-                console.log(this.homepageEvents);
-            }
-           
-        }
+       
         
-        
-    </script>
+  
     <?php if(isset($_SESSION['email'])){
          echo '<script> Page.init();</script>';
     }
